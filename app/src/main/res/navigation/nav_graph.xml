@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/leadsFragment">
+
+    <fragment
+        android:id="@+id/approveFragment"
+        android:name="com.redeyesncode.crmfinancegs.ui.fragment.ApproveFragment"
+        android:label="fragment_approve"
+        tools:layout="@layout/fragment_approve" />
+    <fragment
+        android:id="@+id/leadsFragment"
+        android:name="com.redeyesncode.crmfinancegs.ui.fragment.LeadsFragment"
+        android:label="fragment_leads"
+        tools:layout="@layout/fragment_leads" />
+    <fragment
+        android:id="@+id/visitFragment"
+        android:name="com.redeyesncode.crmfinancegs.ui.fragment.VisitFragment"
+        android:label="fragment_visit"
+        tools:layout="@layout/fragment_visit" />
+</navigation>

@@ -1,0 +1,39 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Outer rectangle for the ticket -->
+    <item android:top="10dp" android:left="10dp" android:right="10dp" android:bottom="30dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFEB3B" />
+            <corners android:radius="5dp" />
+        </shape>
+    </item>
+
+    <!-- Inner rectangle to create a cutout effect -->
+    <item android:top="20dp" android:left="20dp" android:right="20dp" android:bottom="40dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF" />
+            <corners android:radius="5dp" />
+        </shape>
+    </item>
+
+    <!-- Triangular cut at the top -->
+    <item android:top="0dp" android:left="0dp" android:right="0dp">
+        <rotate
+            android:fromDegrees="45"
+            android:toDegrees="45"
+            android:pivotX="50%"
+            android:pivotY="50%">
+            <shape android:shape="rectangle">
+                <solid android:color="#FFEB3B" />
+            </shape>
+        </rotate>
+    </item>
+
+    <!-- Circle cut at the bottom -->
+    <item android:top="0dp" android:left="0dp" android:right="0dp" android:bottom="30dp">
+        <shape android:shape="oval">
+            <solid android:color="#FFEB3B" />
+        </shape>
+    </item>
+
+</layer-list>

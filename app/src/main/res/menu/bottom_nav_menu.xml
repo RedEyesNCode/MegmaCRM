@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/leadsFragment"
+        android:icon="@drawable/ic_listcheck"
+        android:title="Leads" />
+    <item
+        android:id="@+id/approveFragment"
+        android:icon="@drawable/ic_user_check_solid"
+        android:title="Approved" />
+    <item
+        android:id="@+id/visitFragment"
+        android:icon="@drawable/ic_person_walking_luggage_solid"
+        android:title="Visits" />
+</menu>
