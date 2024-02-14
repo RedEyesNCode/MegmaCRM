@@ -1,0 +1,40 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.GSFinanceCRM" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.GSFinanceCRM" parent="Base.Theme.GSFinanceCRM" />
+
+    <style name="SmallTextView">
+        <item name="android:textSize">@dimen/_10ssp</item>
+    </style>
+    <style name="MediumTextView">
+        <item name="android:textSize">@dimen/_14ssp</item>
+    </style>
+    <style name="BigTextView">
+        <item name="android:textSize">@dimen/_21ssp</item>
+    </style>
+    <style name="bigHeadingTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">@dimen/_24ssp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="headingTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">@dimen/_18ssp</item>
+        <item name="android:textStyle">bold</item>
+
+
+
+    </style>
+
+    <style name="subHeadingTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="normalBodyTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">@dimen/_12ssp</item>
+    </style>
+</resources>

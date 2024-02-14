@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.activity.LoginActivity">
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Employee ID">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:maxLength="15"
+            android:id="@+id/edtEmployeeID"
+
+            android:inputType="textNoSuggestions"
+            android:imeOptions="actionDone"
+            android:imeActionLabel="actionDone"
+            style="@style/normalBodyTextView"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/black"
+        android:layout_height="wrap_content"
+
+        android:hint="Enter MPass">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:maxLength="15"
+            android:id="@+id/edtMPass"
+
+            android:inputType="textNoSuggestions"
+            android:imeOptions="actionDone"
+            android:imeActionLabel="actionDone"
+            style="@style/normalBodyTextView"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:id="@+id/btnLogin"
+        android:background="@color/yellow"
+        android:layout_margin="@dimen/_10sdp"
+        android:textColor="@color/black"
+        style="@style/MediumTextView"
+        android:text="LOGIN"
+        android:fontFamily="@font/gilroy_extra_bold"
+        android:layout_height="wrap_content"/>
+
+
+
+</LinearLayout>
