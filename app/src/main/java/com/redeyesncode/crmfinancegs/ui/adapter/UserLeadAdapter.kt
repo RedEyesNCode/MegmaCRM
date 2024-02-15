@@ -7,7 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.databinding.ItemUserLeadBinding
 
-class UserLeadAdapter(var context: Context,var data :ArrayList<UserLeadResponse.Data>) :RecyclerView.Adapter<UserLeadAdapter.MyViewholder>(){
+class UserLeadAdapter(var context: Context,var data :ArrayList<UserLeadResponse.Data>,var onActivityClick:UserLeadAdapter.onClick) :RecyclerView.Adapter<UserLeadAdapter.MyViewholder>(){
+
+
+
+
 
 
     lateinit var binding: ItemUserLeadBinding
@@ -32,8 +36,18 @@ class UserLeadAdapter(var context: Context,var data :ArrayList<UserLeadResponse.
             tvGender.text = "Gender : ${data.gender.toString()}"
             btnLeadStatus.text = "Status : ${data.leadStatus.toString()}"
 
+            ivForward.setOnClickListener {
+                onActivityClick.onLeadInfo(data)
+
+            }
 
         }
+    }
+
+    interface onClick{
+
+        fun onLeadInfo(data: UserLeadResponse.Data)
+
     }
 
     override fun getItemCount(): Int {

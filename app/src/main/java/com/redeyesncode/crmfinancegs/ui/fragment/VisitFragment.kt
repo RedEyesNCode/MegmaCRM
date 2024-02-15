@@ -106,13 +106,23 @@ class VisitFragment : BaseFragment(),CreateVisitBottomSheet.OnDismissListener,Us
             onSuccess = {
 
                         dismissLoadingDialog()
-                binding.recvVisit.apply {
-                    adapter = UserVisitAdapter(fragmentContext,it.data,this@VisitFragment)
-                    layoutManager = LinearLayoutManager(fragmentContext,LinearLayoutManager.VERTICAL,false)
+
+                if(it.code==200){
+                    binding.recvVisit.apply {
+                        adapter = UserVisitAdapter(fragmentContext,it.data,this@VisitFragment)
+                        layoutManager = LinearLayoutManager(fragmentContext,LinearLayoutManager.VERTICAL,false)
+                    }
+                }else{
+                    binding.recvVisit.visibility = View.GONE
+                    binding.ivNoData.visibility = View.VISIBLE
                 }
+
 
             },
             onError = {
+
+                binding.recvVisit.visibility = View.GONE
+                binding.ivNoData.visibility = View.VISIBLE
                 showToast(it)
                 dismissLoadingDialog()
             }

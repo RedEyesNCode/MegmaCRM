@@ -128,6 +128,8 @@ class LeadDocumentActivity : BaseActivity() {
                 hideLoadingDialog()
                 bodyCreateLead.selfie = it.message.toString()
                 bodyCreateLead.userId = user.data?.userId.toString()
+                bodyCreateLead.pancard = binding.edtPancard.text.toString()
+                bodyCreateLead.aadhar = binding.edtAadharNumber.text.toString()
                 mainViewModel.createUserLead(bodyCreateLead)
             }
         ))

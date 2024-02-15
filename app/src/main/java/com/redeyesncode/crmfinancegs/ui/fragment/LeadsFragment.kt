@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.redeyesncode.crmfinancegs.R
 import com.redeyesncode.crmfinancegs.base.BaseFragment
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
+import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.databinding.FragmentLeadsBinding
 import com.redeyesncode.crmfinancegs.ui.activity.CreateLeadActivity
 import com.redeyesncode.crmfinancegs.ui.adapter.UserLeadAdapter
@@ -30,7 +31,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [LeadsFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class LeadsFragment : BaseFragment() {
+class LeadsFragment : BaseFragment() ,UserLeadAdapter.onClick{
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -39,6 +40,13 @@ class LeadsFragment : BaseFragment() {
 
     @Inject
     lateinit var mainViewModel: MainViewModel
+
+
+    override fun onLeadInfo(data: UserLeadResponse.Data) {
+
+        val createVisitBottomSheet = LeadInfoBottomSheet(requireContext(),data)
+        createVisitBottomSheet.show(requireFragmentManager(),"LEAD-INFO")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,14 +92,22 @@ class LeadsFragment : BaseFragment() {
             },
             onError = {
                       dismissLoadingDialog()
-
+                binding.recvVisit.visibility = View.GONE
+                binding.ivNoData.visibility = View.VISIBLE
             },
             onSuccess = {
                 dismissLoadingDialog()
-                binding.recvVisit.apply {
-                    adapter = UserLeadAdapter(requireContext(),it.data)
-                    layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+
+                if (it.code==200){
+                    binding.recvVisit.apply {
+                        adapter = UserLeadAdapter(requireContext(),it.data,this@LeadsFragment)
+                        layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+                    }
+                }else{
+                    binding.recvVisit.visibility = View.GONE
+                    binding.ivNoData.visibility = View.VISIBLE
                 }
+
 
 
             }

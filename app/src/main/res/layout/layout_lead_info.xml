@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_alignParentStart="true"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/normalBodyTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:fontFamily="@font/sora_bold"
+                android:text="Lead Info"
+                android:textColor="@color/black" />
+            <TextView
+                style="@style/SmallTextView"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/sora_regular"
+                android:text="These details where filled by you while \ncreating new lead"
+                android:textColor="@color/black" />
+
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/ivClose"
+            android:layout_gravity="end"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:src="@drawable/ic_close" />
+    </RelativeLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_2sdp"
+            android:stretchColumns="1">
+
+            <!-- Row 1 -->
+            <TableRow>
+                <TextView
+                    android:text="Lead ID"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+                <TextView
+                    style="@style/MediumTextView"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:background="@drawable/excel_cell_background"
+
+                    android:textSize="@dimen/_15ssp"
+                    android:id="@+id/tvLeadId"
+                    android:padding="5dp"/>
+            </TableRow>
+
+            <!-- Row 2 -->
+            <TableRow>
+                <TextView
+                    android:text="First Name"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+                <TextView
+                    android:id="@+id/tvFirstName"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:text="Last Name"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+                <TextView
+                    android:id="@+id/tvLastName"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:text="Middle Name"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+                <TextView
+                    android:id="@+id/tvMiddleName"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:text="Date of Birth"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+                <TextView
+                    android:id="@+id/tvDOB"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="Gender"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+                <TextView
+                    android:id="@+id/tvGender"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:text="Pincode"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+                <TextView
+                    android:id="@+id/tvPincode"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:text="User Type"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+                <TextView
+                    android:id="@+id/tvUserType"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:text="Monthly Salary"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+                <TextView
+                    android:id="@+id/tvMonthlySalary"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+            </TableRow>
+            <!-- Repeat similar TableRow elements for other fields -->
+            <!-- Row 10 -->
+            <TableRow>
+                <TextView
+                    android:text="Relative Name"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+                <TextView
+                    android:id="@+id/tvRelativeName"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+            </TableRow>
+
+            <!-- Row 11 -->
+            <TableRow>
+                <TextView
+                    android:text="Relative Number"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+                <TextView
+                    android:id="@+id/tvRelativeNumber"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+            </TableRow>
+
+            <!-- Row 12 -->
+            <TableRow>
+                <TextView
+                    android:text="Current Address"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+                <TextView
+                    android:id="@+id/tvCurrentAddress"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+            </TableRow>
+
+            <!-- Row 13 -->
+            <TableRow>
+                <TextView
+                    android:text="State"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+                <TextView
+                    android:id="@+id/tvState"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+            </TableRow>
+
+            <!-- Row 14 -->
+            <TableRow>
+                <TextView
+                    android:text="Lead Status"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+                <TextView
+                    android:id="@+id/tvLeadStatus"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+            </TableRow>
+        </TableLayout>
+
+
+
+    </HorizontalScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:id="@+id/btnViewPhotos"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@drawable/background_elevated_edittext"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15ssp"
+        android:text="VIEW DOCUMENTS"
+
+
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

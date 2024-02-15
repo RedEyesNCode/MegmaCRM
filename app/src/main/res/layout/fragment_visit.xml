@@ -8,6 +8,14 @@
     android:background="@color/white"
     tools:context=".ui.fragment.VisitFragment">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:src="@drawable/ic_nodata"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:id="@+id/ivNoData"
+        android:layout_height="@dimen/_205sdp"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:id="@+id/recvVisit"

@@ -142,14 +142,39 @@ class CreateLeadActivity : BaseActivity() {
         } else if (binding.edtUserType.text.toString().isEmpty()) {
             showCustomDialog("Info", "Please enter user type")
             return false
+        } else if(binding.edtAddress.text.toString().isEmpty()){
+            showCustomDialog("Info","Please enter address")
+            return false
+        }else if(binding.edtState.text.toString().isEmpty()){
+
+            showCustomDialog("Info","Please select state")
+            return false
+        }else if (binding.edtPincode.text.toString().isEmpty()){
+
+            showCustomDialog("Info","Please enter pincode")
+            return false
+        }else if(binding.edtRelativeOne.text.toString().isEmpty()){
+            showCustomDialog("Info","Plesae enter relative one name")
+            return false
+        }else if(binding.edtRelativeTwo.text.toString().isEmpty()){
+            showCustomDialog("Info","Please enter relative two name")
+            return false
+
+        }else if(binding.edtRelativeOneNumber.text.toString().isEmpty()){
+            showCustomDialog("Info","Please enter relative one number")
+
+            return false
+        }else if(binding.edtRelativeTwoNumber.text.toString().isEmpty()){
+            showCustomDialog("Info","please enter relative two number")
+            return false
         } else {
             val bodyCreateLead = BodyCreateLead()
             bodyCreateLead.firstname = binding.edtFirstName.text.toString()
             bodyCreateLead.lastname = binding.edtLastName.text.toString()
             bodyCreateLead.middlename = binding.edtMiddleName.text.toString()
             bodyCreateLead.dob = binding.edtDOB.text.toString()
-//            bodyCreateLead.email = binding.edtEmail.text.toString()
-//            bodyCreateLead.occupation = binding.edtOccupation.text.toString()
+            bodyCreateLead.email = binding.edtEmail.text.toString()
+            bodyCreateLead.occupation = binding.edtOccupation.text.toString()
             if (binding.edtGender.text.toString().equals("Female")) {
                 bodyCreateLead.gender = "1"
             } else if (binding.edtGender.text.toString().equals("Male")) {
@@ -163,6 +188,14 @@ class CreateLeadActivity : BaseActivity() {
 
             bodyCreateLead.userType = binding.edtUserType.text.toString()
             bodyCreateLead.monthlySalary = "100000"
+            bodyCreateLead.gender = binding.edtGender.text.toString()
+            bodyCreateLead.currentAddress = binding.edtAddress.text.toString()
+            bodyCreateLead.relativeName = binding.edtRelativeOne.text.toString()
+            bodyCreateLead.relativeNumber = binding.edtRelativeOneNumber.text.toString()
+
+            bodyCreateLead.state = binding.edtState.text.toString()
+            bodyCreateLead.pincode = binding.edtPincode.text.toString()
+
             AppSession(this@CreateLeadActivity).putObject(Constant.BODY_CREATE_LEAD, bodyCreateLead)
 
 

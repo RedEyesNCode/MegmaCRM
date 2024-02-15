@@ -135,7 +135,7 @@
                     android:fontFamily="@font/sora_medium"
                     android:text="PAID"
                     app:tint="@color/black"
-                    android:src="@drawable/baseline_arrow_forward_24"
+                    android:src="@drawable/baseline_info_24"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14ssp" />
 
