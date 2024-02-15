@@ -3,6 +3,8 @@ package com.redeyesncode.redbet.session
 object Constant {
     val PREFERENCES_NAME: String = "PAY2KART_SESSION"
     val USER_LOGIN: String = "USER_LOGIN"
+    val EMP_ID:String = "EMP_ID"
+    val MPASS:String = "MPASS"
     val CUSTOM_PACKAGE_ID: String = "CUSTOM_PACKAGE_ID"
     val REGULAR_PACKAGE_ID: String = "CUSTOM_PACKAGE_ID"
     val USER_LOAN_ID: String = "USER_LOAN_ID"

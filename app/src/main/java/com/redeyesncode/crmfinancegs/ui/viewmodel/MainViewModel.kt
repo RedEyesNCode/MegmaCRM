@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.redeyesncode.androidtechnical.base.Resource
+import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
+import com.redeyesncode.crmfinancegs.data.CommonMessageResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
@@ -12,6 +14,10 @@ import com.redeyesncode.crmfinancegs.repository.DefaultDashboardRepo
 import com.redeyesncode.gsfinancenbfc.base.Event
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import java.io.File
 
 class MainViewModel(private val dashboardRepo: DefaultDashboardRepo): ViewModel() {
 
@@ -25,6 +31,36 @@ class MainViewModel(private val dashboardRepo: DefaultDashboardRepo): ViewModel(
     private val _userVisitResponse = MutableLiveData<Event<Resource<UserVisitResponse>>>()
     val userVisitResponse : LiveData<Event<Resource<UserVisitResponse>>> = _userVisitResponse
 
+    private val _createVisitResponse = MutableLiveData<Event<Resource<CommonMessageResponse>>>()
+    val createVisitResponse : LiveData<Event<Resource<CommonMessageResponse>>> = _createVisitResponse
+
+
+   
+    private val _responseUploadFile = MutableLiveData<Event<Resource<CommonMessageResponse>>>()
+    val responseUploadFile : LiveData<Event<Resource<CommonMessageResponse>>> = _responseUploadFile
+
+
+    fun uploadFile(file: File){
+        val requestFile = RequestBody.create("image/*".toMediaTypeOrNull(), file)
+        val image = MultipartBody.Part.createFormData("image_file", file.name, requestFile)
+        _responseUploadFile.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main) {
+            val result = dashboardRepo.uploadImage(image)
+            _responseUploadFile.postValue(Event(result))
+        }
+    }
+
+    fun createUserVisit(bodyCreateVisit: BodyCreateVisit){
+
+        _createVisitResponse.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main){
+            val result = dashboardRepo.createCustomerVisit(bodyCreateVisit)
+            _createVisitResponse.postValue(Event(result))
+        }
+
+
+
+    }
 
     fun getUserVisit(loginMap: HashMap<String,String>){
 

@@ -28,7 +28,14 @@
 
 
     </style>
+    <style name="editTextElevated" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/background_elevated_edittext</item>
+        <item name="android:padding">@dimen/_10sdp</item>
+        <item name="android:layout_margin">@dimen/_5sdp</item>
 
+
+
+    </style>
     <style name="subHeadingTextView" parent="Widget.MaterialComponents.TextView">
         <item name="android:textSize">@dimen/_14ssp</item>
         <item name="android:textStyle">bold</item>

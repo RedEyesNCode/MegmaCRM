@@ -6,6 +6,7 @@
     <color name="grey_light">#959595</color>
     <color name="blue">#003679</color>
     <color name="blue_light">#ff33b5e5</color>
+    <color name="purple_trans">#C79FFF</color>
     <color name="yellow">#FFBB38</color>
 
 </resources>

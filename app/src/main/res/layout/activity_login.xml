@@ -9,11 +9,23 @@
     android:orientation="vertical"
     tools:context=".ui.activity.LoginActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:src="@drawable/gs_finance_crm"
+        android:layout_height="@dimen/_145sdp"/>
+
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:boxStrokeWidthFocused="0dp"
+        app:hintAnimationEnabled="false"
+        app:counterEnabled="true"
+        app:counterMaxLength="15"
+        app:boxBackgroundMode="filled"
+        android:textColorHint="@color/black"
+
         android:hint="Enter Employee ID">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -37,12 +49,17 @@
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/black"
         android:layout_height="wrap_content"
-
+        android:textColorHint="@color/black"
+        app:boxStrokeWidthFocused="0dp"
+        app:hintAnimationEnabled="false"
+        app:counterEnabled="true"
+        app:counterMaxLength="5"
+        app:boxBackgroundMode="filled"
         android:hint="Enter MPass">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:maxLength="15"
+            android:maxLength="5"
             android:id="@+id/edtMPass"
 
             android:inputType="numberPassword"

@@ -1,14 +1,23 @@
 package com.redeyesncode.crmfinancegs.ui.fragment
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.redeyesncode.crmfinancegs.R
+import com.redeyesncode.crmfinancegs.base.BaseFragment
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
+import com.redeyesncode.crmfinancegs.data.UserVisitResponse
 import com.redeyesncode.crmfinancegs.databinding.FragmentVisitBinding
+import com.redeyesncode.crmfinancegs.databinding.ImageDialogBinding
+import com.redeyesncode.crmfinancegs.databinding.LayoutLoadingDialogBinding
+import com.redeyesncode.crmfinancegs.ui.adapter.UserVisitAdapter
 import com.redeyesncode.crmfinancegs.ui.viewmodel.MainViewModel
+import com.redeyesncode.gsfinancenbfc.base.Event
 import com.redeyesncode.moneyview.base.AndroidApp
 import com.redeyesncode.redbet.session.AppSession
 import com.redeyesncode.redbet.session.Constant
@@ -24,12 +33,34 @@ private const val ARG_PARAM2 = "param2"
  * Use the [VisitFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class VisitFragment : Fragment() {
+class VisitFragment : BaseFragment(),CreateVisitBottomSheet.OnDismissListener,UserVisitAdapter.onClick {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
     lateinit var binding:FragmentVisitBinding
+
+
+    override fun onViewSelfie(data: UserVisitResponse.Data) {
+        setupImageDialog(data)
+
+
+    }
+    private fun setupImageDialog(data: UserVisitResponse.Data){
+        val binding = ImageDialogBinding.inflate(LayoutInflater.from(fragmentContext))
+        val builder = AlertDialog.Builder(fragmentContext)
+        builder.setView(binding.root)
+        val dialog = builder.create()
+        Glide.with(binding.root).load(data.photo.toString()).into(binding.ivSelfie)
+        dialog.show()
+        binding.ivClose.setOnClickListener {
+            dialog.dismiss()
+        }
+    }
+
+    override fun onDismiss() {
+        initialApiCall()
+    }
 
     @Inject
     lateinit var mainViewModel: MainViewModel
@@ -54,7 +85,7 @@ class VisitFragment : Fragment() {
 
         initClicks()
         initialApiCall()
-
+        attachObservers()
         return binding.root
     }
 
@@ -63,11 +94,40 @@ class VisitFragment : Fragment() {
 
         val visitUserMap = HashMap<String,String>()
         visitUserMap.put("userId", user.data?.userId.toString())
+        mainViewModel.getUserVisit(visitUserMap)
+
+    }
+
+    private fun attachObservers(){
+        mainViewModel.userVisitResponse.observe(viewLifecycleOwner,Event.EventObserver(
+            onLoading = {
+                showLoadingDialog()
+            },
+            onSuccess = {
+
+                        dismissLoadingDialog()
+                binding.recvVisit.apply {
+                    adapter = UserVisitAdapter(fragmentContext,it.data,this@VisitFragment)
+                    layoutManager = LinearLayoutManager(fragmentContext,LinearLayoutManager.VERTICAL,false)
+                }
+
+            },
+            onError = {
+                showToast(it)
+                dismissLoadingDialog()
+            }
+        ))
 
 
     }
 
     private fun initClicks() {
+        binding.fabAddVisit.setOnClickListener {
+
+            val createVisitBottomSheet = CreateVisitBottomSheet(requireContext())
+            createVisitBottomSheet.show(requireFragmentManager(),"CREATE-VISIT")
+            createVisitBottomSheet.setOnDismissListener(this)
+        }
 
 
     }

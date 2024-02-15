@@ -12,25 +12,32 @@
         android:layout_width="match_parent"
         android:id="@+id/recvVisit"
         tools:listitem="@layout/item_user_lead"
-        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        tools:itemCount="1"
+
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
+        app:spanCount="2"
         android:layout_height="wrap_content"/>
 
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabAddVisit"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:id="@+id/fabAddVisit"
-        android:layout_margin="@dimen/_10sdp"
-        android:src="@drawable/baseline_add_24"
-        android:textSize="@dimen/_14ssp"
-        android:textColor="@color/black"
-        android:text="CREATE NEW VISIT"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
 
-        app:icon="@drawable/baseline_add_24"
+        android:layout_marginBottom="@dimen/_10sdp"
+
         android:fontFamily="@font/sora_medium"
-        android:layout_height="wrap_content"/>
+        android:src="@drawable/baseline_add_24"
+        android:text="CREATE NEW VISIT"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14ssp"
+        app:icon="@drawable/baseline_add_24" />
 
 </RelativeLayout>

@@ -31,8 +31,20 @@ class LoginActivity : BaseActivity() {
         attachObservers()
         initClicks()
 
+        checkLoginSession()
+
+
 
         setContentView(binding.root)
+    }
+
+    private fun checkLoginSession() {
+        val empId = AppSession(this@LoginActivity).getString(Constant.EMP_ID)
+        val mPass = AppSession(this@LoginActivity).getString(Constant.MPASS)
+
+        binding.edtEmployeeID.setText(empId)
+        binding.edtMPass.setText(mPass)
+
     }
 
     private fun initClicks() {
@@ -71,6 +83,8 @@ class LoginActivity : BaseActivity() {
                     showToast(it.message.toString())
 
                     AppSession(this@LoginActivity).putObject(Constant.USER_LOGIN,it)
+                    AppSession(this@LoginActivity).putString(Constant.EMP_ID,binding.edtEmployeeID.text.toString())
+                    AppSession(this@LoginActivity).putString(Constant.MPASS,binding.edtMPass.text.toString())
                     val dashboardIntent = Intent(this@LoginActivity,DashboardActivity::class.java)
                     startActivity(dashboardIntent)
 

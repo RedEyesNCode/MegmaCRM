@@ -24,13 +24,13 @@ class UserLeadAdapter(var context: Context,var data :ArrayList<UserLeadResponse.
 
         holder.binding.apply {
 
-            tvFirstName.text = data.firstname.toString()
-            tvLeadId.text = "Lead ID ${data.leadId.toString()}"
-            tvDob.text = data.dob.toString()
-            tvPincode.text = data.pincode.toString()
-            tvState.text = data.state.toString()
-            tvGender.text = data.gender.toString()
-            btnLeadStatus.text = data.leadStatus.toString()
+            tvFirstName.text = "Name : ${data.firstname.toString()} ${data.lastname.toString()}"
+            tvLeadId.text = "Lead ID : ${data.leadId.toString()}"
+            tvDob.text = "Date of Birth : ${data.dob.toString()}"
+            tvPincode.text = "Pincode :${data.pincode.toString()}"
+            tvState.text = "State : ${data.state.toString()}"
+            tvGender.text = "Gender : ${data.gender.toString()}"
+            btnLeadStatus.text = "Status : ${data.leadStatus.toString()}"
 
 
         }

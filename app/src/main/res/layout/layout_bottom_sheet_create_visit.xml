@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_alignParentStart="true"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/normalBodyTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:fontFamily="@font/sora_bold"
+                android:text="Add New Visit to Customer"
+                android:textColor="@color/black" />
+            <TextView
+                style="@style/SmallTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/sora_regular"
+                android:text="We Require Location and Camera Permission Here"
+                android:textColor="@color/black" />
+
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/ivClose"
+            android:layout_gravity="end"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:src="@drawable/ic_close" />
+    </RelativeLayout>
+
+
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/_16sdp">
+
+        <EditText
+            android:id="@+id/editTextCustomerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Customer Name"
+            style="@style/editTextElevated"
+            android:inputType="textPersonName"
+            android:imeOptions="actionNext"/>
+
+        <EditText
+            android:id="@+id/editTextAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address"
+            style="@style/editTextElevated"
+
+            android:inputType="textPostalAddress"
+            android:imeOptions="actionNext"/>
+
+        <EditText
+            android:id="@+id/editTextPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Photo"
+            android:inputType="text"
+            android:focusable="false"
+            android:clickable="true"
+            style="@style/editTextElevated"
+
+            android:imeOptions="actionNext"/>
+
+        <EditText
+            android:id="@+id/editTextLatitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tap to Get Latitude"
+            android:clickable="true"
+            android:focusable="false"
+            style="@style/editTextElevated"
+
+            android:inputType="numberDecimal"
+            android:imeOptions="actionNext"/>
+
+        <EditText
+            android:id="@+id/editTextLongitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tap to Get Longitude"
+            style="@style/editTextElevated"
+            android:focusable="false"
+            android:clickable="true"
+
+            android:inputType="numberDecimal"
+            android:imeOptions="actionDone"/>
+
+        <EditText
+            android:id="@+id/editTextUserId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="User ID"
+            style="@style/editTextElevated"
+
+            android:inputType="text"
+            android:imeOptions="actionDone"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:id="@+id/btnCreateVisit"
+            android:textColor="@color/white"
+            android:fontFamily="@font/sofia_sanscond_medium"
+            android:textSize="@dimen/_11sdp"
+            android:text="CREATE VISIT"
+            android:background="@drawable/background_rounded_blue"
+
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+</LinearLayout>

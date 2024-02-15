@@ -87,4 +87,8 @@ dependencies {
 
     implementation 'com.airbnb.android:lottie:6.3.0'
     implementation 'org.jsoup:jsoup:1.13.1'
+
+    //LOCATIOn
+    implementation 'com.google.android.gms:play-services-location:21.1.0'
+
 }
