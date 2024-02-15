@@ -30,7 +30,7 @@ class UserLeadAdapter(var context: Context,var data :ArrayList<UserLeadResponse.
 
             tvFirstName.text = "Name : ${data.firstname.toString()} ${data.lastname.toString()}"
             tvLeadId.text = "Lead ID : ${data.leadId.toString()}"
-            tvDob.text = "Date of Birth : ${data.dob.toString()}"
+            tvDob.text = "Created At : ${data.createdAt.toString()}"
             tvPincode.text = "Pincode :${data.pincode.toString()}"
             tvState.text = "State : ${data.state.toString()}"
             tvGender.text = "Gender : ${data.gender.toString()}"

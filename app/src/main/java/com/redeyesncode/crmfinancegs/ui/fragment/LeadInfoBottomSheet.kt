@@ -88,8 +88,8 @@ class LeadInfoBottomSheet(var mContext: Context,var data:UserLeadResponse.Data):
             btnViewPhotos.setOnClickListener {
                 var education = arrayListOf<String>()
                 education.add("Selfie")
-                education.add("Pancard")
-                education.add("Aadharcard")
+//                education.add("Pancard")
+//                education.add("Aadharcard")
                 showOptionsDialog(requireContext(),education)
 
 
