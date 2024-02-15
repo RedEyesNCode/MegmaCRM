@@ -222,6 +222,8 @@ class CreateVisitBottomSheet(var mContext: Context):BottomSheetDialogFragment() 
                     binding.editTextLongitude.setText("${longitude}")
 
                     // Use latitude and longitude as needed.
+                }else{
+                    Toast.makeText(requireContext(),"Unable to fetch location",Toast.LENGTH_LONG).show()
                 }
             })
     }

@@ -44,7 +44,6 @@ class VisitFragment : BaseFragment(),CreateVisitBottomSheet.OnDismissListener,Us
     override fun onViewSelfie(data: UserVisitResponse.Data) {
         setupImageDialog(data)
 
-
     }
     private fun setupImageDialog(data: UserVisitResponse.Data){
         val binding = ImageDialogBinding.inflate(LayoutInflater.from(fragmentContext))

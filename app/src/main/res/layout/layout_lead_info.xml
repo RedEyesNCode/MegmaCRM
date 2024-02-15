@@ -338,9 +338,6 @@
                     android:padding="5dp"/>
             </TableRow>
         </TableLayout>
-
-
-
     </HorizontalScrollView>
 
     <androidx.appcompat.widget.AppCompatButton
