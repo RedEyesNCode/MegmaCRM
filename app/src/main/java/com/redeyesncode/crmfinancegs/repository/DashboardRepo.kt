@@ -3,6 +3,7 @@ package com.redeyesncode.moneyview.repository
 
 
 import com.redeyesncode.androidtechnical.base.Resource
+import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
 import com.redeyesncode.crmfinancegs.data.CommonMessageResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
@@ -17,6 +18,10 @@ interface DashboardRepo {
     suspend fun loginUser( loginUserMap:HashMap<String,String>) :Resource<LoginUserResponse>
     suspend fun getUserLeads( loginUserMap:HashMap<String,String>) :Resource<UserLeadResponse>
     suspend fun getUserVisits( loginUserMap:HashMap<String,String>) : Resource<UserVisitResponse>
+
+    suspend fun createCustomerLead( bodyCreateVisit: BodyCreateLead):Resource<CommonMessageResponse>
+
+
     suspend fun createCustomerVisit( bodyCreateVisit: BodyCreateVisit):Resource<CommonMessageResponse>
     suspend fun uploadImage(
          image: MultipartBody.Part

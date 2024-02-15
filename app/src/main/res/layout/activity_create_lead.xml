@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.CreateLeadActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:background="@color/blue"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:src="@drawable/baseline_arrow_forward_24"
+            android:rotation="180"
+            android:id="@+id/ivBack"
+            app:tint="@color/white"
+            android:layout_height="@dimen/_25sdp"/>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:text="Create New Lead"
+                android:textAllCaps="false"
+                android:fontFamily="@font/sora_bold"
+                style="@style/bigHeadingTextView"
+
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/grey_light"
+                android:text="Provide a few basic details"
+                android:textAllCaps="false"
+                android:fontFamily="@font/sora_bold"
+                style="@style/normalBodyTextView"
+
+
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="First Name"
+                app:hintTextAppearance="@style/MediumTextView"
+
+                android:layout_marginTop="@dimen/_10sdp"
+
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:boxBackgroundMode="filled"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColorHint="@android:color/darker_gray"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:id="@+id/edtFirstName"
+
+                    android:textSize="@dimen/_14sdp"
+
+                    android:inputType="textPersonName"
+                    android:imeOptions="actionDone"
+
+
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/grey_light"
+                android:text="As per PAN Card"
+                android:textAllCaps="false"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/sora_bold"
+                style="@style/normalBodyTextView"
+
+
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Middle Name"
+                app:hintTextAppearance="@style/MediumTextView"
+
+                android:layout_marginTop="@dimen/_10sdp"
+
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:boxBackgroundMode="filled"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColorHint="@android:color/darker_gray"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:id="@+id/edtMiddleName"
+
+                    android:textSize="@dimen/_14sdp"
+
+                    android:inputType="textPersonName"
+                    android:imeOptions="actionDone"
+
+
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/grey_light"
+                android:text="As per PAN Card"
+                android:textAllCaps="false"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/sora_bold"
+                style="@style/normalBodyTextView"
+
+
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Last Name"
+                app:hintTextAppearance="@style/MediumTextView"
+
+                android:layout_marginTop="@dimen/_10sdp"
+
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:boxBackgroundMode="filled"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColorHint="@android:color/darker_gray"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:id="@+id/edtLastName"
+
+                    android:textSize="@dimen/_14sdp"
+
+                    android:inputType="text"
+                    android:imeOptions="actionDone"
+
+
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/grey_light"
+                android:text="As per PAN Card"
+                android:textAllCaps="false"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/sora_bold"
+                style="@style/normalBodyTextView"
+
+
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Date Of Birth"
+                app:hintTextAppearance="@style/MediumTextView"
+
+                android:layout_marginTop="@dimen/_10sdp"
+
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:boxBackgroundMode="filled"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColorHint="@android:color/darker_gray"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:clickable="true"
+                    android:id="@+id/edtDOB"
+
+                    android:focusable="false"
+
+                    android:textSize="@dimen/_14sdp"
+
+                    android:inputType="text"
+                    android:imeOptions="actionDone"
+
+
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                app:hintTextAppearance="@style/MediumTextView"
+
+                android:layout_marginTop="@dimen/_10sdp"
+
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:boxBackgroundMode="filled"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColorHint="@android:color/darker_gray"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:id="@+id/edtEmail"
+
+                    android:layout_margin="@dimen/_7sdp"
+
+                    android:textSize="@dimen/_14sdp"
+
+                    android:inputType="textEmailAddress"
+                    android:imeOptions="actionDone"
+
+
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Gender"
+                app:hintTextAppearance="@style/MediumTextView"
+
+                android:layout_marginTop="@dimen/_10sdp"
+
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:boxBackgroundMode="filled"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColorHint="@android:color/darker_gray"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:id="@+id/edtGender"
+
+                    android:layout_margin="@dimen/_7sdp"
+
+                    android:textSize="@dimen/_14sdp"
+                    android:clickable="true"
+                    android:focusable="false"
+
+                    android:inputType="textEmailAddress"
+                    android:imeOptions="actionDone"
+
+
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="User-Type"
+                app:hintTextAppearance="@style/MediumTextView"
+
+                android:layout_marginTop="@dimen/_10sdp"
+
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:boxBackgroundMode="filled"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColorHint="@android:color/darker_gray"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:id="@+id/edtUserType"
+
+                    android:textSize="@dimen/_14sdp"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:inputType="number"
+
+                    android:imeOptions="actionDone"
+
+
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Occupation"
+                app:hintTextAppearance="@style/MediumTextView"
+
+                android:layout_marginTop="@dimen/_10sdp"
+
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:boxBackgroundMode="filled"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColorHint="@android:color/darker_gray"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:id="@+id/edtOccupation"
+
+                    android:textSize="@dimen/_14sdp"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:inputType="number"
+
+                    android:imeOptions="actionDone"
+
+
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Monthly Salary/Income"
+                app:hintTextAppearance="@style/MediumTextView"
+
+                android:layout_marginTop="@dimen/_10sdp"
+
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:boxBackgroundMode="filled"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColorHint="@android:color/darker_gray"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:id="@+id/edtMonthlyIncome"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:textSize="@dimen/_14sdp"
+
+                    android:inputType="textNoSuggestions"
+                    android:imeOptions="actionDone"
+
+
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnOtpContinue"
+                android:text="Continue"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:layout_gravity="center"
+                android:paddingHorizontal="@dimen/_16sdp"
+                android:paddingVertical="@dimen/_8sdp"
+                android:drawableEnd="@drawable/baseline_arrow_forward_24"
+                android:drawablePadding="@dimen/_4sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/background_rounded_blue"/>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

@@ -2,6 +2,7 @@ package com.redeyesncode.crmfinancegs.repository
 
 import com.redeyesncode.androidtechnical.base.Resource
 import com.redeyesncode.androidtechnical.base.safeCall
+import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
 import com.redeyesncode.crmfinancegs.data.CommonMessageResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
@@ -14,6 +15,19 @@ import retrofit2.Response
 
 class DefaultDashboardRepo : DashboardRepo {
 
+
+    override suspend fun createCustomerLead(bodyCreateVisit: BodyCreateLead): Resource<CommonMessageResponse> {
+
+        return safeCall {
+            safeCall {
+                val response =
+                    RetrofitInstance().provideApiService(RetrofitInstance().provideRetrofit()).createCustomerLead(bodyCreateVisit)
+                Resource.Success(response.body()!!)
+            }
+        }
+
+
+    }
 
     override suspend fun uploadImage(image: MultipartBody.Part): Resource<CommonMessageResponse> {
 

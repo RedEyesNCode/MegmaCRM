@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.redeyesncode.androidtechnical.base.Resource
+import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
 import com.redeyesncode.crmfinancegs.data.CommonMessageResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
@@ -34,6 +35,8 @@ class MainViewModel(private val dashboardRepo: DefaultDashboardRepo): ViewModel(
     private val _createVisitResponse = MutableLiveData<Event<Resource<CommonMessageResponse>>>()
     val createVisitResponse : LiveData<Event<Resource<CommonMessageResponse>>> = _createVisitResponse
 
+    private val _createLeadResponse = MutableLiveData<Event<Resource<CommonMessageResponse>>>()
+    val createLeadResponse : LiveData<Event<Resource<CommonMessageResponse>>> = _createLeadResponse
 
    
     private val _responseUploadFile = MutableLiveData<Event<Resource<CommonMessageResponse>>>()
@@ -50,6 +53,17 @@ class MainViewModel(private val dashboardRepo: DefaultDashboardRepo): ViewModel(
         }
     }
 
+    fun createUserLead(bodyCreateVisit: BodyCreateLead){
+
+        _createLeadResponse.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main){
+            val result = dashboardRepo.createCustomerLead(bodyCreateVisit)
+            _createLeadResponse.postValue(Event(result))
+        }
+
+
+
+    }
     fun createUserVisit(bodyCreateVisit: BodyCreateVisit){
 
         _createVisitResponse.postValue(Event(Resource.Loading()))

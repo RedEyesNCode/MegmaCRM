@@ -1,5 +1,6 @@
 package com.redeyesncode.crmfinancegs.network
 
+import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
 import com.redeyesncode.crmfinancegs.data.CommonMessageResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
@@ -32,6 +33,8 @@ interface ApiInterface {
     @POST("megma-crm/create-visit")
     suspend fun createCustomerVisit(@Body bodyCreateVisit: BodyCreateVisit):Response<CommonMessageResponse>
 
+    @POST("megma-crm/create-lead")
+    suspend fun createCustomerLead(@Body bodyCreateVisit: BodyCreateLead):Response<CommonMessageResponse>
 
     @Multipart
     @POST("megma-crm/upload-file")
