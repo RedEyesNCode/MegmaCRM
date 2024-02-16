@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:background="@color/white"
@@ -86,11 +87,103 @@
 
             android:inputType="textPostalAddress"
             android:imeOptions="actionNext"/>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            app:cardUseCompatPadding="true"
+            android:visibility="visible"
+
+            app:cardBackgroundColor="@color/white"
+            app:cardElevation="@dimen/_6sdp"
+            app:cardCornerRadius="@dimen/_8sdp"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="@drawable/background_blue_border"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="@dimen/_45sdp"
+                        android:src="@drawable/ic_camera"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_height="@dimen/_45sdp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_toEndOf="@id/ivDoc"
+                        android:textColor="@color/black"
+                        android:text="Customer Selfie*"
+                        android:layout_margin="@dimen/_8sdp"
+                        android:textAllCaps="false"
+                        android:fontFamily="@font/sora_bold"
+                        style="@style/MediumTextView"
+
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:layout_width="match_parent"
+                    app:riv_corner_radius="@dimen/_8sdp"
+                    app:riv_border_width="@dimen/_2sdp"
+                    android:scaleType="centerCrop"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:id="@+id/ivAdharBackPreview"
+                    app:riv_border_color="@color/blue"
+                    android:src="@drawable/ic_placeholder"
+
+                    android:layout_height="@dimen/_100sdp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:background="@drawable/dotted_line_grey"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textAlignment="center"
+                    android:textColor="@color/grey_light"
+                    android:text="Choose Selfie"
+                    android:id="@+id/tvAadharBack"
+                    android:src="@drawable/ic_placeholder"
+
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/sora_bold"
+                    style="@style/normalBodyTextView"
+
+
+                    android:layout_height="wrap_content"/>
+
+                <!-- <androidx.appcompat.widget.AppCompatButton
+                     android:layout_width="wrap_content"
+                     android:textColor="@color/white"
+                     android:text="Done"
+                     android:id="@+id/btnAadharBack"
+
+                     android:textAllCaps="false"
+                     android:enabled="false"
+
+                     android:paddingHorizontal="@dimen/_105sdp"
+                     android:layout_gravity="center"
+                     android:drawablePadding="@dimen/_4sdp"
+                     android:layout_margin="@dimen/_10sdp"
+                     android:background="@drawable/button_selector_green"
+                     android:layout_height="wrap_content"/>-->
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
 
         <EditText
             android:id="@+id/editTextPhoto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:hint="Photo"
             android:inputType="text"
             android:focusable="false"

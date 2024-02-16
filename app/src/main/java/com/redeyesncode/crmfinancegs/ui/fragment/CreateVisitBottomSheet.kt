@@ -176,7 +176,7 @@ class CreateVisitBottomSheet(var mContext: Context):BottomSheetDialogFragment() 
 
         }
 
-        binding.editTextPhoto.setOnClickListener {
+        binding.tvAadharBack.setOnClickListener {
             if(checkCameraPermission()){
                 dispatchTakePictureIntent()
             }else{
@@ -233,7 +233,7 @@ class CreateVisitBottomSheet(var mContext: Context):BottomSheetDialogFragment() 
             val imageBitmap = data?.extras?.get("data") as Bitmap
             fileOne = bitmapToFile(imageBitmap,requireContext(),"CreateVisit"+System.currentTimeMillis())
             binding.editTextPhoto.setText("Selfie is Clicked !")
-
+            binding.ivAdharBackPreview.setImageBitmap(imageBitmap)
         }
     }
     fun bitmapToFile(bitmap: Bitmap, context: Context,imageName:String): File {

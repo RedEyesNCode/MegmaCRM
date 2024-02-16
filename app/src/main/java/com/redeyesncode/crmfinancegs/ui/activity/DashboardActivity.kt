@@ -1,20 +1,26 @@
 package com.redeyesncode.crmfinancegs.ui.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.MenuItem
+import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
+import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 import com.redeyesncode.crmfinancegs.R
 import com.redeyesncode.crmfinancegs.databinding.ActivityDashboardBinding
 import com.redeyesncode.gsfinancenbfc.base.BaseActivity
 
-class DashboardActivity : BaseActivity() {
+class DashboardActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var binding:ActivityDashboardBinding
 
@@ -26,6 +32,43 @@ class DashboardActivity : BaseActivity() {
     )
     private val handler = Handler(Looper.getMainLooper())
 
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+
+        if(item.itemId==R.id.navPrivacyPolicy){
+            val intentApplyLoan = Intent(this@DashboardActivity, ChromeTabActivity::class.java)
+            intentApplyLoan.putExtra("URL","PRIVACY")
+            startActivity(intentApplyLoan)
+            return true
+        }else if(item.itemId==R.id.navTerms){
+            val intentApplyLoan = Intent(this@DashboardActivity, ChromeTabActivity::class.java)
+            intentApplyLoan.putExtra("URL","http://gsfinance.in/term%20&%20Conditions.html")
+            startActivity(intentApplyLoan)
+            return true
+        }else if(item.itemId==R.id.navLendingPartner){
+            val intentApplyLoan = Intent(this@DashboardActivity, ChromeTabActivity::class.java)
+            intentApplyLoan.putExtra("URL","https://gsfinanceservice.com/#partners")
+            startActivity(intentApplyLoan)
+            return true
+        }else if(item.itemId==R.id.navFaq){
+            val intentApplyLoan = Intent(this@DashboardActivity, ChromeTabActivity::class.java)
+            intentApplyLoan.putExtra("URL","http://gsfinance.in/frequently%20asked.html")
+            startActivity(intentApplyLoan)
+            return true
+        }else if(item.itemId==R.id.navAbout){
+            val intentApplyLoan = Intent(this@DashboardActivity, ChromeTabActivity::class.java)
+            intentApplyLoan.putExtra("URL","http://gsfinance.in/about.html")
+            startActivity(intentApplyLoan)
+            return true
+        }else if(item.itemId==R.id.navHelp){
+            val intentApplyLoan = Intent(this@DashboardActivity, ChromeTabActivity::class.java)
+            intentApplyLoan.putExtra("URL","http://gsfinance.in/contact.html")
+            startActivity(intentApplyLoan)
+            return true
+        } else{
+            return false
+        }
+    }
+
     private var currentBackgroundIndex = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +77,46 @@ class DashboardActivity : BaseActivity() {
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setupNavController()
         startBackgroundChangeLoop()
+
+        binding.navView.setNavigationItemSelectedListener(this)
+
+        setupDashBanner()
+
+        binding.ivOpenNav.setOnClickListener {
+
+            binding.mainDrawer.openDrawer(GravityCompat.START)
+
+        }
+
         setContentView(binding.root)
+
+    }
+
+    private fun setupDashBanner(){
+        val sliderModels = arrayListOf<SlideModel>()
+        val bankPartners = listOf("https://gsfinanceservice.com/img/logo/1.png"
+            ,"https://gsfinanceservice.com/img/logo/2.png",
+            "https://gsfinanceservice.com/img/logo/3.png",
+            "https://gsfinanceservice.com/img/logo/4.png",
+            "https://gsfinanceservice.com/img/logo/5.png",
+            "https://gsfinanceservice.com/img/logo/6.png",
+            "https://gsfinanceservice.com/img/logo/7.png",
+            "https://gsfinanceservice.com/img/logo/8.png",
+            "https://gsfinanceservice.com/img/logo/9.png",
+            "https://gsfinanceservice.com/img/logo/10.png",
+            "https://gsfinanceservice.com/img/logo/11.png",
+            "https://gsfinanceservice.com/img/logo/12.png",
+            "https://gsfinanceservice.com/img/logo/13.png",
+            "https://gsfinanceservice.com/img/logo/14.png",
+            "https://gsfinanceservice.com/img/logo/15.png",
+        )
+        for (images in bankPartners){
+
+            sliderModels.add(SlideModel(images, ScaleTypes.FIT))
+
+        }
+        binding.imageSlider.setImageList(sliderModels, ScaleTypes.FIT)
+
 
     }
 

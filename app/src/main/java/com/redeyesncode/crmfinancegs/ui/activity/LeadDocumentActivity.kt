@@ -68,6 +68,12 @@ class LeadDocumentActivity : BaseActivity() {
     var panCard : File?=null
     var eSign: File?=null
 
+    var selfieUrl:String?=""
+    var adharFrontUrl:String?=""
+    var aadharBackUrl:String?=""
+    var panCardUrl:String?=""
+
+
     @Inject
     lateinit var mainViewModel: MainViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -126,11 +132,41 @@ class LeadDocumentActivity : BaseActivity() {
             },
             onSuccess = {
                 hideLoadingDialog()
-                bodyCreateLead.selfie = it.message.toString()
-                bodyCreateLead.userId = user.data?.userId.toString()
-                bodyCreateLead.pancard = binding.edtPancard.text.toString()
-                bodyCreateLead.aadhar = binding.edtAadharNumber.text.toString()
-                mainViewModel.createUserLead(bodyCreateLead)
+
+
+                if(selfieUrl!!.isEmpty()){
+                    selfieUrl = it.message.toString()
+
+                    mainViewModel.uploadFile(aadharFront!!)
+
+                }else if(selfieUrl!!.isNotEmpty() && adharFrontUrl!!.isEmpty()){
+                    adharFrontUrl = it.message.toString()
+                    mainViewModel.uploadFile(aadharBack!!)
+                }else if(selfieUrl!!.isNotEmpty() && adharFrontUrl!!.isNotEmpty() && aadharBackUrl!!.isEmpty()){
+                    aadharBackUrl = it.message.toString()
+                    mainViewModel.uploadFile(panCard!!)
+
+                }else if(selfieUrl!!.isNotEmpty() && adharFrontUrl!!.isNotEmpty() && aadharBackUrl!!.isNotEmpty() && panCardUrl!!.isEmpty()){
+                    panCardUrl = it.message.toString()
+                    mainViewModel.uploadFile(selfie!!)
+
+                }else if (selfieUrl!!.isNotEmpty() && adharFrontUrl!!.isNotEmpty() && aadharBackUrl!!.isNotEmpty() && panCardUrl!!.isNotEmpty()){
+
+
+
+
+                    bodyCreateLead.selfie = it.message.toString()
+                    bodyCreateLead.userId = user.data?.userId.toString()
+                    bodyCreateLead.pancard = binding.edtPancard.text.toString()
+                    bodyCreateLead.aadharBack = aadharBackUrl
+                    bodyCreateLead.aadharFront = adharFrontUrl
+                    bodyCreateLead.pancard_img = panCardUrl
+                    bodyCreateLead.aadhar = binding.edtAadharNumber.text.toString()
+                    mainViewModel.createUserLead(bodyCreateLead)
+
+                }
+
+
             }
         ))
 
@@ -186,6 +222,15 @@ class LeadDocumentActivity : BaseActivity() {
 
             }else if(binding.edtPancard.text.toString().length<10){
                 showCustomDialog("Info","Please enter VALID pan card number")
+
+            }else if(panCard==null){
+                showCustomDialog("Info","Please select pan image")
+
+            }else if(aadharBack==null){
+                showCustomDialog("Info","Please select aadhar back")
+
+            }else if(aadharFront==null){
+                showCustomDialog("Info","Please select aadhar front")
 
             } else{
                 submitCreateLeadRequest()
@@ -316,10 +361,10 @@ class LeadDocumentActivity : BaseActivity() {
                     //displaying selected image to imageview
 
                     selfie = getFile(this@LeadDocumentActivity, imageUri!!)
-                    panCard = selfie
-                    aadharBack = selfie
-                    aadharFront = selfie
-                    eSign = selfie
+//                    panCard = selfie
+//                    aadharBack = selfie
+//                    aadharFront = selfie
+//                    eSign = selfie
 
 
                     //calling the method uploadBitmap to upload image
@@ -366,10 +411,10 @@ class LeadDocumentActivity : BaseActivity() {
 
                 try {
                     selfie = convertBitmapToFile(imageBitmap)
-                    panCard = selfie
-                    aadharBack = selfie
-                    aadharFront = selfie
-                    eSign = selfie
+//                    panCard = selfie
+//                    aadharBack = selfie
+//                    aadharFront = selfie
+//                    eSign = selfie
 //                    showCustomDialog("Media","Selfie is Selected !")
 
                 }catch (e: IOException){
