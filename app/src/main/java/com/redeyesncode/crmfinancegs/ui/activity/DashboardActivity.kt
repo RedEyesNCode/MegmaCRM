@@ -88,6 +88,14 @@ class DashboardActivity : BaseActivity(),NavigationView.OnNavigationItemSelected
 
         }
 
+        binding.ivSearch.setOnClickListener {
+            val intentSearch = Intent(this@DashboardActivity,LeadSearchActivity::class.java)
+            startActivity(intentSearch)
+
+        }
+
+
+
         setContentView(binding.root)
 
     }

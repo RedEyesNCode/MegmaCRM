@@ -6,6 +6,7 @@ import com.redeyesncode.androidtechnical.base.Resource
 import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
 import com.redeyesncode.crmfinancegs.data.CommonMessageResponse
+import com.redeyesncode.crmfinancegs.data.FilterLeadsResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
@@ -18,6 +19,7 @@ interface DashboardRepo {
     suspend fun loginUser( loginUserMap:HashMap<String,String>) :Resource<LoginUserResponse>
     suspend fun getUserLeads( loginUserMap:HashMap<String,String>) :Resource<UserLeadResponse>
     suspend fun getUserVisits( loginUserMap:HashMap<String,String>) : Resource<UserVisitResponse>
+    suspend fun filterLeads( hashMap: HashMap<String,String>):Resource<FilterLeadsResponse>
 
     suspend fun createCustomerLead( bodyCreateVisit: BodyCreateLead):Resource<CommonMessageResponse>
 

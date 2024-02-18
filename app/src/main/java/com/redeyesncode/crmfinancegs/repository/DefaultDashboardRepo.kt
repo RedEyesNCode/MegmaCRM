@@ -6,6 +6,7 @@ import com.redeyesncode.androidtechnical.base.safeCall
 import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
 import com.redeyesncode.crmfinancegs.data.CommonMessageResponse
+import com.redeyesncode.crmfinancegs.data.FilterLeadsResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
@@ -17,6 +18,17 @@ import retrofit2.Response
 
 class DefaultDashboardRepo : DashboardRepo {
 
+
+    override suspend fun filterLeads(hashMap: HashMap<String, String>): Resource<FilterLeadsResponse> {
+
+        return safeCall {
+            safeCall {
+                val response =
+                    RetrofitInstance().provideApiService(RetrofitInstance().provideRetrofit()).filterLeads(hashMap)
+                Resource.Success(response.body()!!)
+            }
+        }
+    }
 
     override suspend fun createCustomerLead(bodyCreateVisit: BodyCreateLead): Resource<CommonMessageResponse> {
 

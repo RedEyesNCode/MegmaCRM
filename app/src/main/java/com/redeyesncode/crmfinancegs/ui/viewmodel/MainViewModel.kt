@@ -8,6 +8,7 @@ import com.redeyesncode.androidtechnical.base.Resource
 import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
 import com.redeyesncode.crmfinancegs.data.CommonMessageResponse
+import com.redeyesncode.crmfinancegs.data.FilterLeadsResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
@@ -42,6 +43,18 @@ class MainViewModel(private val dashboardRepo: DefaultDashboardRepo): ViewModel(
     private val _responseUploadFile = MutableLiveData<Event<Resource<CommonMessageResponse>>>()
     val responseUploadFile : LiveData<Event<Resource<CommonMessageResponse>>> = _responseUploadFile
 
+    private val _responseFilterLeads = MutableLiveData<Event<Resource<FilterLeadsResponse>>>()
+    val responseFilterLeads : LiveData<Event<Resource<FilterLeadsResponse>>> = _responseFilterLeads
+
+
+    fun filterLeads(hashMap: HashMap<String,String>){
+        _responseFilterLeads.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main){
+            val result = dashboardRepo.filterLeads(hashMap)
+            _responseFilterLeads.postValue(Event(result))
+        }
+
+    }
 
     fun uploadFile(file: File){
         val requestFile = RequestBody.create("image/*".toMediaTypeOrNull(), file)

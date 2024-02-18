@@ -5,6 +5,7 @@ package com.redeyesncode.moneyview.dagger
 import com.redeyesncode.crmfinancegs.dagger.ViewModelModule
 import com.redeyesncode.crmfinancegs.network.RetrofitInstance
 import com.redeyesncode.crmfinancegs.ui.activity.LeadDocumentActivity
+import com.redeyesncode.crmfinancegs.ui.activity.LeadSearchActivity
 import com.redeyesncode.crmfinancegs.ui.activity.LoginActivity
 import com.redeyesncode.crmfinancegs.ui.fragment.CreateVisitBottomSheet
 import com.redeyesncode.crmfinancegs.ui.fragment.LeadsFragment
@@ -20,6 +21,8 @@ interface DaggerComp {
     fun injectLeadDocumentActivity(loginActivity: LeadDocumentActivity)
 
 
+
+    fun injectLeadSearch(leadSearchActivity: LeadSearchActivity)
     fun injectFragmentVisit(fragment: VisitFragment)
 
 

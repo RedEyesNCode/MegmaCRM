@@ -19,7 +19,7 @@
             android:layout_centerHorizontal="true"
             android:layout_height="wrap_content">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:layout_height="wrap_content">
@@ -29,17 +29,28 @@
                     android:src="@drawable/ic_baseline_menu_24"
                     android:layout_gravity="start"
                     android:id="@+id/ivOpenNav"
+                    android:layout_alignParentStart="true"
                     android:layout_height="@dimen/_25sdp"/>
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     style="@style/MediumTextView"
+                    android:layout_centerHorizontal="true"
                     android:gravity="center"
                     android:textColor="@color/white"
                     android:text="GS FINANCE CRM"
                     android:fontFamily="@font/sora_medium"
                     android:layout_height="wrap_content"/>
 
-            </LinearLayout>
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:src="@drawable/magnifying_glass_solid"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    app:tint="@color/white"
+                    android:id="@+id/ivSearch"
+                    android:layout_alignParentEnd="true"
+                    android:layout_height="@dimen/_25sdp"/>
+
+            </RelativeLayout>
 
 
 

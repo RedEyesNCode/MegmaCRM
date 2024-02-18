@@ -54,5 +54,10 @@ class UserLeadAdapter(var context: Context,var data :ArrayList<UserLeadResponse.
         return data.size
     }
 
+    fun updateData(filteredData: ArrayList<UserLeadResponse.Data>) {
+        data = filteredData
+        notifyDataSetChanged()
+    }
+
     public class MyViewholder(var binding:ItemUserLeadBinding) :RecyclerView.ViewHolder(binding.root)
 }
