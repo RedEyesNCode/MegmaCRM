@@ -225,11 +225,16 @@ class LeadSearchActivity : BaseActivity(),UserLeadAdapter.onClick {
     }
 
     private fun filterApiDate(startDate: String, endDate: String) {
+        val user = AppSession(this@LeadSearchActivity).getObject(
+            Constant.USER_LOGIN,
+            LoginUserResponse::class.java) as LoginUserResponse
+
         val filterMap = hashMapOf<String,String>()
         filterMap.put("name","")
         filterMap.put("fromDate",startDate)
         filterMap.put("toDate",endDate)
         filterMap.put("leadStatus","")
+        filterMap.put("userId",user.data?.userId.toString())
 
         mainViewModel.filterLeads(filterMap)
 
@@ -289,11 +294,16 @@ class LeadSearchActivity : BaseActivity(),UserLeadAdapter.onClick {
     }
 
     private fun callLeadStatusFilterApi(selectedOption: String) {
+        val user = AppSession(this@LeadSearchActivity).getObject(
+            Constant.USER_LOGIN,
+            LoginUserResponse::class.java) as LoginUserResponse
 
         val filterMap= hashMapOf<String,String>()
         filterMap.put("name","")
         filterMap.put("fromDate","")
         filterMap.put("toDate","")
+
+        filterMap.put("userId",user.data?.userId.toString())
         filterMap.put("leadStatus",selectedOption)
 
         mainViewModel.filterLeads(filterMap)

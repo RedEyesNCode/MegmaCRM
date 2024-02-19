@@ -102,21 +102,11 @@ class DashboardActivity : BaseActivity(),NavigationView.OnNavigationItemSelected
 
     private fun setupDashBanner(){
         val sliderModels = arrayListOf<SlideModel>()
-        val bankPartners = listOf("https://gsfinanceservice.com/img/logo/1.png"
-            ,"https://gsfinanceservice.com/img/logo/2.png",
-            "https://gsfinanceservice.com/img/logo/3.png",
-            "https://gsfinanceservice.com/img/logo/4.png",
-            "https://gsfinanceservice.com/img/logo/5.png",
-            "https://gsfinanceservice.com/img/logo/6.png",
-            "https://gsfinanceservice.com/img/logo/7.png",
-            "https://gsfinanceservice.com/img/logo/8.png",
-            "https://gsfinanceservice.com/img/logo/9.png",
-            "https://gsfinanceservice.com/img/logo/10.png",
-            "https://gsfinanceservice.com/img/logo/11.png",
-            "https://gsfinanceservice.com/img/logo/12.png",
-            "https://gsfinanceservice.com/img/logo/13.png",
-            "https://gsfinanceservice.com/img/logo/14.png",
-            "https://gsfinanceservice.com/img/logo/15.png",
+        val bankPartners = listOf(
+           "https://redeyesncodemaster.s3.ap-south-1.amazonaws.com/banner1.jpeg",
+           "https://redeyesncodemaster.s3.ap-south-1.amazonaws.com/banner2.jpeg",
+           "https://redeyesncodemaster.s3.ap-south-1.amazonaws.com/banner3.jpeg",
+
         )
         for (images in bankPartners){
 

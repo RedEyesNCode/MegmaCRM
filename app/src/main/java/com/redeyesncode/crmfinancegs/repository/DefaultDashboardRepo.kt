@@ -25,8 +25,24 @@ class DefaultDashboardRepo : DashboardRepo {
             safeCall {
                 val response =
                     RetrofitInstance().provideApiService(RetrofitInstance().provideRetrofit()).filterLeads(hashMap)
-                Resource.Success(response.body()!!)
+                if(response.isSuccessful){
+
+                    Resource.Success(response.body()!!)
+
+                }else{
+                    val errorBody = response.errorBody()?.string()
+                    val errorJson = JSONObject(errorBody!!)
+
+                    val status = errorJson.getString("status")
+                    val code = errorJson.getInt("code")
+                    val message = errorJson.getString("message")
+
+                    Resource.Error("Status: $status, Code: $code, Message: $message")
+
+                }
             }
+
+
         }
     }
 
@@ -37,6 +53,20 @@ class DefaultDashboardRepo : DashboardRepo {
                 val response =
                     RetrofitInstance().provideApiService(RetrofitInstance().provideRetrofit()).createCustomerLead(bodyCreateVisit)
                 Resource.Success(response.body()!!)
+                if(response.isSuccessful){
+                    Resource.Success(response.body()!!)
+
+                }else{
+                    val errorBody = response.errorBody()?.string()
+                    val errorJson = JSONObject(errorBody!!)
+
+                    val status = errorJson.getString("status")
+                    val code = errorJson.getInt("code")
+                    val message = errorJson.getString("message")
+
+                    Resource.Error("Status: $status, Code: $code, Message: $message")
+
+                }
             }
         }
 
