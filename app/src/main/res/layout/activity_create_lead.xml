@@ -463,6 +463,7 @@
                     android:clickable="true"
                     android:text="MADHYA PRADHESH (MP)"
                     android:focusable="false"
+
                     android:textSize="@dimen/_14sdp"
 
                     android:inputType="textNoSuggestions"

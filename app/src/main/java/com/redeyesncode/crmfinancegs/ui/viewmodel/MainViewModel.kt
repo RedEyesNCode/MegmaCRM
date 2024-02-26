@@ -9,6 +9,8 @@ import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
 import com.redeyesncode.crmfinancegs.data.CommonMessageResponse
 import com.redeyesncode.crmfinancegs.data.FilterLeadsResponse
+import com.redeyesncode.crmfinancegs.data.KycDetails
+import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
@@ -51,6 +53,233 @@ class MainViewModel(private val dashboardRepo: DefaultDashboardRepo): ViewModel(
 
     private val _responseFilterVisits = MutableLiveData<Event<Resource<UserVisitResponse>>>()
     val responseFilterVisits : LiveData<Event<Resource<UserVisitResponse>>> = _responseFilterVisits
+
+    private val _responseCreateLoanUser = MutableLiveData<Event<Resource<LoanUserLoginResponse>>>()
+    val responseCreateLoanUser : LiveData<Event<Resource<LoanUserLoginResponse>>> = _responseCreateLoanUser
+
+    private val _responseApplyKyc = MutableLiveData<Event<Resource<CommonMessageResponse>>>()
+    val responseApplyKyc : LiveData<Event<Resource<CommonMessageResponse>>> = _responseApplyKyc
+
+
+    private val _responseCheckLoginLoanUser = MutableLiveData<Event<Resource<LoanUserLoginResponse>>>()
+    val responseCheckLoginLoanUser : LiveData<Event<Resource<LoanUserLoginResponse>>> = _responseCheckLoginLoanUser
+
+
+    fun submitKycRequestUser(applyKycUrl:String,imageFileAadharFront: File, imageFileAadharBack:File, imageFilePan:File, fileSelfie:File, eSign:File?, bankStatement:File?, kycDetails: KycDetails, userId: String){
+        val filePart: MultipartBody.Part = MultipartBody.Part.createFormData(
+            "adhar_front",
+            imageFileAadharFront.getName(),
+            RequestBody.create("image/*".toMediaTypeOrNull(), imageFileAadharFront)
+        )
+        val filePartPan: MultipartBody.Part = MultipartBody.Part.createFormData(
+            "pan_image",
+            imageFilePan.getName(),
+            RequestBody.create("image/*".toMediaTypeOrNull(), imageFilePan)
+        )
+        val filePartAadharBack: MultipartBody.Part = MultipartBody.Part.createFormData(
+            "adhar_back",
+            imageFileAadharBack.getName(),
+            RequestBody.create("image/*".toMediaTypeOrNull(), imageFileAadharBack)
+        )
+        val filePartSelfie: MultipartBody.Part = MultipartBody.Part.createFormData(
+            "selfie",
+            fileSelfie.getName(),
+            RequestBody.create("image/*".toMediaTypeOrNull(), fileSelfie)
+        )
+        var filePartESign: MultipartBody.Part?=null
+        var fileBankStatement: MultipartBody.Part?=null
+        val emptyRequestBody = RequestBody.create("image/*".toMediaTypeOrNull(), ByteArray(0))
+
+
+        if(eSign!=null){
+            filePartESign  = MultipartBody.Part.createFormData(
+                "sign_image",
+                eSign.getName(),
+                RequestBody.create("image/*".toMediaTypeOrNull(), eSign)
+            )
+        }else{
+            filePartESign = MultipartBody.Part.createFormData(
+                "sign_image",
+                "no_sign_image",
+                emptyRequestBody)
+        }
+        if(bankStatement!=null){
+            fileBankStatement= MultipartBody.Part.createFormData(
+                "bank_statement",
+                bankStatement.getName(),
+                RequestBody.create("image/*".toMediaTypeOrNull(), bankStatement)
+            )
+        }else {
+            fileBankStatement = MultipartBody.Part.createFormData(
+                "bank_statement",
+                "no_bank_statement",
+                emptyRequestBody)
+        }
+
+
+        val name: RequestBody = RequestBody.create(
+            "text/plain".toMediaTypeOrNull(),
+            kycDetails.firstName
+                .toString()
+        )
+        val firstName: RequestBody = RequestBody.create(
+            "text/plain".toMediaTypeOrNull(),
+            kycDetails.firstName
+                .toString()
+        )
+        val lastName: RequestBody = RequestBody.create(
+            "text/plain".toMediaTypeOrNull(),
+            kycDetails.lastName
+                .toString()
+        )
+        val id: RequestBody = RequestBody.create(
+            "text/plain".toMediaTypeOrNull(),
+            userId
+                .toString()
+        )
+        val gender: RequestBody = RequestBody.create(
+            "text/plain".toMediaTypeOrNull(),
+            kycDetails.gender
+                .toString()
+        )
+
+        val email: RequestBody = RequestBody.create(
+            "text/plain".toMediaTypeOrNull(),
+            kycDetails.email
+                .toString()
+        )
+        val pincode: RequestBody = RequestBody.create(
+            "text/plain".toMediaTypeOrNull(),
+            kycDetails.pincode
+                .toString()
+        )
+        var user_type: RequestBody = RequestBody.create(
+            "text/plain".toMediaTypeOrNull(),
+            "-1"
+        )
+        //putting user type check
+        if(kycDetails.user_type.equals("Salaried")){
+            user_type = RequestBody.create(
+                "text/plain".toMediaTypeOrNull(),
+                "01"
+            )
+        }else if(kycDetails.user_type.equals("Employed Professional")){
+            user_type = RequestBody.create(
+                "text/plain".toMediaTypeOrNull(),
+                "02"
+            )
+        }else if(kycDetails.user_type.equals("Self Employed")){
+            user_type = RequestBody.create(
+                "text/plain".toMediaTypeOrNull(),
+                "03"
+            )
+        }else if(kycDetails.user_type.equals("Others")){
+            user_type = RequestBody.create(
+                "text/plain".toMediaTypeOrNull(),
+                "04"
+            )
+        }
+
+
+
+
+        val monthlySalary: RequestBody = RequestBody.create(
+            "text/plain".toMediaTypeOrNull(),
+            kycDetails.monthlySalary
+                .toString()
+        )
+        val relativeNumberName: RequestBody = RequestBody.create(
+            "text/plain".toMediaTypeOrNull(),
+            kycDetails.relativeName
+                .toString()
+        )
+        val relativeNumber: RequestBody = RequestBody.create(
+            "text/plain".toMediaTypeOrNull(),
+            kycDetails.relativeNumber
+                .toString()
+        )
+        val relativeNumberTwoName: RequestBody = RequestBody.create(
+            "text/plain".toMediaTypeOrNull(),
+            kycDetails.relativeNameTwo
+                .toString()
+        )
+        val relativeNumberTwo: RequestBody = RequestBody.create(
+            "text/plain".toMediaTypeOrNull(),
+            kycDetails.relativeNumber2
+                .toString()
+        )
+        val panNumber: RequestBody = RequestBody.create(
+            "text/plain".toMediaTypeOrNull(),
+            kycDetails.pan_number
+                .toString()
+        )
+        val dob: RequestBody = RequestBody.create(
+            "text/plain".toMediaTypeOrNull(),
+            kycDetails.dob
+                .toString()
+        )
+
+        val address: RequestBody = RequestBody.create(
+            "text/plain".toMediaTypeOrNull(),
+            kycDetails.currentAddress
+                .toString()
+        )
+        val aadharNumber: RequestBody = RequestBody.create(
+            "text/plain".toMediaTypeOrNull(),
+            kycDetails.adhar_number
+                .toString()
+        )
+        val state: RequestBody = RequestBody.create(
+            "text/plain".toMediaTypeOrNull(),
+            kycDetails.state
+                .toString()
+        )
+        _responseApplyKyc.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main){
+            val result = dashboardRepo.submitKYCRequest(applyKycUrl,filePart,filePartAadharBack,filePartPan,filePartSelfie,
+                id,
+                firstName,
+                lastName,
+                dob,
+                gender,
+                email,pincode,
+                user_type,
+                monthlySalary,
+                relativeNumberName,
+                relativeNumberTwoName,
+                relativeNumberTwo,
+                address,
+                panNumber,
+                name,
+                relativeNumber,
+                aadharNumber,
+                state,
+                filePartESign,
+                fileBankStatement)
+            _responseApplyKyc.postValue(Event(result))
+        }
+
+    }
+
+
+    fun createLoanUser(url:String,hashMap: HashMap<String,String>){
+        _responseCreateLoanUser.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main){
+            val result = dashboardRepo.createLoanUser(url,hashMap)
+            _responseCreateLoanUser.postValue(Event(result))
+        }
+
+    }
+    fun checkLoginUser(url:String,hashMap: HashMap<String,String>){
+        _responseCheckLoginLoanUser.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main){
+            val result = dashboardRepo.checkLoginLoanUser(url,hashMap)
+            _responseCheckLoginLoanUser.postValue(Event(result))
+        }
+
+    }
+
+
 
     fun getUserApprovedLeads(hashMap: HashMap<String,String>){
         _responseUserApprovedLead.postValue(Event(Resource.Loading()))

@@ -17,6 +17,8 @@ import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import com.redeyesncode.crmfinancegs.R
 import com.redeyesncode.crmfinancegs.data.BodyCreateLead
+import com.redeyesncode.crmfinancegs.data.KycDetails
+import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.databinding.ActivityLeadDocumentBinding
 import com.redeyesncode.crmfinancegs.ui.AadharNumberTextWatcher
@@ -103,11 +105,18 @@ class LeadDocumentActivity : BaseActivity() {
 
                 showCustomDialog("Info",it.message.toString())
 
-                Handler().postDelayed(Runnable {
-                    val intentDashboard = Intent(this@LeadDocumentActivity,DashboardActivity::class.java)
-                    intentDashboard.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK and Intent.FLAG_ACTIVITY_NEW_TASK
-                    startActivity(intentDashboard)
-                },2000)
+                val applyKycUrl = "https://megmagroup.loan/newApi/api/kyc"
+                val kycDetails = AppSession(this@LeadDocumentActivity).getObject(Constant.BODY_APPLY_KYC,
+                    KycDetails::class.java) as KycDetails
+                kycDetails.pan_number = binding.edtPancard.text.toString().uppercase()
+
+                kycDetails.adhar_number = kycDetails.relativeNumber.toString().uppercase()
+                kycDetails.relativeNumber = removeMinusSign(binding.edtAadharNumber.text.toString().uppercase())
+                val user = AppSession(this@LeadDocumentActivity).getObject(Constant.RESPONSE_CREATE_LOAN_USER,
+                    LoanUserLoginResponse::class.java) as LoanUserLoginResponse
+                showToast("KYC USER ID ${user.user?.id.toString()}")
+                showToast("KYC USER ID ${user.user?.id.toString()}")
+                mainViewModel.submitKycRequestUser(applyKycUrl,aadharFront!!,aadharBack!!,panCard!!,selfie!!,selfie!!,selfie,kycDetails,user.user?.id.toString())
 
 
             },
@@ -118,6 +127,31 @@ class LeadDocumentActivity : BaseActivity() {
                 hideLoadingDialog()
                 showToast(it)
             }
+
+
+        ))
+        mainViewModel.responseApplyKyc.observe(this,Event.EventObserver(
+            onLoading = {
+                hideLoadingDialog()
+            },
+            onError = {
+                hideLoadingDialog()
+                showToast(it)
+            },
+            onSuccess = {
+                hideLoadingDialog()
+                if(it.status==true){
+                    showToast(it.message.toString())
+                    showCustomDialog("Info",it.message.toString())
+
+                    Handler().postDelayed(Runnable {
+                        val intentDashboard = Intent(this@LeadDocumentActivity,DashboardActivity::class.java)
+                        intentDashboard.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK and Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intentDashboard)
+                    },2000)
+                }
+            }
+
 
 
         ))
@@ -253,8 +287,11 @@ class LeadDocumentActivity : BaseActivity() {
 
 
 
-    }
 
+    }
+    fun removeMinusSign(inputString: String): String {
+        return inputString.replace("-", "")
+    }
     fun showOptionsDialog(context: Context, requestCodeGallery: Int, requestCodeCamera: Int) {
 
         val options = arrayListOf<String>()

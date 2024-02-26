@@ -7,17 +7,117 @@ import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
 import com.redeyesncode.crmfinancegs.data.CommonMessageResponse
 import com.redeyesncode.crmfinancegs.data.FilterLeadsResponse
+import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
 import com.redeyesncode.crmfinancegs.network.RetrofitInstance
 import com.redeyesncode.moneyview.repository.DashboardRepo
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import org.json.JSONObject
 import retrofit2.Response
 
 class DefaultDashboardRepo : DashboardRepo {
 
+
+    override suspend fun checkLoginLoanUser(
+        signUpLoanUrl: String,
+        hashMap: HashMap<String, String>
+    ): Resource<LoanUserLoginResponse> {
+        return safeCall {
+            safeCall {
+                val response =
+                    RetrofitInstance().provideApiService(RetrofitInstance().provideRetrofit()).checkLoginLoanUser(signUpLoanUrl,hashMap)
+
+                if(response.isSuccessful){
+                    Resource.Success(response.body()!!)
+
+                }else{
+                    val errorBody = response.errorBody()?.string()
+                    val errorJson = JSONObject(errorBody!!)
+
+                    val status = errorJson.getString("status")
+                    val code = errorJson.getInt("code")
+                    val message = errorJson.getString("message")
+
+                    Resource.Error("Status: $status, Code: $code, Message: $message")
+
+                }
+            }
+        }
+
+
+
+    }
+
+    override suspend fun submitKYCRequest(
+        applyKycUrl: String,
+        aadharFront: MultipartBody.Part,
+        adharBack: MultipartBody.Part,
+        panCard: MultipartBody.Part,
+        selfie: MultipartBody.Part,
+        userId: RequestBody,
+        firstName: RequestBody,
+        lastName: RequestBody,
+        dob: RequestBody,
+        gender: RequestBody,
+        email: RequestBody,
+        pincode: RequestBody,
+        userType: RequestBody,
+        monthlySalary: RequestBody,
+        relativeNumberName: RequestBody,
+        relativeNumberTwoName: RequestBody,
+        relativeNumberTwo: RequestBody,
+        currentAddress: RequestBody,
+        pan_number: RequestBody,
+        name: RequestBody,
+        relativeNumber: RequestBody,
+        adhar_number: RequestBody,
+        state: RequestBody,
+        eSign: MultipartBody.Part,
+        bankStatement: MultipartBody.Part
+    ): Resource<CommonMessageResponse> {
+
+        return safeCall {
+            safeCall {
+                val response =
+                    RetrofitInstance().provideApiService(RetrofitInstance().provideRetrofit()).submitKYCRequest(applyKycUrl,aadharFront, adharBack, panCard, selfie, userId, firstName, lastName,dob, gender, email, pincode, userType, monthlySalary, relativeNumberName, relativeNumberTwoName, relativeNumberTwo, currentAddress, pan_number, name, relativeNumber,adhar_number,state,eSign,bankStatement)
+                Resource.Success(response.body()!!)
+            }
+        }
+    }
+
+    override suspend fun createLoanUser(
+        signUpLoanUrl: String,
+        hashMap: HashMap<String, String>
+    ): Resource<LoanUserLoginResponse> {
+
+
+        return safeCall {
+            safeCall {
+                val response =
+                    RetrofitInstance().provideApiService(RetrofitInstance().provideRetrofit()).createLoanUser(signUpLoanUrl,hashMap)
+
+                if(response.isSuccessful){
+                    Resource.Success(response.body()!!)
+
+                }else{
+                    val errorBody = response.errorBody()?.string()
+                    val errorJson = JSONObject(errorBody!!)
+
+                    val status = errorJson.getString("status")
+                    val code = errorJson.getInt("code")
+                    val message = errorJson.getString("message")
+
+                    Resource.Error("Status: $status, Code: $code, Message: $message")
+
+                }
+            }
+        }
+
+
+    }
 
     override suspend fun filterVisits(hashMap: HashMap<String, String>): Resource<UserVisitResponse> {
         return safeCall {
