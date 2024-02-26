@@ -2,8 +2,10 @@ package com.redeyesncode.crmfinancegs.ui.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.redeyesncode.crmfinancegs.R
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.databinding.ItemUserLeadBinding
 
@@ -34,6 +36,21 @@ class UserLeadAdapter(var context: Context,var data :ArrayList<UserLeadResponse.
             tvPincode.text = "Pincode :${data.pincode.toString()}"
             tvState.text = "State : ${data.state.toString()}"
             tvGender.text = "Gender : ${data.gender.toString()}"
+            val leadStatus = data.leadStatus.toString()
+
+            if(leadStatus.equals("PENDING")){
+                btnLeadStatus.setBackgroundColor(context.getColor(R.color.yellow))
+            }else if(leadStatus.equals("APPROVED")){
+                btnLeadStatus.setBackgroundColor(context.getColor(R.color.green))
+                binding.tvLeadAmount.visibility = View.VISIBLE
+                binding.tvLeadAmount.text = "Lead Amount : ${data.leadAmount.toString()}"
+
+            }else if(leadStatus.equals("REJECTED")){
+                btnLeadStatus.setBackgroundColor(context.getColor(R.color.red))
+
+            }
+
+
             btnLeadStatus.text = "Status : ${data.leadStatus.toString()}"
 
             ivForward.setOnClickListener {

@@ -46,7 +46,20 @@ class MainViewModel(private val dashboardRepo: DefaultDashboardRepo): ViewModel(
     private val _responseFilterLeads = MutableLiveData<Event<Resource<FilterLeadsResponse>>>()
     val responseFilterLeads : LiveData<Event<Resource<FilterLeadsResponse>>> = _responseFilterLeads
 
+    private val _responseUserApprovedLead = MutableLiveData<Event<Resource<UserLeadResponse>>>()
+    val responseUserApprovedLead : LiveData<Event<Resource<UserLeadResponse>>> = _responseUserApprovedLead
 
+    private val _responseFilterVisits = MutableLiveData<Event<Resource<UserVisitResponse>>>()
+    val responseFilterVisits : LiveData<Event<Resource<UserVisitResponse>>> = _responseFilterVisits
+
+    fun getUserApprovedLeads(hashMap: HashMap<String,String>){
+        _responseUserApprovedLead.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main){
+            val result = dashboardRepo.getUserApprovedLeads(hashMap)
+            _responseUserApprovedLead.postValue(Event(result))
+        }
+
+    }
     fun filterLeads(hashMap: HashMap<String,String>){
         _responseFilterLeads.postValue(Event(Resource.Loading()))
         viewModelScope.launch(Dispatchers.Main){
@@ -55,7 +68,14 @@ class MainViewModel(private val dashboardRepo: DefaultDashboardRepo): ViewModel(
         }
 
     }
+    fun filterVisits(hashMap: HashMap<String,String>){
+        _responseFilterVisits.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main){
+            val result = dashboardRepo.filterVisits(hashMap)
+            _responseFilterVisits.postValue(Event(result))
+        }
 
+    }
     fun uploadFile(file: File){
         val requestFile = RequestBody.create("image/*".toMediaTypeOrNull(), file)
         val image = MultipartBody.Part.createFormData("image_file", file.name, requestFile)

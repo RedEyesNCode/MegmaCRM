@@ -19,6 +19,56 @@ import retrofit2.Response
 class DefaultDashboardRepo : DashboardRepo {
 
 
+    override suspend fun filterVisits(hashMap: HashMap<String, String>): Resource<UserVisitResponse> {
+        return safeCall {
+            safeCall {
+                val response =
+                    RetrofitInstance().provideApiService(RetrofitInstance().provideRetrofit()).filterVisits(hashMap)
+
+                if(response.isSuccessful){
+                    Resource.Success(response.body()!!)
+
+                }else{
+                    val errorBody = response.errorBody()?.string()
+                    val errorJson = JSONObject(errorBody!!)
+
+                    val status = errorJson.getString("status")
+                    val code = errorJson.getInt("code")
+                    val message = errorJson.getString("message")
+
+                    Resource.Error("Status: $status, Code: $code, Message: $message")
+
+                }
+            }
+        }
+
+    }
+
+    override suspend fun getUserApprovedLeads(hashMap: HashMap<String, String>): Resource<UserLeadResponse> {
+        return safeCall {
+            safeCall {
+                val response =
+                    RetrofitInstance().provideApiService(RetrofitInstance().provideRetrofit()).getUserApprovedLeads(hashMap)
+
+                if(response.isSuccessful){
+                    Resource.Success(response.body()!!)
+
+                }else{
+                    val errorBody = response.errorBody()?.string()
+                    val errorJson = JSONObject(errorBody!!)
+
+                    val status = errorJson.getString("status")
+                    val code = errorJson.getInt("code")
+                    val message = errorJson.getString("message")
+
+                    Resource.Error("Status: $status, Code: $code, Message: $message")
+
+                }
+            }
+        }
+
+    }
+
     override suspend fun filterLeads(hashMap: HashMap<String, String>): Resource<FilterLeadsResponse> {
 
         return safeCall {

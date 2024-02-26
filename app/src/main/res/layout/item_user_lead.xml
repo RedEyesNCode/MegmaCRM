@@ -80,7 +80,19 @@
                         android:text="Date of Birth :"
                         android:textColor="@color/black"
                         style="@style/SmallTextView"/>
-
+                    <TextView
+                        android:id="@+id/tvLeadAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:drawableTint="@color/black"
+                        android:fontFamily="@font/sora_bold"
+                        android:text="Lead Amount"
+                        android:textColor="@color/black"
+                        style="@style/SmallTextView"/>
                     <TextView
                         android:id="@+id/tvGender"
                         android:layout_width="wrap_content"
@@ -145,7 +157,7 @@
                     android:textSize="@dimen/_14ssp" />
 
 
-                <com.google.android.material.button.MaterialButton
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnLeadStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -154,10 +166,10 @@
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:layout_weight="1"
-                    android:backgroundTint="@color/blue"
                     android:padding="10dp"
                     android:layout_alignParentEnd="true"
                     android:text="PENDING"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/_11ssp"
                     android:visibility="visible"
                     app:cornerRadius="10dp" />

@@ -117,7 +117,7 @@ class LeadSearchActivity : BaseActivity(),UserLeadAdapter.onClick {
                     adapterUserLeads = UserLeadAdapter(this@LeadSearchActivity,userLeads,this@LeadSearchActivity)
                     binding.recvLeads.apply {
                         adapter = adapterUserLeads
-                        layoutManager = LinearLayoutManager(this@LeadSearchActivity,LinearLayoutManager.HORIZONTAL,false)
+                        layoutManager = LinearLayoutManager(this@LeadSearchActivity)
                     }
                 }else {
                     hideLoadingDialog()
@@ -157,7 +157,7 @@ class LeadSearchActivity : BaseActivity(),UserLeadAdapter.onClick {
                     adapterUserLeads = UserLeadAdapter(this@LeadSearchActivity,it.data,this@LeadSearchActivity)
                     binding.recvLeads.apply {
                         adapter = adapterUserLeads
-                        layoutManager = LinearLayoutManager(this@LeadSearchActivity,LinearLayoutManager.HORIZONTAL,false)
+                        layoutManager = LinearLayoutManager(this@LeadSearchActivity)
                     }
                 }else {
                     hideLoadingDialog()
@@ -181,6 +181,8 @@ class LeadSearchActivity : BaseActivity(),UserLeadAdapter.onClick {
             val filterOptions = arrayListOf<String>()
             filterOptions.add("Date Filter")
             filterOptions.add("Leads Status Filter")
+            filterOptions.add("RESET")
+
 
             showOptionsDialog(this@LeadSearchActivity,filterOptions)
 
@@ -214,6 +216,8 @@ class LeadSearchActivity : BaseActivity(),UserLeadAdapter.onClick {
                     dateRangePickerDialog.show(supportFragmentManager,"DATE-RANGER")
                 }else if(selectedOption.equals("Leads Status Filter")){
                     showLeadStatusFilterDialog(this@LeadSearchActivity)
+                }else if(selectedOption.equals("RESET")){
+                    initialApiCall()
                 }
                 dialog.dismiss()
             }
@@ -235,7 +239,6 @@ class LeadSearchActivity : BaseActivity(),UserLeadAdapter.onClick {
         filterMap.put("toDate",endDate)
         filterMap.put("leadStatus","")
         filterMap.put("userId",user.data?.userId.toString())
-
         mainViewModel.filterLeads(filterMap)
 
 

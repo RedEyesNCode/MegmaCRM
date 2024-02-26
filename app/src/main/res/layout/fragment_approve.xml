@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.ApproveFragment">
@@ -10,7 +11,16 @@
         android:layout_width="match_parent"
         android:src="@drawable/ic_nodata"
         android:layout_centerInParent="true"
+        android:visibility="gone"
         android:id="@+id/ivNoData"
         android:layout_height="@dimen/_205sdp"/>
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/recvLeadsApproved"
+        tools:listitem="@layout/item_user_lead"
+        android:layout_alignParentTop="true"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        tools:itemCount="1"
+        android:layout_height="wrap_content"/>
 </RelativeLayout>

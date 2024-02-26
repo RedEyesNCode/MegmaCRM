@@ -7,6 +7,8 @@ import com.redeyesncode.crmfinancegs.network.RetrofitInstance
 import com.redeyesncode.crmfinancegs.ui.activity.LeadDocumentActivity
 import com.redeyesncode.crmfinancegs.ui.activity.LeadSearchActivity
 import com.redeyesncode.crmfinancegs.ui.activity.LoginActivity
+import com.redeyesncode.crmfinancegs.ui.activity.VisitSearchActivity
+import com.redeyesncode.crmfinancegs.ui.fragment.ApproveFragment
 import com.redeyesncode.crmfinancegs.ui.fragment.CreateVisitBottomSheet
 import com.redeyesncode.crmfinancegs.ui.fragment.LeadsFragment
 import com.redeyesncode.crmfinancegs.ui.fragment.VisitFragment
@@ -28,6 +30,9 @@ interface DaggerComp {
 
     fun injectLeadFragment(fragment:LeadsFragment)
 
+    fun injectApproveFragment(fragment:ApproveFragment)
+
+    fun injectVisitSearch(visitSearchActivity: VisitSearchActivity)
 
     fun injectCreateVisitBottomSheet(createVisitBottomSheet: CreateVisitBottomSheet)
 

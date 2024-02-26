@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
 open class RetrofitInstance {
 
     //    val BASE_URL = "http://localhost:6969/"
-    val BASE_URL = "http://3.109.46.48:4444/"
+    val BASE_URL = "https://gsfinance.app:3577/"
 
     @Provides
     fun provideRetrofit(): Retrofit {

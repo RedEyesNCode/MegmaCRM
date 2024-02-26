@@ -26,6 +26,7 @@ data class UserLeadResponse(@SerializedName("status"  ) var status  : String?   
         @SerializedName("aadhar_back"    ) var aadharBack     : String? = null,
         @SerializedName("pancard"        ) var pancard        : String? = null,
         @SerializedName("selfie"         ) var selfie         : String? = null,
+        @SerializedName("leadAmount"         ) var leadAmount         : String? = null,
         @SerializedName("createdAt"         ) var createdAt         : String? = null,
         @SerializedName("leadStatus"     ) var leadStatus     : String? = null
 

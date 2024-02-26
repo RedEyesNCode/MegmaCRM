@@ -6,6 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.redeyesncode.crmfinancegs.R
+import com.redeyesncode.crmfinancegs.base.BaseFragment
+import com.redeyesncode.crmfinancegs.data.LoginUserResponse
+import com.redeyesncode.crmfinancegs.data.UserLeadResponse
+import com.redeyesncode.crmfinancegs.databinding.FragmentApproveBinding
+import com.redeyesncode.crmfinancegs.ui.adapter.UserLeadAdapter
+import com.redeyesncode.crmfinancegs.ui.viewmodel.MainViewModel
+import com.redeyesncode.gsfinancenbfc.base.Event
+import com.redeyesncode.moneyview.base.AndroidApp
+import com.redeyesncode.redbet.session.AppSession
+import com.redeyesncode.redbet.session.Constant
+import javax.inject.Inject
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,10 +28,21 @@ private const val ARG_PARAM2 = "param2"
  * Use the [ApproveFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ApproveFragment : Fragment() {
+class ApproveFragment : BaseFragment(),UserLeadAdapter.onClick {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var binding:FragmentApproveBinding
+
+    override fun onLeadInfo(data: UserLeadResponse.Data) {
+
+        val createVisitBottomSheet = LeadInfoBottomSheet(requireContext(),data)
+        createVisitBottomSheet.show(requireFragmentManager(),"LEAD-INFO")
+    }
+
+    @Inject
+    lateinit var mainViewModel: MainViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +56,56 @@ class ApproveFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        binding = FragmentApproveBinding.inflate(layoutInflater)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_approve, container, false)
+
+        (activity?.application as AndroidApp).getDaggerComponent().injectApproveFragment(this@ApproveFragment)
+        attachObservers()
+        initialApiCall()
+
+        return binding.root
+    }
+
+    private fun initialApiCall() {
+        val user = AppSession(requireContext()).getObject(
+            Constant.USER_LOGIN,
+            LoginUserResponse::class.java) as LoginUserResponse
+        val userLeadMap = hashMapOf<String,String>()
+        userLeadMap.put("userId",user.data?.userId.toString())
+        mainViewModel.getUserApprovedLeads(userLeadMap)
+
+    }
+
+    private fun attachObservers() {
+        mainViewModel.responseUserApprovedLead.observe(viewLifecycleOwner,Event.EventObserver(
+
+            onLoading = {
+                showLoadingDialog()
+            },
+            onError = {
+                dismissLoadingDialog()
+                showToast(it)
+                binding.ivNoData.visibility = View.VISIBLE
+                binding.recvLeadsApproved.visibility = View.GONE
+            },
+            onSuccess = {
+                dismissLoadingDialog()
+
+
+                binding.ivNoData.visibility = View.GONE
+                binding.recvLeadsApproved.visibility = View.VISIBLE
+                binding.recvLeadsApproved.apply {
+                    adapter = UserLeadAdapter(fragmentContext,it.data,this@ApproveFragment)
+                }
+
+
+            }
+
+        ))
+
+
+
     }
 
     companion object {

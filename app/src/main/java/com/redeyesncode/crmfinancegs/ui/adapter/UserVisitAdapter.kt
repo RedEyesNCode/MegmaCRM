@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
 import com.redeyesncode.crmfinancegs.databinding.ItemVisitUserBinding
 
@@ -42,6 +43,13 @@ class UserVisitAdapter(var context: Context,var data:ArrayList<UserVisitResponse
     override fun getItemCount(): Int {
         return data.size
     }
+
+    fun updateData(filteredData: java.util.ArrayList<UserVisitResponse.Data>) {
+        data = filteredData
+        notifyDataSetChanged()
+
+    }
+
     interface onClick{
 
         fun onViewSelfie(data: UserVisitResponse.Data)

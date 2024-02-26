@@ -22,6 +22,8 @@ interface DashboardRepo {
     suspend fun filterLeads( hashMap: HashMap<String,String>):Resource<FilterLeadsResponse>
 
     suspend fun createCustomerLead( bodyCreateVisit: BodyCreateLead):Resource<CommonMessageResponse>
+    suspend fun getUserApprovedLeads( hashMap: HashMap<String, String>):Resource<UserLeadResponse>
+    suspend fun filterVisits( hashMap: HashMap<String,String>):Resource<UserVisitResponse>
 
 
     suspend fun createCustomerVisit( bodyCreateVisit: BodyCreateVisit):Resource<CommonMessageResponse>

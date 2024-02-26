@@ -40,6 +40,11 @@ interface ApiInterface {
 
     @POST("megma-crm/filter-leads")
     suspend fun filterLeads(@Body hashMap: HashMap<String,String>):Response<FilterLeadsResponse>
+    @POST("megma-crm/filter-visits")
+    suspend fun filterVisits(@Body hashMap: HashMap<String,String>):Response<UserVisitResponse>
+
+    @POST("megma-crm/get-user-approved-leads")
+    suspend fun getUserApprovedLeads(@Body hashMap: HashMap<String, String>):Response<UserLeadResponse>
 
     @Multipart
     @POST("megma-crm/upload-file")

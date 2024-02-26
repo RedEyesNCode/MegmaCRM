@@ -89,8 +89,16 @@ class DashboardActivity : BaseActivity(),NavigationView.OnNavigationItemSelected
         }
 
         binding.ivSearch.setOnClickListener {
-            val intentSearch = Intent(this@DashboardActivity,LeadSearchActivity::class.java)
-            startActivity(intentSearch)
+            // apply checks for leads and visit filter.
+            if(navController.currentDestination?.id==R.id.leadsFragment || navController.currentDestination?.id==R.id.approveFragment){
+                val intentSearch = Intent(this@DashboardActivity,LeadSearchActivity::class.java)
+                startActivity(intentSearch)
+
+            }else if(navController.currentDestination?.id==R.id.visitFragment){
+
+                val intentSearch = Intent(this@DashboardActivity,VisitSearchActivity::class.java)
+                startActivity(intentSearch)
+            }
 
         }
 
@@ -142,7 +150,7 @@ class DashboardActivity : BaseActivity(),NavigationView.OnNavigationItemSelected
 
     private fun setupNavController() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_dashboard) as NavHostFragment
-        val navController = navHostFragment.navController
+         navController = navHostFragment.navController
         NavigationUI.setupWithNavController(binding.bottomNavView, navController)
 
     }

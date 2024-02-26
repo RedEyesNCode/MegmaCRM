@@ -2,11 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.activity.LeadSearchActivity">
-
+    tools:context=".ui.activity.VisitSearchActivity">
     <androidx.appcompat.widget.Toolbar
         android:layout_alignParentTop="true"
         android:layout_width="match_parent"
@@ -37,15 +36,27 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:src="@drawable/ic_nodata"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:id="@+id/ivNoData"
+        android:layout_height="@dimen/_205sdp"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:id="@+id/recvLeads"
-        tools:itemCount="4"
+        android:id="@+id/recvVisit"
         tools:listitem="@layout/item_user_lead"
+        tools:itemCount="1"
         android:layout_below="@id/toolbar"
-        android:visibility="visible"
-        android:layout_height="match_parent"/>
+        android:layout_centerHorizontal="true"
 
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        app:spanCount="2"
+        android:layout_height="wrap_content"/>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:src="@drawable/filter_solid"
@@ -55,11 +66,4 @@
         android:layout_margin="@dimen/_25sdp"
 
         android:layout_height="wrap_content"/>
-
-
-
-
-
-
-
 </RelativeLayout>

@@ -8,6 +8,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.location.Geocoder
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
@@ -20,7 +21,6 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.redeyesncode.crmfinancegs.base.BaseFragment
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.databinding.LayoutBottomSheetCreateVisitBinding
@@ -32,7 +32,9 @@ import com.redeyesncode.redbet.session.Constant
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
+import java.util.Locale
 import javax.inject.Inject
+
 
 class CreateVisitBottomSheet(var mContext: Context):BottomSheetDialogFragment() {
 
@@ -211,6 +213,7 @@ class CreateVisitBottomSheet(var mContext: Context):BottomSheetDialogFragment() 
     private fun getLocation() {
         // Code to get the latitude and longitude goes here.
         val fusedLocationClient: FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireActivity())
+        val geocoder = Geocoder(requireContext(), Locale.getDefault())
 
 // Get the last known location
         fusedLocationClient.lastLocation
@@ -220,6 +223,12 @@ class CreateVisitBottomSheet(var mContext: Context):BottomSheetDialogFragment() 
                     val longitude = location.longitude
                     binding.editTextLatitude.setText("${latitude}")
                     binding.editTextLongitude.setText("${longitude}")
+                    try {
+                        binding.editTextAddress.setText(geocoder.getFromLocation(latitude,longitude,10)?.get(0)?.getAddressLine(0))
+
+                    }catch (e:Exception){
+                        binding.editTextAddress.setText("Unable to autofill address")
+                    }
 
                     // Use latitude and longitude as needed.
                 }else{
