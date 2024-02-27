@@ -21,6 +21,31 @@ import retrofit2.Response
 class DefaultDashboardRepo : DashboardRepo {
 
 
+    override suspend fun updateMpass(updateMPass: HashMap<String, String>): Resource<CommonMessageResponse> {
+
+        return safeCall {
+            safeCall {
+                val response =
+                    RetrofitInstance().provideApiService(RetrofitInstance().provideRetrofit()).updateMpass(updateMPass)
+
+                if(response.isSuccessful){
+                    Resource.Success(response.body()!!)
+
+                }else{
+                    val errorBody = response.errorBody()?.string()
+                    val errorJson = JSONObject(errorBody!!)
+
+                    val status = errorJson.getString("status")
+                    val code = errorJson.getInt("code")
+                    val message = errorJson.getString("message")
+
+                    Resource.Error("Status: $status, Code: $code, Message: $message")
+
+                }
+            }
+        }
+    }
+
     override suspend fun checkLoginLoanUser(
         signUpLoanUrl: String,
         hashMap: HashMap<String, String>

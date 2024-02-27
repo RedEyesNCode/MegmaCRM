@@ -81,6 +81,17 @@
                         android:textColor="@color/black"
                         style="@style/SmallTextView"/>
                     <TextView
+                        android:id="@+id/tvNUMBER"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:drawableTint="@color/black"
+                        android:fontFamily="@font/sora_regular"
+                        android:textColor="@color/black"
+                        style="@style/SmallTextView"/>
+                    <TextView
                         android:id="@+id/tvLeadAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

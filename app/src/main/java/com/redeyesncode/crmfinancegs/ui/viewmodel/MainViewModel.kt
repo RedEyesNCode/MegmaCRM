@@ -65,6 +65,16 @@ class MainViewModel(private val dashboardRepo: DefaultDashboardRepo): ViewModel(
     val responseCheckLoginLoanUser : LiveData<Event<Resource<LoanUserLoginResponse>>> = _responseCheckLoginLoanUser
 
 
+    private val _responseUpdateMpass = MutableLiveData<Event<Resource<CommonMessageResponse>>>()
+    val responseUpdateMpass : LiveData<Event<Resource<CommonMessageResponse>>> = _responseUpdateMpass
+    fun updateMpass(hashMap: HashMap<String,String>){
+        _responseUpdateMpass.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main){
+            val result = dashboardRepo.updateMpass(hashMap)
+            _responseUpdateMpass.postValue(Event(result))
+        }
+
+    }
     fun submitKycRequestUser(applyKycUrl:String,imageFileAadharFront: File, imageFileAadharBack:File, imageFilePan:File, fileSelfie:File, eSign:File?, bankStatement:File?, kycDetails: KycDetails, userId: String){
         val filePart: MultipartBody.Part = MultipartBody.Part.createFormData(
             "adhar_front",

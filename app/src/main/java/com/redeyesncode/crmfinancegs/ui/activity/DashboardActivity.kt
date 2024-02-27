@@ -1,11 +1,17 @@
 package com.redeyesncode.crmfinancegs.ui.activity
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.text.InputType
 import android.view.MenuItem
+import android.view.ViewGroup
+import android.widget.EditText
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -16,22 +22,102 @@ import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.textfield.TextInputLayout
 import com.redeyesncode.crmfinancegs.R
+import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.databinding.ActivityDashboardBinding
+import com.redeyesncode.crmfinancegs.ui.viewmodel.MainViewModel
 import com.redeyesncode.gsfinancenbfc.base.BaseActivity
+import com.redeyesncode.gsfinancenbfc.base.Event
+import com.redeyesncode.moneyview.base.AndroidApp
+import com.redeyesncode.redbet.session.AppSession
+import com.redeyesncode.redbet.session.Constant
+import javax.inject.Inject
 
 class DashboardActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var binding:ActivityDashboardBinding
 
     private lateinit var navController: NavController
+
+    @Inject
+    lateinit var mainViewModel: MainViewModel
+
+
+
     private val backgrounds = listOf(
         R.drawable.background_bottom_blue_rounded,
         R.drawable.background_bottom_yellow_rounded,
         // Add more drawables as needed
     )
     private val handler = Handler(Looper.getMainLooper())
+    fun createUpdatePasswordTextInputLayout(context: Context): TextInputLayout {
+        // Create TextInputLayout
+        val textInputLayout = TextInputLayout(context)
 
+        // Set margin for TextInputLayout
+        val layoutParams = ViewGroup.MarginLayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        val marginInPixels = context.resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._15sdp)
+        layoutParams.setMargins(marginInPixels, 0, marginInPixels, 0)
+        textInputLayout.layoutParams = layoutParams
+
+        // Create EditText for password
+        val editTextPassword = EditText(context)
+        editTextPassword.hint = "New mPass (5 Digit)"
+        editTextPassword.inputType = InputType.TYPE_CLASS_NUMBER
+        editTextPassword.maxEms = 5 // Set maximum length to 5 characters
+
+        // You can customize the appearance or add more configurations as needed
+        editTextPassword.setTextColor(ContextCompat.getColor(context, android.R.color.black))
+        editTextPassword.setHintTextColor(ContextCompat.getColor(context, android.R.color.darker_gray))
+
+        // Add EditText to TextInputLayout
+        textInputLayout.addView(editTextPassword)
+
+        // Set up other configurations for TextInputLayout
+        textInputLayout.isPasswordVisibilityToggleEnabled = true
+
+        return textInputLayout
+    }    fun showUpdatePasswordDialog(context: Context) {
+        // Create TextInputLayout
+        val textInputLayout = createUpdatePasswordTextInputLayout(context)
+
+        // Create AlertDialog
+        val alertDialogBuilder = AlertDialog.Builder(context)
+        alertDialogBuilder.setTitle("Update MPass")
+        alertDialogBuilder.setView(textInputLayout)
+
+        // Add positive and negative buttons as needed
+        alertDialogBuilder.setPositiveButton("Update") { dialog, which ->
+            // Handle the password update logic here
+            val newPassword = textInputLayout.editText?.text.toString()
+            // Perform necessary actions with the new password
+            if(newPassword.isEmpty()){
+                showToast("Please enter password")
+            }else if(newPassword.length<5){
+                showToast("Min Length of password is 5.")
+            }else{
+                val user = AppSession(this@DashboardActivity).getObject(
+                    Constant.USER_LOGIN,
+                    LoginUserResponse::class.java) as LoginUserResponse
+                val updateMpassMap = hashMapOf<String,String>()
+                updateMpassMap.put("updatedMPass",newPassword)
+                updateMpassMap.put("userId",user.data?.userId.toString())
+                mainViewModel.updateMpass(updateMpassMap)
+
+            }
+
+        }
+        alertDialogBuilder.setNegativeButton("Cancel") { dialog, which ->
+            // Handle cancellation or any other action
+        }
+
+        // Show the dialog
+        alertDialogBuilder.show()
+    }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         if(item.itemId==R.id.navPrivacyPolicy){
@@ -64,7 +150,10 @@ class DashboardActivity : BaseActivity(),NavigationView.OnNavigationItemSelected
             intentApplyLoan.putExtra("URL","http://gsfinance.in/contact.html")
             startActivity(intentApplyLoan)
             return true
-        } else{
+        } else if(item.itemId==R.id.updateMPass){
+            showUpdatePasswordDialog(this@DashboardActivity)
+            return true
+        }else{
             return false
         }
     }
@@ -81,7 +170,9 @@ class DashboardActivity : BaseActivity(),NavigationView.OnNavigationItemSelected
         binding.navView.setNavigationItemSelectedListener(this)
 
         setupDashBanner()
+        (application as AndroidApp).getDaggerComponent().injectDashboardActivity(this@DashboardActivity)
 
+        attachObservers()
         binding.ivOpenNav.setOnClickListener {
 
             binding.mainDrawer.openDrawer(GravityCompat.START)
@@ -105,6 +196,30 @@ class DashboardActivity : BaseActivity(),NavigationView.OnNavigationItemSelected
 
 
         setContentView(binding.root)
+
+    }
+
+    private fun attachObservers() {
+        mainViewModel.responseUpdateMpass.observe(this,Event.EventObserver(
+
+            onLoading = {
+                showLoadingDialog()
+            },
+            onSuccess = {
+                hideLoadingDialog()
+                showToast(it.message.toString())
+                val loginIntent = Intent(this@DashboardActivity,LoginActivity::class.java)
+                loginIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+                startActivity(loginIntent)
+
+            },
+            onError = {
+                hideLoadingDialog()
+            }
+
+        ))
+
 
     }
 

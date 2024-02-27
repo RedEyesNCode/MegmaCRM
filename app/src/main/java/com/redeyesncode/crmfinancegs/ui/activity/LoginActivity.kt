@@ -43,7 +43,7 @@ class LoginActivity : BaseActivity() {
         val mPass = AppSession(this@LoginActivity).getString(Constant.MPASS)
 
         binding.edtEmployeeID.setText(empId)
-        binding.edtMPass.setText(mPass)
+//        binding.edtMPass.setText(mPass)
 
     }
 

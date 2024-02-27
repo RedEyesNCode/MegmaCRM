@@ -498,7 +498,8 @@
                     android:id="@+id/edtPincode"
                     android:textSize="@dimen/_14sdp"
 
-                    android:inputType="textNoSuggestions"
+                    android:inputType="number"
+                    android:maxLength="5"
                     android:imeOptions="actionDone"
 
 

@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.redeyesncode.crmfinancegs.R
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.databinding.ItemUserLeadBinding
+import java.text.SimpleDateFormat
+import java.util.Locale
+import java.util.TimeZone
 
 class UserLeadAdapter(var context: Context,var data :ArrayList<UserLeadResponse.Data>,var onActivityClick:UserLeadAdapter.onClick) :RecyclerView.Adapter<UserLeadAdapter.MyViewholder>(){
 
@@ -24,7 +27,17 @@ class UserLeadAdapter(var context: Context,var data :ArrayList<UserLeadResponse.
 
         return MyViewholder(binding)
     }
+    fun convertUtcToIst(utcDateString: String): String {
+        val utcFormatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSS", Locale.ENGLISH)
+        utcFormatter.timeZone = TimeZone.getTimeZone("UTC")
 
+        val utcDate = utcFormatter.parse(utcDateString)
+
+        val istFormatter = SimpleDateFormat("dd/MM/yyyy, hh:mm:ss a", Locale.ENGLISH)
+        istFormatter.timeZone = TimeZone.getTimeZone("Asia/Kolkata")
+
+        return istFormatter.format(utcDate)
+    }
     override fun onBindViewHolder(holder: MyViewholder, position: Int) {
         val data = data[position]
 
@@ -32,10 +45,11 @@ class UserLeadAdapter(var context: Context,var data :ArrayList<UserLeadResponse.
 
             tvFirstName.text = "Name : ${data.firstname.toString()} ${data.lastname.toString()}"
             tvLeadId.text = "Lead ID : ${data.leadId.toString()}"
-            tvDob.text = "Created At : ${data.createdAt.toString()}"
+            tvDob.text = "Created At : ${convertUtcToIst(data.createdAt.toString())}"
             tvPincode.text = "Pincode :${data.pincode.toString()}"
             tvState.text = "State : ${data.state.toString()}"
             tvGender.text = "Gender : ${data.gender.toString()}"
+            tvNUMBER.text = "Number : ${data.relativeNumber.toString()}"
             val leadStatus = data.leadStatus.toString()
 
             if(leadStatus.equals("PENDING")){

@@ -107,6 +107,9 @@ class CreateLoanUserBottonSheet(var mContext:Context):BottomSheetDialogFragment(
     }
 
     private fun initClicks() {
+        binding.ivClose.setOnClickListener {
+            dismiss()
+        }
 
         binding.btnLogin.setOnClickListener {
             if(binding.edtEmail.text.toString().isEmpty()){

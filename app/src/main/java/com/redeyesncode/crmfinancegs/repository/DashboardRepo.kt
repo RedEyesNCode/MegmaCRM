@@ -18,7 +18,7 @@ import retrofit2.http.Body
 import retrofit2.http.Url
 
 interface DashboardRepo {
-
+    suspend fun updateMpass( updateMPass:HashMap<String,String>):Resource<CommonMessageResponse>
     suspend fun loginUser( loginUserMap:HashMap<String,String>) :Resource<LoginUserResponse>
     suspend fun getUserLeads( loginUserMap:HashMap<String,String>) :Resource<UserLeadResponse>
     suspend fun getUserVisits( loginUserMap:HashMap<String,String>) : Resource<UserVisitResponse>

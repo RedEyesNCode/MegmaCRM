@@ -13,6 +13,9 @@ import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
 import com.redeyesncode.crmfinancegs.databinding.ImageDialogBinding
 import com.redeyesncode.crmfinancegs.databinding.LayoutLeadInfoBinding
+import java.text.SimpleDateFormat
+import java.util.Locale
+import java.util.TimeZone
 
 class LeadInfoBottomSheet(var mContext: Context,var data:UserLeadResponse.Data):BottomSheetDialogFragment() {
 
@@ -82,6 +85,7 @@ class LeadInfoBottomSheet(var mContext: Context,var data:UserLeadResponse.Data):
             tvCurrentAddress.text = data.currentAddress.toString()
             tvState.text = data.state.toString()
             tvLeadStatus.text = data.leadStatus.toString()
+            tvCreatedAt.text = convertUtcToIst(data.createdAt.toString())
 
 
 
@@ -101,5 +105,15 @@ class LeadInfoBottomSheet(var mContext: Context,var data:UserLeadResponse.Data):
 
         return binding.root
     }
+    fun convertUtcToIst(utcDateString: String): String {
+        val utcFormatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSS", Locale.ENGLISH)
+        utcFormatter.timeZone = TimeZone.getTimeZone("UTC")
 
+        val utcDate = utcFormatter.parse(utcDateString)
+
+        val istFormatter = SimpleDateFormat("dd/MM/yyyy, hh:mm:ss a", Locale.ENGLISH)
+        istFormatter.timeZone = TimeZone.getTimeZone("Asia/Kolkata")
+
+        return istFormatter.format(utcDate)
+    }
 }

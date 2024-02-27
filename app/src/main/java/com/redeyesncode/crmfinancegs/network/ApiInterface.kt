@@ -34,6 +34,9 @@ interface ApiInterface {
 
 
 
+    @POST("megma-crm/update-mpass")
+    suspend fun updateMpass(@Body updateMPass:HashMap<String,String>):Response<CommonMessageResponse>
+
     @POST("megma-crm/create-visit")
     suspend fun createCustomerVisit(@Body bodyCreateVisit: BodyCreateVisit):Response<CommonMessageResponse>
 
