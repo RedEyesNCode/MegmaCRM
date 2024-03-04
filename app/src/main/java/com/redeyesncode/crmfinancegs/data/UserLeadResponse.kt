@@ -15,6 +15,7 @@ data class UserLeadResponse(@SerializedName("status"  ) var status  : String?   
         @SerializedName("middlename"     ) var middlename     : String? = null,
         @SerializedName("dob"            ) var dob            : String? = null,
         @SerializedName("gender"         ) var gender         : String? = null,
+        @SerializedName("mobileNumber"         ) var mobileNumber         : String? = null,
         @SerializedName("pincode"        ) var pincode        : String? = null,
         @SerializedName("userType"       ) var userType       : String? = null,
         @SerializedName("monthlySalary"  ) var monthlySalary  : Int?    = null,

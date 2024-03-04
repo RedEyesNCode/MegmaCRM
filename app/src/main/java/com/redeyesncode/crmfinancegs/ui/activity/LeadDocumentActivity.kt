@@ -53,6 +53,8 @@ class LeadDocumentActivity : BaseActivity() {
         }
 
     val GALLERY_REQUEST_CODE_FRONT = 77
+
+
     val GALLERY_REQUEST_CODE_BACK = 75
     val GALLERY_REQUEST_CODE_PAN = 70
     val GALLERY_REQUEST_CODE_SELFIE =76
@@ -104,19 +106,23 @@ class LeadDocumentActivity : BaseActivity() {
                 hideLoadingDialog()
 
                 showCustomDialog("Info",it.message.toString())
-
-                val applyKycUrl = "https://megmagroup.loan/newApi/api/kyc"
-                val kycDetails = AppSession(this@LeadDocumentActivity).getObject(Constant.BODY_APPLY_KYC,
-                    KycDetails::class.java) as KycDetails
-                kycDetails.pan_number = binding.edtPancard.text.toString().uppercase()
-
-                kycDetails.adhar_number = kycDetails.relativeNumber.toString().uppercase()
-                kycDetails.relativeNumber = removeMinusSign(binding.edtAadharNumber.text.toString().uppercase())
-                val user = AppSession(this@LeadDocumentActivity).getObject(Constant.RESPONSE_CREATE_LOAN_USER,
-                    LoanUserLoginResponse::class.java) as LoanUserLoginResponse
-                showToast("KYC USER ID ${user.user?.id.toString()}")
-                showToast("KYC USER ID ${user.user?.id.toString()}")
-                mainViewModel.submitKycRequestUser(applyKycUrl,aadharFront!!,aadharBack!!,panCard!!,selfie!!,selfie!!,selfie,kycDetails,user.user?.id.toString())
+                Handler().postDelayed(Runnable {
+                    val intentDashboard = Intent(this@LeadDocumentActivity,DashboardActivity::class.java)
+                    intentDashboard.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK and Intent.FLAG_ACTIVITY_NEW_TASK
+                    startActivity(intentDashboard)
+                },2000)
+//                val applyKycUrl = "https://megmagroup.loan/newApi/api/kyc"
+//                val kycDetails = AppSession(this@LeadDocumentActivity).getObject(Constant.BODY_APPLY_KYC,
+//                    KycDetails::class.java) as KycDetails
+//                kycDetails.pan_number = binding.edtPancard.text.toString().uppercase()
+//
+//                kycDetails.adhar_number = kycDetails.relativeNumber.toString().uppercase()
+//                kycDetails.relativeNumber = removeMinusSign(binding.edtAadharNumber.text.toString().uppercase())
+//                val user = AppSession(this@LeadDocumentActivity).getObject(Constant.RESPONSE_CREATE_LOAN_USER,
+//                    LoanUserLoginResponse::class.java) as LoanUserLoginResponse
+//                showToast("KYC USER ID ${user.user?.id.toString()}")
+//                showToast("KYC USER ID ${user.user?.id.toString()}")
+//                mainViewModel.submitKycRequestUser(applyKycUrl,aadharFront!!,aadharBack!!,panCard!!,selfie!!,selfie!!,selfie,kycDetails,user.user?.id.toString())
 
 
             },
@@ -196,6 +202,8 @@ class LeadDocumentActivity : BaseActivity() {
                     bodyCreateLead.aadharFront = adharFrontUrl
                     bodyCreateLead.pancard_img = panCardUrl
                     bodyCreateLead.aadhar = binding.edtAadharNumber.text.toString()
+                    bodyCreateLead.customerLoanAmount = binding.edtCustomerLoanAmount.text.toString()
+                    bodyCreateLead.empApproveAmount = binding.edtEmpApproveAmount.text.toString()
                     mainViewModel.createUserLead(bodyCreateLead)
 
                 }
@@ -235,8 +243,9 @@ class LeadDocumentActivity : BaseActivity() {
 
 
         binding.tvSelfie.setOnClickListener {
-            showToast("CAMERA ONLY")
-            openCamera(CAMERA_REQUEST_CODE_SELFIE)
+
+            showOptionsDialog(this@LeadDocumentActivity,GALLERY_REQUEST_CODE_SELFIE,CAMERA_REQUEST_CODE_SELFIE)
+
 
         }
 
@@ -257,7 +266,11 @@ class LeadDocumentActivity : BaseActivity() {
             }else if(binding.edtPancard.text.toString().length<10){
                 showCustomDialog("Info","Please enter VALID pan card number")
 
-            }else if(panCard==null){
+            }else if(binding.edtCustomerLoanAmount.text.toString().isEmpty()){
+                showCustomDialog("Info","Please enter customer loan amount")
+            }else if(binding.edtEmpApproveAmount.text.toString().isEmpty()){
+                showCustomDialog("Info","Please enter emp approved amount.")
+            } else if(panCard==null){
                 showCustomDialog("Info","Please select pan image")
 
             }else if(aadharBack==null){

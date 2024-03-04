@@ -57,6 +57,10 @@ interface ApiInterface {
     @POST
     suspend fun checkLoginLoanUser(@Url signUpLoanUrl:String,@Body hashMap: HashMap<String, String>):Response<LoanUserLoginResponse>
 
+
+    @POST("megma-crm/check-unique-lead")
+    suspend fun checkUniqueLead(@Body map:HashMap<String,String>):Response<CommonMessageResponse>
+
     @Multipart
     @POST
     suspend fun submitKYCRequest(

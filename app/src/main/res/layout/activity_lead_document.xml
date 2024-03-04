@@ -120,6 +120,72 @@
 
 
             </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Customer Loan Demand"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                app:hintTextAppearance="@style/MediumTextView"
+
+                android:layout_marginTop="@dimen/_10sdp"
+
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:boxBackgroundMode="filled"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColorHint="@android:color/darker_gray"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:id="@+id/edtCustomerLoanAmount"
+                    android:textSize="@dimen/_14sdp"
+
+                    android:inputType="number"
+                    android:maxLength="20"
+                    android:imeOptions="actionDone"
+
+
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Employee Approved Amount"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                app:hintTextAppearance="@style/MediumTextView"
+
+                android:layout_marginTop="@dimen/_10sdp"
+
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:boxBackgroundMode="filled"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColorHint="@android:color/darker_gray"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:id="@+id/edtEmpApproveAmount"
+                    android:textSize="@dimen/_14sdp"
+
+                    android:inputType="number"
+                    android:maxLength="20"
+                    android:imeOptions="actionDone"
+
+
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
@@ -152,7 +218,7 @@
                             android:layout_width="wrap_content"
                             android:layout_toEndOf="@id/ivDoc"
                             android:textColor="@color/black"
-                            android:text="Selfie*"
+                            android:text="Selfie with Shop*"
                             android:layout_margin="@dimen/_8sdp"
                             android:textAllCaps="false"
                             android:fontFamily="@font/sora_bold"
@@ -393,6 +459,97 @@
             </com.google.android.material.card.MaterialCardView>
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
+                app:cardUseCompatPadding="true"
+                app:cardBackgroundColor="@color/white"
+                android:visibility="visible"
+
+                app:cardElevation="@dimen/_6sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:background="@drawable/background_blue_border"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_width="@dimen/_45sdp"
+                            android:src="@drawable/ic_nsdl"
+
+                            android:layout_alignParentStart="true"
+                            android:layout_height="@dimen/_45sdp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_toEndOf="@id/ivDoc"
+                            android:textColor="@color/black"
+                            android:text="Pan Card*"
+                            android:layout_margin="@dimen/_8sdp"
+                            android:textAllCaps="false"
+                            android:fontFamily="@font/sora_bold"
+                            style="@style/MediumTextView"
+
+                            android:layout_height="wrap_content"/>
+
+
+                    </LinearLayout>
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:layout_width="match_parent"
+                        app:riv_corner_radius="@dimen/_8sdp"
+                        app:riv_border_width="@dimen/_2sdp"
+                        android:scaleType="centerCrop"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:id="@+id/ivPancardPreview"
+                        android:src="@drawable/ic_placeholder"
+
+                        app:riv_border_color="@color/blue"
+                        android:layout_height="@dimen/_100sdp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:background="@drawable/dotted_line_grey"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textAlignment="center"
+                        android:textColor="@color/grey_light"
+                        android:text="Choose Pan Image"
+                        android:id="@+id/tvPanCard"
+
+                        android:textAllCaps="false"
+                        android:fontFamily="@font/sora_bold"
+                        style="@style/normalBodyTextView"
+
+
+                        android:layout_height="wrap_content"/>
+
+                    <!--  <androidx.appcompat.widget.AppCompatButton
+                          android:layout_width="wrap_content"
+                          android:textColor="@color/white"
+                          android:text="Done"
+                          android:id="@+id/btnPanCard"
+
+                          android:textAllCaps="false"
+                          android:enabled="false"
+
+                          android:paddingHorizontal="@dimen/_105sdp"
+                          android:layout_gravity="center"
+                          android:drawablePadding="@dimen/_4sdp"
+                          android:layout_margin="@dimen/_10sdp"
+                          android:background="@drawable/button_selector_green"
+                          android:layout_height="wrap_content"/>-->
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
                 android:visibility="visible"
 
                 app:cardUseCompatPadding="true"
@@ -482,96 +639,6 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                app:cardUseCompatPadding="true"
-                app:cardBackgroundColor="@color/white"
-                android:visibility="visible"
-
-                app:cardElevation="@dimen/_6sdp"
-                app:cardCornerRadius="@dimen/_8sdp"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:background="@drawable/background_blue_border"
-                    android:orientation="vertical"
-                    android:padding="@dimen/_10sdp"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_height="wrap_content">
-                        <ImageView
-                            android:layout_width="@dimen/_45sdp"
-                            android:src="@drawable/ic_nsdl"
-
-                            android:layout_alignParentStart="true"
-                            android:layout_height="@dimen/_45sdp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_toEndOf="@id/ivDoc"
-                            android:textColor="@color/black"
-                            android:text="Pan Card*"
-                            android:layout_margin="@dimen/_8sdp"
-                            android:textAllCaps="false"
-                            android:fontFamily="@font/sora_bold"
-                            style="@style/MediumTextView"
-
-                            android:layout_height="wrap_content"/>
-
-
-                    </LinearLayout>
-
-                    <com.makeramen.roundedimageview.RoundedImageView
-                        android:layout_width="match_parent"
-                        app:riv_corner_radius="@dimen/_8sdp"
-                        app:riv_border_width="@dimen/_2sdp"
-                        android:scaleType="centerCrop"
-                        android:layout_margin="@dimen/_2sdp"
-                        android:id="@+id/ivPancardPreview"
-                        android:src="@drawable/ic_placeholder"
-
-                        app:riv_border_color="@color/blue"
-                        android:layout_height="@dimen/_100sdp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:background="@drawable/dotted_line_grey"
-                        android:layout_margin="@dimen/_5sdp"
-                        android:padding="@dimen/_10sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:textAlignment="center"
-                        android:textColor="@color/grey_light"
-                        android:text="Choose Pan Image"
-                        android:id="@+id/tvPanCard"
-
-                        android:textAllCaps="false"
-                        android:fontFamily="@font/sora_bold"
-                        style="@style/normalBodyTextView"
-
-
-                        android:layout_height="wrap_content"/>
-
-                    <!--  <androidx.appcompat.widget.AppCompatButton
-                          android:layout_width="wrap_content"
-                          android:textColor="@color/white"
-                          android:text="Done"
-                          android:id="@+id/btnPanCard"
-
-                          android:textAllCaps="false"
-                          android:enabled="false"
-
-                          android:paddingHorizontal="@dimen/_105sdp"
-                          android:layout_gravity="center"
-                          android:drawablePadding="@dimen/_4sdp"
-                          android:layout_margin="@dimen/_10sdp"
-                          android:background="@drawable/button_selector_green"
-                          android:layout_height="wrap_content"/>-->
-                </LinearLayout>
-
-
-            </com.google.android.material.card.MaterialCardView>
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="match_parent"
                 android:textColor="@color/white"

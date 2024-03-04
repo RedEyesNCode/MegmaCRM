@@ -67,6 +67,24 @@ class MainViewModel(private val dashboardRepo: DefaultDashboardRepo): ViewModel(
 
     private val _responseUpdateMpass = MutableLiveData<Event<Resource<CommonMessageResponse>>>()
     val responseUpdateMpass : LiveData<Event<Resource<CommonMessageResponse>>> = _responseUpdateMpass
+
+
+
+    private val _responseCheckUniqueLead = MutableLiveData<Event<Resource<CommonMessageResponse>>>()
+    val responseCheckUniqueLead : LiveData<Event<Resource<CommonMessageResponse>>> = _responseCheckUniqueLead
+
+
+    fun checkUniqueLead(map:HashMap<String,String>){
+
+        _responseCheckUniqueLead.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main){
+            val result = dashboardRepo.checkUniqueLead(map)
+            _responseCheckUniqueLead.postValue(Event(result))
+        }
+
+
+    }
+
     fun updateMpass(hashMap: HashMap<String,String>){
         _responseUpdateMpass.postValue(Event(Resource.Loading()))
         viewModelScope.launch(Dispatchers.Main){

@@ -26,7 +26,7 @@
             android:layout_marginEnd="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
             android:fontFamily="@font/sora_bold"
-            android:text="Create New User For GS Loan App"
+            android:text="Check User"
             android:textColor="@color/black" />
         <TextView
             style="@style/SmallTextView"
@@ -37,7 +37,7 @@
             android:layout_gravity="start"
             android:layout_marginStart="@dimen/_10sdp"
             android:fontFamily="@font/sora_regular"
-            android:text="We Require this Information to apply kyc on loan app."
+            android:text="We require this information to verify unique user."
             android:textColor="@color/black" />
 
 
@@ -63,10 +63,10 @@
         android:padding="@dimen/_16sdp">
 
         <EditText
-            android:id="@+id/edtEmail"
+            android:id="@+id/edtPanCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Customer Email"
+            android:hint="Pancard Number"
             style="@style/editTextElevated"
             android:inputType="textEmailAddress"
             android:imeOptions="actionNext"/>
@@ -81,15 +81,23 @@
             android:maxLength="10"
 
             android:imeOptions="actionNext"/>
+        <EditText
+            android:id="@+id/edtAadharNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Aadhar Number"
+            style="@style/editTextElevated"
+            android:inputType="number"
+            android:imeOptions="actionNext"/>
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:id="@+id/btnLogin"
-            android:background="@color/yellow"
+            android:background="@android:color/holo_green_dark"
             android:layout_margin="@dimen/_10sdp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             style="@style/MediumTextView"
             android:textAllCaps="false"
-            android:text="Create User"
+            android:text="Check Lead User"
             android:fontFamily="@font/gilroy_extra_bold"
             android:layout_height="wrap_content"/>
     </LinearLayout>

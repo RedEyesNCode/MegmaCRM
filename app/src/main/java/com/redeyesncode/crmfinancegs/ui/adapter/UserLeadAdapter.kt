@@ -49,7 +49,7 @@ class UserLeadAdapter(var context: Context,var data :ArrayList<UserLeadResponse.
             tvPincode.text = "Pincode :${data.pincode.toString()}"
             tvState.text = "State : ${data.state.toString()}"
             tvGender.text = "Gender : ${data.gender.toString()}"
-            tvNUMBER.text = "Number : ${data.relativeNumber.toString()}"
+            tvNUMBER.text = "Number : ${data.mobileNumber.toString()}"
             val leadStatus = data.leadStatus.toString()
 
             if(leadStatus.equals("PENDING")){

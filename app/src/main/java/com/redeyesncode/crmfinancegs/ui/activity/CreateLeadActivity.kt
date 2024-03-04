@@ -129,6 +129,9 @@ class CreateLeadActivity : BaseActivity() {
             showCustomDialog("Info", "Please enter last name")
             return false
 
+        }else if(binding.edtMobileNumber.text.toString().isEmpty()){
+            showCustomDialog("Info","Please enter mobile number")
+            return false
         } else if (binding.edtDOB.text.toString().isEmpty()) {
             showCustomDialog("Info", "Please select date of birth")
             return false
@@ -180,6 +183,7 @@ class CreateLeadActivity : BaseActivity() {
             val bodyCreateLead = BodyCreateLead()
             bodyCreateLead.firstname = binding.edtFirstName.text.toString()
             bodyCreateLead.lastname = binding.edtLastName.text.toString()
+            bodyCreateLead.mobileNumber = binding.edtMobileNumber.text.toString()
             bodyCreateLead.middlename = binding.edtMiddleName.text.toString()
             bodyCreateLead.dob = binding.edtDOB.text.toString()
             bodyCreateLead.email = binding.edtEmail.text.toString()

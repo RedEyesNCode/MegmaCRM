@@ -40,10 +40,12 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/btnLeadStatus"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tvLeadId"
+                        style="@style/MediumTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -52,11 +54,11 @@
                         android:drawableTint="@color/black"
                         android:fontFamily="@font/sora_bold"
                         android:text="Lead ID :"
-                        android:textColor="@color/black"
-                        style="@style/MediumTextView"/>
+                        android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/tvFirstName"
+                        style="@style/SmallTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -65,11 +67,11 @@
                         android:drawableTint="@color/black"
                         android:fontFamily="@font/sora_regular"
                         android:text="Name"
-                        android:textColor="@color/black"
-                        style="@style/SmallTextView"/>
+                        android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/tvDob"
+                        style="@style/SmallTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -78,10 +80,11 @@
                         android:drawableTint="@color/black"
                         android:fontFamily="@font/sora_regular"
                         android:text="Date of Birth :"
-                        android:textColor="@color/black"
-                        style="@style/SmallTextView"/>
+                        android:textColor="@color/black" />
+
                     <TextView
                         android:id="@+id/tvNUMBER"
+                        style="@style/SmallTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -89,13 +92,13 @@
                         android:layout_weight="1"
                         android:drawableTint="@color/black"
                         android:fontFamily="@font/sora_regular"
-                        android:textColor="@color/black"
-                        style="@style/SmallTextView"/>
+                        android:textColor="@color/black" />
+
                     <TextView
                         android:id="@+id/tvLeadAmount"
+                        style="@style/SmallTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:visibility="invisible"
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="10dp"
                         android:layout_weight="1"
@@ -103,12 +106,13 @@
                         android:fontFamily="@font/sora_bold"
                         android:text="Lead Amount"
                         android:textColor="@color/black"
-                        style="@style/SmallTextView"/>
+                        android:visibility="invisible" />
+
                     <TextView
                         android:id="@+id/tvGender"
+                        style="@style/SmallTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:visibility="gone"
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="10dp"
                         android:layout_weight="1"
@@ -116,12 +120,13 @@
                         android:fontFamily="@font/sora_regular"
                         android:text="Gender :"
                         android:textColor="@color/black"
-                        style="@style/SmallTextView"/>
+                        android:visibility="gone" />
+
                     <TextView
                         android:id="@+id/tvState"
+                        style="@style/SmallTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:visibility="gone"
 
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="10dp"
@@ -130,13 +135,14 @@
                         android:fontFamily="@font/sora_regular"
                         android:text="State :"
                         android:textColor="@color/black"
-                        style="@style/SmallTextView"/>
+                        android:visibility="gone" />
+
                     <TextView
                         android:id="@+id/tvPincode"
+                        style="@style/SmallTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:visibility="gone"
 
                         android:layout_marginBottom="10dp"
                         android:layout_weight="1"
@@ -144,7 +150,7 @@
                         android:fontFamily="@font/sora_regular"
                         android:text="PINCODE :"
                         android:textColor="@color/black"
-                        style="@style/SmallTextView"/>
+                        android:visibility="gone" />
                 </LinearLayout>
 
 

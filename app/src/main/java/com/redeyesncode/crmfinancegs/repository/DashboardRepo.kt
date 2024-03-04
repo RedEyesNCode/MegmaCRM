@@ -32,6 +32,10 @@ interface DashboardRepo {
 
     suspend fun checkLoginLoanUser( signUpLoanUrl:String,  hashMap: HashMap<String, String>):Resource<LoanUserLoginResponse>
 
+
+    suspend fun checkUniqueLead( map:HashMap<String,String>):Resource<CommonMessageResponse>
+
+
     suspend fun submitKYCRequest(
         applyKycUrl:String,
 
