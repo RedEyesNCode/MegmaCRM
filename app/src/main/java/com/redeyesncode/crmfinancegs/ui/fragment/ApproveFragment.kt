@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.redeyesncode.crmfinancegs.R
 import com.redeyesncode.crmfinancegs.base.BaseFragment
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
@@ -13,7 +12,7 @@ import com.redeyesncode.crmfinancegs.databinding.FragmentApproveBinding
 import com.redeyesncode.crmfinancegs.ui.adapter.UserLeadAdapter
 import com.redeyesncode.crmfinancegs.ui.viewmodel.MainViewModel
 import com.redeyesncode.gsfinancenbfc.base.Event
-import com.redeyesncode.moneyview.base.AndroidApp
+import com.redeyesncode.crmfinancegs.base.AndroidApp
 import com.redeyesncode.redbet.session.AppSession
 import com.redeyesncode.redbet.session.Constant
 import javax.inject.Inject
@@ -33,6 +32,11 @@ class ApproveFragment : BaseFragment(),UserLeadAdapter.onClick {
     private var param1: String? = null
     private var param2: String? = null
     lateinit var binding:FragmentApproveBinding
+
+    override fun onLoanAdmin(data: UserLeadResponse.Data) {
+        showToast("UNDER-DEVELOPMENT")
+
+    }
 
     override fun onLeadInfo(data: UserLeadResponse.Data) {
 

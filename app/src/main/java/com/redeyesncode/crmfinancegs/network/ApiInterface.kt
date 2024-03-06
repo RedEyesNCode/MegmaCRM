@@ -1,8 +1,8 @@
 package com.redeyesncode.crmfinancegs.network
 
+import com.redeyesncode.crmfinancegs.data.CommonMessageResponse
 import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
-import com.redeyesncode.crmfinancegs.data.CommonMessageResponse
 import com.redeyesncode.crmfinancegs.data.FilterLeadsResponse
 import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
@@ -60,6 +60,10 @@ interface ApiInterface {
 
     @POST("megma-crm/check-unique-lead")
     suspend fun checkUniqueLead(@Body map:HashMap<String,String>):Response<CommonMessageResponse>
+
+
+
+
 
     @Multipart
     @POST

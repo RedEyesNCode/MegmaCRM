@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_light"
+    tools:context=".ui.activity.PackageAssignActivity">
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_145sdp"
+        android:layout_centerInParent="true"
+        android:id="@+id/animation_view"
+        app:lottie_rawRes="@raw/confetti_one"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_145sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_centerInParent="true"
+            android:id="@+id/animation_view_one"
+            app:lottie_rawRes="@raw/trophy_animate"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Congratulations"
+            android:textColor="@color/white"
+            android:id="@+id/packageState"
+            android:textSize="@dimen/_20sdp"
+            android:fontFamily="@font/poppins_bold"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your loan amount is"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/_15sdp"
+            android:gravity="center"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+
+            <TextView
+                android:id="@+id/amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="@dimen/_30sdp"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/white"
+                android:drawableStart="@drawable/ic_baseline_currency_rupee_24"
+                />
+
+            <TextView
+                android:id="@+id/tvInterestRate"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_height="wrap_content"
+                android:text="The interest rate is as low as 0.5%/month which can be borrowed and repaid at any time"
+                android:textSize="@dimen/_12sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/white"
+                />
+
+
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_process"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/background_rounded_blue"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="60dp"
+        app:cornerRadius="25dp"
+        android:textColor="@color/white"
+        android:text="Proceed"
+        android:textAlignment="center"
+        android:textSize="20dp"/>
+
+
+</RelativeLayout>

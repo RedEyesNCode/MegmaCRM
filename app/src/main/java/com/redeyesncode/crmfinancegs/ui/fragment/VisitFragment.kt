@@ -8,17 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.redeyesncode.crmfinancegs.R
 import com.redeyesncode.crmfinancegs.base.BaseFragment
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
 import com.redeyesncode.crmfinancegs.databinding.FragmentVisitBinding
 import com.redeyesncode.crmfinancegs.databinding.ImageDialogBinding
-import com.redeyesncode.crmfinancegs.databinding.LayoutLoadingDialogBinding
 import com.redeyesncode.crmfinancegs.ui.adapter.UserVisitAdapter
 import com.redeyesncode.crmfinancegs.ui.viewmodel.MainViewModel
 import com.redeyesncode.gsfinancenbfc.base.Event
-import com.redeyesncode.moneyview.base.AndroidApp
+import com.redeyesncode.crmfinancegs.base.AndroidApp
 import com.redeyesncode.redbet.session.AppSession
 import com.redeyesncode.redbet.session.Constant
 import javax.inject.Inject
@@ -89,7 +87,7 @@ class VisitFragment : BaseFragment(),CreateVisitBottomSheet.OnDismissListener,Us
     }
 
     private fun initialApiCall() {
-        val user = AppSession(requireContext()).getObject(Constant.USER_LOGIN,LoginUserResponse::class.java) as LoginUserResponse
+        val user = AppSession(requireContext()).getObject(Constant.USER_LOGIN_CRM,LoginUserResponse::class.java) as LoginUserResponse
 
         val visitUserMap = HashMap<String,String>()
         visitUserMap.put("userId", user.data?.userId.toString())

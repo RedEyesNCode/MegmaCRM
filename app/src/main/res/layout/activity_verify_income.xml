@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.activity.VerifyIncomeActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:background="@color/blue"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:src="@drawable/baseline_arrow_forward_24"
+            android:rotation="180"
+            android:id="@+id/ivBack"
+            app:tint="@color/white"
+            android:layout_height="@dimen/_25sdp"/>
+
+
+    </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:text="Let's Verify your income"
+                android:textAllCaps="false"
+                android:fontFamily="@font/sora_bold"
+                style="@style/bigHeadingTextView"
+
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:text="Choose a mode of verification"
+                android:textAllCaps="false"
+                android:fontFamily="@font/sora_bold"
+                style="@style/MediumTextView"
+                android:layout_height="wrap_content"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:visibility="invisible"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:background="@drawable/background_rounded_grey"
+
+                android:padding="@dimen/_15sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="@dimen/_35sdp"
+                    android:id="@+id/ivSelectedBank"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_hdfc"
+                    android:layout_alignParentStart="true"
+                    android:layout_height="@dimen/_35sdp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="HDFC Bank"
+                    android:textAllCaps="false"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/sora_bold"
+                    style="@style/MediumTextView"
+                    android:layout_height="wrap_content"/>
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:id="@+id/ivEdit"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_close"
+                    app:tint="@color/white"
+                    android:layout_alignParentEnd="true"
+                    android:layout_height="@dimen/_25sdp"/>
+
+            </RelativeLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                app:cardUseCompatPadding="true"
+                app:cardBackgroundColor="@color/white"
+
+                app:cardElevation="@dimen/_6sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_width="@dimen/_45sdp"
+                            android:src="@drawable/ic_bank_blue"
+                            android:layout_alignParentStart="true"
+                            android:layout_height="@dimen/_45sdp"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:textColor="@color/black"
+                                android:text="Bank statement via OTP"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:textAllCaps="false"
+                                android:fontFamily="@font/sora_bold"
+                                style="@style/SmallTextView"
+
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+
+                                android:textColor="@color/grey_light"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:text="Verify via RBI \nRegistered Entities"
+
+                                android:textAllCaps="false"
+                                android:fontFamily="@font/sora_bold"
+                                style="@style/SmallTextView"
+
+
+                                android:layout_height="wrap_content"/>
+
+
+
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_width="@dimen/_15sdp"
+                            app:tint="@color/black"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/baseline_arrow_forward_24"
+                            android:layout_height="@dimen/_15sdp"/>
+
+
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                app:cardUseCompatPadding="true"
+                app:cardBackgroundColor="@color/white"
+                android:id="@+id/cardNetBanking"
+
+                app:cardElevation="@dimen/_6sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/white"
+                        android:text="Comming Soon"
+                        android:textAllCaps="false"
+                        android:layout_gravity="end"
+                        android:fontFamily="@font/sora_bold"
+                        style="@style/SmallTextView"
+                        android:background="@drawable/background_rounded_yellow"
+                        android:padding="@dimen/_4sdp"
+
+                        android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_margin="@dimen/_10sdp"
+
+                        android:weightSum="3"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_width="@dimen/_45sdp"
+                            android:src="@drawable/ic_net_banking"
+                            android:layout_weight="1"
+                            android:layout_alignParentStart="true"
+                            android:layout_height="@dimen/_45sdp"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1"
+
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:orientation="horizontal"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:textColor="@color/black"
+                                    android:text="Net Banking"
+                                    android:textAllCaps="false"
+                                    android:fontFamily="@font/sora_bold"
+                                    style="@style/SmallTextView"
+
+                                    android:layout_height="wrap_content"/>
+
+
+                            </LinearLayout>
+
+
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+
+                                android:textColor="@color/grey_light"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:text="Verify income by logging into \nyour bank account"
+
+                                android:textAllCaps="false"
+                                android:fontFamily="@font/sora_bold"
+                                style="@style/SmallTextView"
+
+
+                                android:layout_height="wrap_content"/>
+
+
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="@dimen/_15sdp"
+                            app:tint="@color/black"
+                            android:layout_alignParentEnd="true"
+                            android:layout_weight="1"
+
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/baseline_arrow_forward_24"
+                            android:layout_height="@dimen/_15sdp"/>
+
+
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                app:cardUseCompatPadding="true"
+                app:cardBackgroundColor="@color/white"
+                android:id="@+id/cardBankStatement"
+                app:cardElevation="@dimen/_6sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/white"
+                        android:text="Optional"
+                        android:textAllCaps="false"
+                        android:fontFamily="@font/sora_bold"
+                        android:layout_gravity="end"
+                        style="@style/SmallTextView"
+                        android:paddingHorizontal="@dimen/_6sdp"
+                        android:paddingVertical="@dimen/_4sdp"
+                        android:background="@drawable/background_rounded_blue"
+
+                        android:layout_height="wrap_content"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="3"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_width="@dimen/_45sdp"
+                            android:src="@drawable/ic_pdf"
+                            android:layout_weight="1"
+                            android:layout_alignParentStart="true"
+                            android:layout_height="@dimen/_45sdp"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1"
+                            android:paddingVertical="@dimen/_10sdp"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:orientation="vertical"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:textColor="@color/black"
+                                    android:text="Bank Statment"
+                                    android:textAllCaps="false"
+                                    android:fontFamily="@font/sora_bold"
+                                    style="@style/SmallTextView"
+
+                                    android:layout_height="wrap_content"/>
+
+                            </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+
+                                android:textColor="@color/grey_light"
+                                android:text="Upload last 6 months \nbank statement"
+
+                                android:textAllCaps="false"
+                                android:fontFamily="@font/sora_bold"
+                                style="@style/SmallTextView"
+
+
+                                android:layout_height="wrap_content"/>
+
+
+
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_width="@dimen/_15sdp"
+                            app:tint="@color/black"
+                            android:layout_weight="1"
+
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/baseline_arrow_forward_24"
+                            android:layout_height="@dimen/_15sdp"/>
+
+
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:textColor="@color/white"
+                android:text="SUBMIT KYC REQUEST"
+                android:id="@+id/btnSubmitKycRequest"
+                android:fontFamily="@font/poppins_semibold"
+                android:textAllCaps="false"
+                android:textSize="@dimen/_14sdp"
+                android:layout_gravity="center"
+                android:drawablePadding="@dimen/_4sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/background_rounded_blue"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+
+
+    </ScrollView>
+
+</LinearLayout>

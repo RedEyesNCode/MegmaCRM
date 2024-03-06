@@ -7,16 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.redeyesncode.crmfinancegs.R
 import com.redeyesncode.crmfinancegs.base.BaseFragment
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.databinding.FragmentLeadsBinding
-import com.redeyesncode.crmfinancegs.ui.activity.CreateLeadActivity
 import com.redeyesncode.crmfinancegs.ui.adapter.UserLeadAdapter
 import com.redeyesncode.crmfinancegs.ui.viewmodel.MainViewModel
 import com.redeyesncode.gsfinancenbfc.base.Event
-import com.redeyesncode.moneyview.base.AndroidApp
+import com.redeyesncode.crmfinancegs.base.AndroidApp
+import com.redeyesncode.crmfinancegs.ui.loanadmin.activity.DashboardActivity
 import com.redeyesncode.redbet.session.AppSession
 import com.redeyesncode.redbet.session.Constant
 import javax.inject.Inject
@@ -41,6 +40,24 @@ class LeadsFragment : BaseFragment() ,UserLeadAdapter.onClick{
     @Inject
     lateinit var mainViewModel: MainViewModel
 
+
+    override fun onLoanAdmin(data: UserLeadResponse.Data) {
+        // redirect to loan app ui flow.
+        // call login api of gs loan app and store the json in session
+
+        if(data.gs_loan_number==null){
+            showMessageDialog("No gs_LOAN_NUMBER found in CRM Database!","Info")
+        }else{
+            val loginUrl = "https://megmagroup.loan/newApi/api/login"
+            val loginMap = hashMapOf<String,String>()
+            loginMap.put("mobile",data.gs_loan_number.toString())
+            mainViewModel.checkLoginUser(loginUrl,loginMap)
+
+        }
+
+
+
+    }
 
     override fun onLeadInfo(data: UserLeadResponse.Data) {
 
@@ -86,6 +103,27 @@ class LeadsFragment : BaseFragment() ,UserLeadAdapter.onClick{
 
     private fun attachObservers() {
 
+        mainViewModel.responseCheckLoginLoanUser.observe(viewLifecycleOwner,Event.EventObserver(
+            onLoading = {
+                showLoadingDialog()
+            },
+            onSuccess = {
+                dismissLoadingDialog()
+                AppSession(requireContext()).putObject(Constant.USER_LOGIN,it)
+                val dashboardLoanAdmin = Intent(requireContext(),DashboardActivity::class.java)
+                startActivity(dashboardLoanAdmin)
+
+
+            },
+            onError = {
+                dismissLoadingDialog()
+                showToast(it)
+            }
+
+
+
+        ))
+
         mainViewModel.userLeadResponse.observe(viewLifecycleOwner,Event.EventObserver(
 
             onLoading = {
@@ -122,7 +160,7 @@ class LeadsFragment : BaseFragment() ,UserLeadAdapter.onClick{
 
     private fun initialApiCall() {
         val user = AppSession(requireContext()).getObject(
-            Constant.USER_LOGIN,
+            Constant.USER_LOGIN_CRM,
             LoginUserResponse::class.java) as LoginUserResponse
 
         val visitUserMap = HashMap<String,String>()

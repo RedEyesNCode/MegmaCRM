@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/white"
+    app:cardElevation="@dimen/_7sdp"
+    android:id="@+id/mainLayout"
+    app:cardUseCompatPadding="true"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="@dimen/_90sdp"
+        android:scaleType="fitXY"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_net_banking"
+        android:id="@+id/ivBankLogo"
+
+        android:layout_height="@dimen/_90sdp"/>
+
+</com.google.android.material.card.MaterialCardView>

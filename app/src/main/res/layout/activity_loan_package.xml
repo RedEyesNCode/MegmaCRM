@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.LoanPackageActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:src="@drawable/baseline_arrow_forward_24"
+            android:rotation="180"
+            android:id="@+id/ivBack"
+            app:tint="@color/black"
+            android:layout_height="@dimen/_25sdp"/>
+
+
+    </androidx.appcompat.widget.Toolbar>
+    <TextView
+        android:layout_width="wrap_content"
+        android:textColor="@color/black"
+        android:text="Your loan offers"
+        android:textAllCaps="false"
+        android:layout_margin="@dimen/_6sdp"
+        android:fontFamily="@font/sora_bold"
+        style="@style/bigHeadingTextView"
+
+        android:layout_height="wrap_content"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/black"
+                    style="@style/MediumTextView"
+                    android:text="₹"
+
+
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/tvSeekbarValue"
+                    style="@style/bigHeadingTextView"
+                    android:textColor="@color/black"
+                    android:text="1,000"
+                    android:paddingStart="@dimen/_10sdp"
+
+                    android:fontFamily="@font/sora_bold"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+
+
+            <SeekBar
+                android:layout_width="match_parent"
+
+                android:layout_marginTop="@dimen/_8sdp"
+                style="@style/Widget.AppCompat.SeekBar"
+                android:progressDrawable="@drawable/seekbar_progress"
+                android:thumb="@drawable/seekbar_thumb"
+                android:maxHeight="@dimen/_6sdp"
+                android:id="@+id/amountSeekbar"
+                android:splitTrack="false"
+                android:progress="10"
+                android:layout_height="wrap_content"/>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/grey_light"
+                    android:text="Min 10,000"
+                    android:textAllCaps="false"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:fontFamily="@font/sora_bold"
+                    style="@style/normalBodyTextView"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/grey_light"
+                    android:text="Max 1,00,000"
+                    android:textAllCaps="false"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:fontFamily="@font/sora_bold"
+                    style="@style/normalBodyTextView"
+                    android:layout_height="wrap_content"/>
+
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:id="@+id/recvEmi"
+                tools:listitem="@layout/item_emi_package"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical"
+                tools:itemCount="4"
+                android:layout_height="wrap_content"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_below="@id/linearLayout"
+                android:background="@color/grey"
+                android:layout_height="@dimen/_1sdp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="Processing Fees : 12.90"
+                    android:textAllCaps="false"
+                    android:layout_alignParentStart="true"
+                    android:fontFamily="@font/sora_bold"
+                    style="@style/normalBodyTextView"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:fontFamily="@font/sora_regular"
+                android:text="By proceeding, I consent to share the required documents for the loan application process. I understand that the provided information will be used for verification and processing purposes in accordance with the app's privacy policy."
+
+                style="@style/SmallTextView"
+                android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:textColor="@color/white"
+                android:text="Confirm and Proceed"
+                android:id="@+id/btnConfirm"
+
+
+                android:textAllCaps="false"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/background_rounded_blue"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+    
+</LinearLayout>

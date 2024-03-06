@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navApplyLoan"
+        android:iconTintMode="add"
+        android:title="Apply KYC Application" />
+
+    <!-- <item
+         android:id="@+id/navChooseLanguage"
+
+         android:title="Choose Language" />-->
+
+    <!--  <item
+          android:id="@+id/navInsurance"
+          android:title="Insurance" />-->
+    <item
+        android:id="@+id/navFaq"
+        android:title="FAQs" />
+    <item
+        android:id="@+id/navHelp"
+        android:title="Help Support" />
+    <item
+        android:id="@+id/navPrivacyPolicy"
+        android:title="Privacy Policy" />
+    <item
+        android:id="@+id/navTerms"
+        android:title="Terms and Conditions" />
+    <item
+        android:id="@+id/navAbout"
+        android:title="About" />
+
+    <item
+        android:id="@+id/navSettings"
+        android:title="Settings" />
+
+    <item
+        android:id="@+id/navLendingPartner"
+        android:title="Lending Partner" />
+</menu>

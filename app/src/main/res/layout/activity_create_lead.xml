@@ -339,7 +339,6 @@
                 app:hintTextAppearance="@style/MediumTextView"
 
                 android:layout_marginTop="@dimen/_10sdp"
-                android:visibility="gone"
 
                 app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
                 app:boxBackgroundMode="filled"
@@ -357,7 +356,7 @@
                     android:id="@+id/edtUserType"
 
                     android:textSize="@dimen/_14sdp"
-                    android:text="ANDROID-99"
+                    android:text="Salaried"
                     android:clickable="true"
                     android:focusable="false"
                     android:inputType="number"
@@ -380,7 +379,6 @@
                 app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
                 app:boxBackgroundMode="filled"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:visibility="gone"
 
                 android:padding="@dimen/_4sdp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -395,7 +393,7 @@
                     android:id="@+id/edtOccupation"
 
                     android:textSize="@dimen/_14sdp"
-                    android:text="ANDROID-99"
+                    android:text="Self-Employed"
                     android:clickable="true"
                     android:focusable="false"
                     android:inputType="number"
@@ -418,7 +416,6 @@
                 app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
                 app:boxBackgroundMode="filled"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:visibility="gone"
 
                 android:padding="@dimen/_4sdp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -432,7 +429,7 @@
                     android:layout_margin="@dimen/_7sdp"
                     android:id="@+id/edtMonthlyIncome"
                     android:clickable="true"
-                    android:text="ANDROID-99"
+                    android:text="10,000"
                     android:focusable="false"
                     android:textSize="@dimen/_14sdp"
 
@@ -558,7 +555,6 @@
                 android:textColor="@color/grey_light"
                 android:text="Customer Contact Details"
                 android:textAllCaps="false"
-                android:visibility="gone"
                 android:fontFamily="@font/sora_bold"
                 style="@style/normalBodyTextView"
 
@@ -569,7 +565,6 @@
                 android:layout_height="wrap_content"
                 android:hint="Relative One"
                 app:hintTextAppearance="@style/MediumTextView"
-                android:visibility="gone"
 
                 android:layout_marginTop="@dimen/_10sdp"
 
@@ -588,7 +583,7 @@
                     android:layout_margin="@dimen/_7sdp"
                     android:id="@+id/edtRelativeOne"
                     android:textSize="@dimen/_14sdp"
-                    android:text="ANDROID-99"
+                    android:text="RelativeOneName"
                     android:inputType="textNoSuggestions"
                     android:imeOptions="actionDone"
 
@@ -601,7 +596,6 @@
                 android:layout_height="wrap_content"
                 android:hint="Relative One Number"
                 app:hintTextAppearance="@style/MediumTextView"
-                android:visibility="gone"
 
                 android:layout_marginTop="@dimen/_10sdp"
 
@@ -623,7 +617,7 @@
 
                     android:inputType="textNoSuggestions"
                     android:imeOptions="actionDone"
-                    android:text="ANDROID-99"
+                    android:text="1234567890"
 
 
                     android:layout_height="wrap_content" />
@@ -634,7 +628,6 @@
                 android:layout_height="wrap_content"
                 android:hint="Relative Two"
                 app:hintTextAppearance="@style/MediumTextView"
-                android:visibility="gone"
 
                 android:layout_marginTop="@dimen/_10sdp"
 
@@ -656,7 +649,7 @@
 
                     android:inputType="textNoSuggestions"
                     android:imeOptions="actionDone"
-                    android:text="ANDROID-99"
+                    android:text="RelativeTwoName"
 
 
                     android:layout_height="wrap_content" />
@@ -668,7 +661,6 @@
                 android:layout_height="wrap_content"
                 android:hint="Relative Two Number"
                 app:hintTextAppearance="@style/MediumTextView"
-                android:visibility="gone"
 
                 android:layout_marginTop="@dimen/_10sdp"
 
@@ -690,7 +682,7 @@
 
                     android:inputType="textNoSuggestions"
                     android:imeOptions="actionDone"
-                    android:text="ANDROID-99"
+                    android:text="1234567890"
 
 
                     android:layout_height="wrap_content" />

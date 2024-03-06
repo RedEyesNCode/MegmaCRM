@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.EMandateActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:background="@color/blue"
+        android:layout_alignParentTop="true"
+        android:id="@+id/toolbar"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:src="@drawable/baseline_arrow_forward_24"
+            android:rotation="180"
+            android:id="@+id/ivBack"
+            app:tint="@color/white"
+            android:layout_height="@dimen/_25sdp"/>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:src="@drawable/ic_emandate"
+        android:layout_alignParentBottom="true"
+        android:layout_height="@dimen/_100sdp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_below="@id/toolbar"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:text="E-Mandate Verification"
+                android:textAllCaps="false"
+                android:fontFamily="@font/sora_bold"
+                style="@style/bigHeadingTextView"
+
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/grey_light"
+                android:text="Enable it for hassle free payments"
+                android:textAllCaps="false"
+                android:fontFamily="@font/sora_bold"
+                style="@style/normalBodyTextView"
+
+
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/background_grey_border"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="How it helps"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/sora_bold"
+                    style="@style/normalBodyTextView"
+                    android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="@dimen/_25sdp"
+                        android:src="@drawable/ic_check_green"
+
+                        android:layout_height="@dimen/_25sdp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="EMI is debited automatically"
+                        android:textAllCaps="false"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/sora_medium"
+                        style="@style/normalBodyTextView"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="@dimen/_25sdp"
+                        android:src="@drawable/ic_check_green"
+
+                        android:layout_height="@dimen/_25sdp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="No late fee on penalties"
+                        android:textAllCaps="false"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/sora_medium"
+                        style="@style/normalBodyTextView"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="@dimen/_25sdp"
+                        android:src="@drawable/ic_check_green"
+
+                        android:layout_height="@dimen/_25sdp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="Unlock new offers as you pay each EMI"
+                        android:textAllCaps="false"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/sora_medium"
+                        style="@style/normalBodyTextView"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:text="Choose mode of authorization"
+                android:textAllCaps="false"
+                android:fontFamily="@font/sora_bold"
+                style="@style/normalBodyTextView"
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                app:cardUseCompatPadding="true"
+                android:id="@+id/cardLayout"
+                app:cardBackgroundColor="@color/white"
+
+                app:cardElevation="@dimen/_6sdp"
+                android:visibility="visible"
+                app:cardCornerRadius="@dimen/_8sdp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_5sdp"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_width="@dimen/_45sdp"
+                            android:src="@drawable/ic_atmcard"
+                            android:layout_alignParentStart="true"
+                            android:layout_height="@dimen/_45sdp"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center_vertical"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:textColor="@color/black"
+                                android:text="E MANDATE VERIFICATION"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:textAllCaps="false"
+                                android:fontFamily="@font/sora_bold"
+                                style="@style/SmallTextView"
+
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            app:tint="@color/black"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/baseline_arrow_forward_24"
+                            android:layout_height="@dimen/_15sdp"/>
+
+
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                app:cardUseCompatPadding="true"
+                android:id="@+id/cardLayoutProcessing"
+                app:cardBackgroundColor="@color/white"
+
+                app:cardElevation="@dimen/_6sdp"
+                android:visibility="invisible"
+                app:cardCornerRadius="@dimen/_8sdp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/background_rounded_blue"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_5sdp"
+                        android:layout_height="wrap_content">
+                        <ProgressBar
+                            android:layout_width="@dimen/_45sdp"
+                            android:layout_alignParentStart="true"
+                            android:backgroundTint="@color/yellow"
+                            android:progressTint="@color/yellow"
+                            android:layout_gravity="center"
+                            android:indeterminateTint="@color/yellow"
+                            android:progressTintMode="add"
+                            android:layout_height="@dimen/_45sdp"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center_vertical"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:textColor="@color/white"
+                                android:text="PROCESSING"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:textAllCaps="false"
+                                android:fontFamily="@font/sora_bold"
+                                style="@style/SmallTextView"
+
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:textColor="@color/white"
+                                android:gravity="center"
+                                android:text="E-Mandate Status"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:textAllCaps="false"
+                                android:fontFamily="@font/sora_bold"
+                                style="@style/SmallTextView"
+
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:textColor="@color/white"
+                                android:gravity="center"
+                                android:id="@+id/tvEMandateStatus"
+                                android:text="E-Mandate Status"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:textAllCaps="false"
+                                android:fontFamily="@font/sora_bold"
+                                style="@style/SmallTextView"
+
+                                android:layout_height="wrap_content"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:id="@+id/btnCheckEmandateStatus"
+                android:background="@color/yellow"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_regular"
+                android:visibility="gone"
+                android:text="CHECK EMANDATE STATUS"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                app:cardUseCompatPadding="true"
+                app:cardBackgroundColor="@color/white"
+
+                app:cardElevation="@dimen/_6sdp"
+                android:visibility="invisible"
+                app:cardCornerRadius="@dimen/_8sdp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_width="@dimen/_45sdp"
+                            android:src="@drawable/ic_net_banking"
+                            android:layout_alignParentStart="true"
+                            android:layout_height="@dimen/_45sdp"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center_vertical"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:textColor="@color/black"
+                                android:text="NetBanking"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:textAllCaps="false"
+                                android:fontFamily="@font/sora_bold"
+                                style="@style/SmallTextView"
+
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            app:tint="@color/black"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/baseline_arrow_forward_24"
+                            android:layout_height="@dimen/_15sdp"/>
+
+
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

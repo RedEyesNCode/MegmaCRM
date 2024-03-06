@@ -1,14 +1,12 @@
 package com.redeyesncode.crmfinancegs.ui.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.redeyesncode.crmfinancegs.R
 import com.redeyesncode.crmfinancegs.databinding.ActivityLoginBinding
 import com.redeyesncode.crmfinancegs.ui.viewmodel.MainViewModel
-import com.redeyesncode.gsfinancenbfc.base.BaseActivity
+import com.redeyesncode.crmfinancegs.base.BaseActivity
 import com.redeyesncode.gsfinancenbfc.base.Event
-import com.redeyesncode.moneyview.base.AndroidApp
+import com.redeyesncode.crmfinancegs.base.AndroidApp
 import com.redeyesncode.redbet.session.AppSession
 import com.redeyesncode.redbet.session.Constant
 import javax.inject.Inject
@@ -82,7 +80,7 @@ class LoginActivity : BaseActivity() {
                 if(it.code==200){
                     showToast(it.message.toString())
 
-                    AppSession(this@LoginActivity).putObject(Constant.USER_LOGIN,it)
+                    AppSession(this@LoginActivity).putObject(Constant.USER_LOGIN_CRM,it)
                     AppSession(this@LoginActivity).putString(Constant.EMP_ID,binding.edtEmployeeID.text.toString())
                     AppSession(this@LoginActivity).putString(Constant.MPASS,binding.edtMPass.text.toString())
                     val dashboardIntent = Intent(this@LoginActivity,DashboardActivity::class.java)

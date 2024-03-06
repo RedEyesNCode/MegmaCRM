@@ -26,7 +26,7 @@
             android:layout_marginEnd="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
             android:fontFamily="@font/sora_bold"
-            android:text="Check User"
+            android:text="Check User for CRM and Loan App"
             android:textColor="@color/black" />
         <TextView
             style="@style/SmallTextView"
@@ -61,6 +61,19 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="@dimen/_16sdp">
+        <TextView
+            style="@style/SmallTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/sora_regular"
+            android:text="Mobile Number (CRM+LOAN)"
+            android:textColor="@color/black" />
+
+
         <EditText
             android:id="@+id/edtMobileNumber"
             android:layout_width="match_parent"
@@ -71,6 +84,17 @@
             android:maxLength="10"
 
             android:imeOptions="actionNext"/>
+        <TextView
+            style="@style/SmallTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/sora_regular"
+            android:text="Aadhar Number (CRM)"
+            android:textColor="@color/black" />
         <EditText
             android:id="@+id/edtAadharNumber"
             android:layout_width="match_parent"
@@ -79,6 +103,17 @@
             style="@style/editTextElevated"
             android:inputType="number"
             android:imeOptions="actionNext"/>
+        <TextView
+            style="@style/SmallTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/sora_regular"
+            android:text="PAN CARD NUMBER (CRM)"
+            android:textColor="@color/black" />
         <EditText
             android:id="@+id/edtPanCard"
             android:layout_width="match_parent"
@@ -87,7 +122,24 @@
             style="@style/editTextElevated"
             android:inputType="textEmailAddress"
             android:imeOptions="actionNext"/>
-
+        <TextView
+            style="@style/SmallTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/sora_regular"
+            android:text="EMAIL ADDRESS (LOAN)"
+            android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/edtEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email Address"
+            style="@style/editTextElevated"
+            android:inputType="textEmailAddress"/>
 
 
         <androidx.appcompat.widget.AppCompatButton
@@ -98,7 +150,7 @@
             android:textColor="@color/white"
             style="@style/MediumTextView"
             android:textAllCaps="false"
-            android:text="Check Lead User"
+            android:text="PROCEED"
             android:fontFamily="@font/gilroy_extra_bold"
             android:layout_height="wrap_content"/>
     </LinearLayout>

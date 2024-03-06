@@ -2,15 +2,12 @@ package com.redeyesncode.crmfinancegs.ui.activity
 
 import android.app.DatePickerDialog
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.DatePicker
-import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.redeyesncode.crmfinancegs.R
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.databinding.ActivityLeadSearchBinding
@@ -18,9 +15,9 @@ import com.redeyesncode.crmfinancegs.ui.DateRangePickerDialog
 import com.redeyesncode.crmfinancegs.ui.adapter.UserLeadAdapter
 import com.redeyesncode.crmfinancegs.ui.fragment.LeadInfoBottomSheet
 import com.redeyesncode.crmfinancegs.ui.viewmodel.MainViewModel
-import com.redeyesncode.gsfinancenbfc.base.BaseActivity
+import com.redeyesncode.crmfinancegs.base.BaseActivity
 import com.redeyesncode.gsfinancenbfc.base.Event
-import com.redeyesncode.moneyview.base.AndroidApp
+import com.redeyesncode.crmfinancegs.base.AndroidApp
 import com.redeyesncode.redbet.session.AppSession
 import com.redeyesncode.redbet.session.Constant
 import java.text.SimpleDateFormat
@@ -31,8 +28,9 @@ import javax.inject.Inject
 class LeadSearchActivity : BaseActivity(),UserLeadAdapter.onClick {
 
 
-
-
+    override fun onLoanAdmin(data: UserLeadResponse.Data) {
+        showToast("Development")
+    }
 
     lateinit var binding:ActivityLeadSearchBinding
 
@@ -88,7 +86,7 @@ class LeadSearchActivity : BaseActivity(),UserLeadAdapter.onClick {
 
     private fun initialApiCall() {
         val user = AppSession(this@LeadSearchActivity).getObject(
-            Constant.USER_LOGIN,
+            Constant.USER_LOGIN_CRM,
             LoginUserResponse::class.java) as LoginUserResponse
 
         val visitUserMap = HashMap<String,String>()
@@ -230,7 +228,7 @@ class LeadSearchActivity : BaseActivity(),UserLeadAdapter.onClick {
 
     private fun filterApiDate(startDate: String, endDate: String) {
         val user = AppSession(this@LeadSearchActivity).getObject(
-            Constant.USER_LOGIN,
+            Constant.USER_LOGIN_CRM,
             LoginUserResponse::class.java) as LoginUserResponse
 
         val filterMap = hashMapOf<String,String>()
@@ -298,7 +296,7 @@ class LeadSearchActivity : BaseActivity(),UserLeadAdapter.onClick {
 
     private fun callLeadStatusFilterApi(selectedOption: String) {
         val user = AppSession(this@LeadSearchActivity).getObject(
-            Constant.USER_LOGIN,
+            Constant.USER_LOGIN_CRM,
             LoginUserResponse::class.java) as LoginUserResponse
 
         val filterMap= hashMapOf<String,String>()

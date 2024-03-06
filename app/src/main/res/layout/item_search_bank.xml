@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginVertical="@dimen/_5sdp"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="@dimen/_35sdp"
+        android:src="@drawable/ic_sbi"
+        android:id="@+id/ivBankLogo"
+        android:layout_height="@dimen/_35sdp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_11sdp"
+        android:text="State Bank of India"
+        android:fontFamily="@font/sora_medium"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/ivBankLogo"
+        style="@style/MediumTextView"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

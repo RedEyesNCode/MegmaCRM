@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/_8sdp"
+    android:layout_margin="@dimen/_5sdp"
+    app:cardElevation="@dimen/_5sdp"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivLoan"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/background_blue_border"
+            android:src="@drawable/ic_amount_borrow"
+            app:riv_corner_radius="@dimen/_35sdp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/tvLoanName"
+            style="@style/BigTextView"
+            android:textColor="@color/black"
+            android:fontFamily="@font/raleway_light"
+            android:layout_toEndOf="@id/ivLoan"
+            android:layout_alignParentTop="true"
+            android:layout_height="wrap_content"/>
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:scrollbarStyle="insideInset"
+            android:layout_toEndOf="@id/ivLoan"
+            android:layout_centerVertical="true"
+            android:layout_below="@id/tvLoanName"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/tvLoanInfo"
+
+                android:scrollHorizontally="true"
+                style="@style/SmallTextView"
+                android:textColor="@color/black"
+                android:fontFamily="@font/sora_medium"
+
+                android:layout_height="wrap_content"/>
+        </ScrollView>
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

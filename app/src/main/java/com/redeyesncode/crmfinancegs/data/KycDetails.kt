@@ -25,4 +25,4 @@ data class KycDetails(@SerializedName("firstName") var firstName: String? = null
                       @SerializedName("pan_number") var pan_number: String? = null,
                       @SerializedName("adhar_number") var adhar_number: String? = null,
 
-                      )
+    )

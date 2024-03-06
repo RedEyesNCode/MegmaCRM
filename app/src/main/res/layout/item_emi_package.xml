@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/_8sdp"
+    app:cardBackgroundColor="@color/white"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="@dimen/_7sdp"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/background_blue_border"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textColor="@color/black"
+            android:text="60 Months"
+            android:padding="@dimen/_10sdp"
+            android:textAllCaps="false"
+            android:fontFamily="@font/sora_bold"
+            style="@style/normalBodyTextView"
+
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentEnd="true"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:text="2,732"
+                android:padding="@dimen/_10sdp"
+                android:textAllCaps="false"
+                android:fontFamily="@font/sora_bold"
+                style="@style/normalBodyTextView"
+
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:text="incl(1,242)"
+                android:padding="@dimen/_10sdp"
+                android:textAllCaps="false"
+                android:fontFamily="@font/sora_regular"
+                style="@style/SmallTextView"
+
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+
+
+
+</com.google.android.material.card.MaterialCardView>

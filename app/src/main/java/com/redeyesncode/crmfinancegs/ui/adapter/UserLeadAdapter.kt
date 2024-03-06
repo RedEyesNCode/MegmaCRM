@@ -71,6 +71,10 @@ class UserLeadAdapter(var context: Context,var data :ArrayList<UserLeadResponse.
                 onActivityClick.onLeadInfo(data)
 
             }
+            ivLoanAdmin.setOnClickListener{
+                onActivityClick.onLoanAdmin(data)
+            }
+
 
         }
     }
@@ -78,6 +82,7 @@ class UserLeadAdapter(var context: Context,var data :ArrayList<UserLeadResponse.
     interface onClick{
 
         fun onLeadInfo(data: UserLeadResponse.Data)
+        fun onLoanAdmin(data:UserLeadResponse.Data)
 
     }
 

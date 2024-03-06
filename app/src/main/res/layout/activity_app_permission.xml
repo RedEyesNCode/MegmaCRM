@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/ic_dashboard_bg"
+
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    tools:context=".ui.activity.AppPermissionActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+
+            android:padding="@dimen/_10sdp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                style="@style/bigHeadingTextView"
+                android:textColor="@color/white"
+
+                android:fontFamily="@font/sora_bold"
+                android:text="We need a few Permissions !"
+
+                android:layout_height="wrap_content"/>
+
+
+
+
+
+            <!--<androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:id="@+id/recvPermission"
+                tools:listitem="@layout/item_permission"
+                tools:itemCount="4"
+                android:nestedScrollingEnabled="false"
+                android:layout_height="wrap_content"/>-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_5sdp"
+                android:padding="@dimen/_4sdp"
+                android:id="@+id/mainLayout2"
+
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivDrawable2"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_alignParentTop="true"
+
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    app:tint="@color/white"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:src="@drawable/baseline_phone_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    style="@style/MediumTextView"
+                    android:layout_gravity="start"
+                    android:layout_alignParentTop="true"
+
+                    android:textColor="@color/white"
+                    android:text="ACCESS_NETWORK_STATE \u0026 INTERNET"
+                    android:id="@+id/tvPermissionTitle2"
+                    android:layout_toEndOf="@id/ivDrawable2"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tvPermissionInfo2"
+                    style="@style/normalBodyTextView"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvPermissionTitle2"
+                    android:layout_gravity="center"
+                    android:layout_toEndOf="@id/ivDrawable2"
+                    android:textSize="@dimen/_12sdp"
+                    android:fontFamily="@font/sora_regular"
+                    android:text="@string/info_access_network_state"
+                    android:textColor="@android:color/white"
+                    android:visibility="visible" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_5sdp"
+                android:padding="@dimen/_4sdp"
+
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivDrawable"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_alignParentTop="true"
+
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:src="@drawable/ic_camera" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    style="@style/MediumTextView"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:layout_alignParentTop="true"
+
+                    android:textColor="@color/white"
+                    android:text="CAMERA [ KYC ]"
+                    android:id="@+id/tvPermissionTitle"
+                    android:layout_toEndOf="@id/ivDrawable"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tvPermissionInfo"
+                    style="@style/normalBodyTextView"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvPermissionTitle"
+                    android:layout_gravity="center"
+                    android:layout_toEndOf="@id/ivDrawable"
+                    android:textSize="@dimen/_12sdp"
+                    android:fontFamily="@font/sora_regular"
+                    android:text="@string/info_camera_permission"
+                    android:textColor="@android:color/white"
+                    android:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:id="@+id/btnCheck"
+                    android:visibility="invisible"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_alignParentTop="true"
+
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_rounded_blue"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:text="CHECK"
+                    android:textColor="@color/white" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical"
+                android:layout_gravity="bottom"
+                android:layout_centerHorizontal="true"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:id="@+id/layoutTermsnConditons"
+                    android:layout_marginHorizontal="@dimen/_7sdp"
+
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:id="@+id/ivCheckTerms"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:layout_gravity="start"
+                        android:src="@drawable/ic_check_green"
+                        android:layout_height="@dimen/_20sdp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/sora_medium"
+                        android:text="By continuing, I accept the privacy policy of this app."
+
+                        style="@style/MediumTextView"
+                        android:layout_height="wrap_content"/>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_height="wrap_content">
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="0dp"
+                        android:textColor="@color/blue"
+                        android:text="I disagree"
+                        android:id="@+id/btnDisagree"
+                        android:layout_weight="1"
+
+                        android:textAllCaps="false"
+                        android:layout_gravity="center"
+                        android:drawablePadding="@dimen/_4sdp"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:background="@drawable/background_blue_border"
+                        android:layout_height="wrap_content"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="0dp"
+                        android:textColor="@color/white"
+                        android:text="I agree"
+                        android:id="@+id/btnAgree"
+                        android:layout_weight="1"
+
+
+                        android:textAllCaps="false"
+                        android:drawableEnd="@drawable/baseline_arrow_forward_24"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:paddingHorizontal="@dimen/_5sdp"
+                        android:background="@drawable/background_rounded_blue"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+
+</LinearLayout>

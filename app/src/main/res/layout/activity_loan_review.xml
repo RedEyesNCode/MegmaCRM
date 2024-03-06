@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.activity.LoanReviewActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:background="@color/blue"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:src="@drawable/baseline_arrow_forward_24"
+            android:rotation="180"
+            android:id="@+id/ivBack"
+            android:layout_height="@dimen/_25sdp"/>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:text="Review loan details"
+                android:textAllCaps="false"
+                android:fontFamily="@font/sora_bold"
+                style="@style/bigHeadingTextView"
+
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/normalBodyTextView"
+                        android:fontFamily="@font/sora_regular"
+                        android:textColor="@color/black"
+                        android:text="User"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/normalBodyTextView"
+                        android:fontFamily="@font/sora_regular"
+                        android:textColor="@color/black"
+                        android:text="MegmaGroup"
+                        android:id="@+id/tvUser"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/normalBodyTextView"
+                        android:fontFamily="@font/sora_regular"
+                        android:textColor="@color/black"
+                        android:text="Loan Amount"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/normalBodyTextView"
+                        android:fontFamily="@font/sora_regular"
+                        android:textColor="@color/black"
+                        android:text="5,000"
+                        android:id="@+id/txtLoanAmt"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/normalBodyTextView"
+                        android:fontFamily="@font/sora_regular"
+                        android:textColor="@color/black"
+                        android:text="Processing fees (with Taxes)"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/normalBodyTextView"
+                        android:fontFamily="@font/sora_regular"
+                        android:textColor="@color/black"
+                        android:text="- 206"
+                        android:id="@+id/txtCharges"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/normalBodyTextView"
+                        android:fontFamily="@font/sora_regular"
+                        android:textColor="@color/black"
+                        android:text="Tenure"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/normalBodyTextView"
+                        android:fontFamily="@font/sora_regular"
+                        android:textColor="@color/black"
+                        android:text="-129"
+                        android:id="@+id/txt12Months"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/normalBodyTextView"
+                        android:fontFamily="@font/sora_regular"
+                        android:textColor="@color/black"
+                        android:text="Insurance"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/normalBodyTextView"
+                        android:fontFamily="@font/sora_regular"
+                        android:textColor="@color/black"
+                        android:text="-129"
+                        android:id="@+id/tvInsurancePremimum"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/normalBodyTextView"
+                        android:fontFamily="@font/sora_regular"
+                        android:textColor="@color/black"
+                        android:text="Total Interest"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/normalBodyTextView"
+                        android:fontFamily="@font/sora_regular"
+                        android:textColor="@color/black"
+                        android:text="-129"
+                        android:id="@+id/tvTotalInterest"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/normalBodyTextView"
+                        android:fontFamily="@font/sora_regular"
+                        android:textColor="@color/black"
+                        android:text="Monthly EMI"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/normalBodyTextView"
+                        android:fontFamily="@font/sora_regular"
+                        android:textColor="@color/black"
+                        android:text="-129"
+                        android:id="@+id/tvMonthlyEmi"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/normalBodyTextView"
+                        android:fontFamily="@font/sora_medium"
+                        android:textColor="@color/black"
+                        android:text="Total Amount to Pay"
+                        android:layout_centerVertical="true"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/normalBodyTextView"
+                        android:fontFamily="@font/sora_medium"
+                        android:textColor="@color/black"
+                        android:text="-129"
+                        android:id="@+id/tvTotalAmountToPay"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/normalBodyTextView"
+                        android:fontFamily="@font/sora_bold"
+                        android:textColor="@color/black"
+                        android:text="Amount Transferable"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/MediumTextView"
+                        android:fontFamily="@font/sora_bold"
+                        android:textColor="@color/black"
+                        android:text="4,665"
+                        android:id="@+id/txtLoanFinal"
+
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/grey_light"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:layout_height="@dimen/_2sdp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:id="@+id/layoutTermsnConditons"
+                android:layout_marginHorizontal="@dimen/_7sdp"
+
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:id="@+id/ivCheckTerms"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:layout_gravity="start"
+                    android:src="@drawable/bcakground_green_uncheck"
+                    android:layout_height="@dimen/_20sdp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/black"
+                    android:lineSpacingExtra="@dimen/_4sdp"
+                    android:fontFamily="@font/sora_medium"
+                    android:text="Insure your loan\nCover yourself against hospital expenses and personal accident expenses"
+                    style="@style/SmallTextView"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnOtpContinue"
+                android:gravity="center"
+                android:text="Continue"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:layout_gravity="center"
+                android:paddingHorizontal="@dimen/_16sdp"
+                android:paddingVertical="@dimen/_8sdp"
+                android:drawableEnd="@drawable/baseline_arrow_forward_24"
+                android:drawablePadding="@dimen/_4sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/background_rounded_blue"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

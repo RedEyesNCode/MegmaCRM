@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.activity.AboutActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="@dimen/_25sdp"
+                android:src="@drawable/ic_close"
+                android:id="@+id/ivClose"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_height="@dimen/_25sdp"/>
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:src="@drawable/ic_gs_finance_blue"
+                android:layout_height="@dimen/_95sdp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:lineSpacingExtra="@dimen/_2sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="@font/sora_medium"
+                android:text="G.S.Leasing And Finance Private Limited Is The Study And Discipline Of Money, Currency And Capital Assets. We Are Give Best Loan Services Like.Business Loan,Personal Loan,Instant Loan,Student Loan,Vehicle Loan.We Are Give Loan For Trusted Customers And Needable Customers.Its Established Since 1994 In Gadarwara Main Head Office Bhopal M.P."
+                style="@style/SmallTextView"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:textColor="@color/grey_light"
+                android:textAlignment="center"
+                android:lineSpacingExtra="@dimen/_2sdp"
+                android:id="@+id/tvVersionCode"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="@font/sora_bold"
+                android:text="Version Code : 1.0.1"
+                style="@style/subHeadingTextView"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="@dimen/_90sdp"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:layout_height="@dimen/_40sdp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:textColor="@color/grey_light"
+                    android:layout_gravity="center"
+                    android:lineSpacingExtra="@dimen/_2sdp"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/sora_bold"
+                    android:text="We are RBI Registered NBFC"
+                    style="@style/SmallTextView"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:textColor="@color/white"
+                    android:text="View NBFC List"
+                    android:id="@+id/btnViewNBFCList"
+
+                    android:textAllCaps="false"
+                    android:layout_gravity="center"
+                    android:drawablePadding="@dimen/_4sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@drawable/background_rounded_blue"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:src="@drawable/ic_loan_info"
+
+                android:layout_height="@dimen/_150sdp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:textColor="@color/grey_light"
+                android:textAlignment="center"
+                android:lineSpacingExtra="@dimen/_2sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="@font/sora_bold"
+                android:text="Product of G.S. Leasing \u0026 Finance Private Limited."
+                style="@style/SmallTextView"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:src="@drawable/ic_heart"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:layout_height="@dimen/_20sdp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:textColor="@color/grey_light"
+                    android:textAlignment="center"
+                    android:lineSpacingExtra="@dimen/_2sdp"
+                    android:fontFamily="@font/sora_bold"
+                    android:text="Made with love in Bhopal,India."
+                    style="@style/SmallTextView"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+
+
+
+</LinearLayout>

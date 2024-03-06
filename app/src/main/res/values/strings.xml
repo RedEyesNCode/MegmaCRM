@@ -2,4 +2,26 @@
     <string name="app_name">GS Finance PARTNER</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="EMI_API_KEY">db71654d-d4cf-46bc-ae0f-1fe605f113fa</string>
+    <string name="edtEmailHint"><font size="16">Email ID</font></string>
+    <string name="salaried_loan">Salaried Personal Loan</string>
+    <string name="salaried_loan_info">A quick Salaried Personal Loan from G.S.Leasing Finance And Private Limited is the one-stop solution for any employed individual seeking
+financial assistance. With our bouquet of offerings, we ensure that your changing needs are met with tailor-made repayment solutions. Our solutions are smart, simple, and flexible, which is what makes us stand apart - making sure
+that you get the best possible value for your hard earned money. Experience a hassle-free documentation process, quick processing And speedy loan disbursal.</string>
+
+    <string name="personal_loan_info_english">Personal Finance Is The Financial Management Which An Individual Or A Family Unit Performs To Budget, Save, And Spend Monetary Resources Over Time, Taking Into Account Various Financial Risks And Future Life Events.</string>
+    <string name="home_loan_info_english">We provide home loan on the lease and registry of Gram Panchayat Tehsil, in which the loan is done with minimum paperwork and in minimum time. Home loan is done up to 120 kilometers from Ujjain.
+Time Period:
+On lease: 30 to 45 days
+At registry: 8 to 15 days</string>
+    <string name="student_loan_info">A Student Loan Is a Type Of Loan Designed To Help Students Pay For Post-Secondary Education And The Associated Fees, Such As Tuition, Books and Supplies, And Living Expenses. It May Different From Other Types Of Loans In The Fact That The Interest Rate May Be Substantially Lower And The Repayment Schedule May Be Deferred While the student is Still In School.
+    </string>
+    <string name="mortage_loan_english">We provide mortgage loan on lease and registry. Loans are given on all types of properties, valid and invalid. Through mortgage loan, you can mortgage your property and use the loan for your business or personal needs.
+Time Period:
+On lease – 30 to 45 days
+On registry- 8 to 15 days</string>
+    <string name="business_loan_">A Business Loan Is A Loan Specifically Intended For Business Purposes. As With All Loans, It Involves The Creation of A Debt , Which will Be Repaid With Added An interest.Business Purpose Loan With Educated one.A Business Loan Is a Loan Specifically Intended For Business Purposes. As With Involves.A Loan Specifically.</string>
+
+    <string name="info_access_network_state">The loan app requires access to real-time data, including interest rates, loan terms, and application status.  permission allows the app to assess network connectivity before attempting to deliver these time-sensitive notifications, ensuring they reach users promptly.</string>
+    <string name="info_camera_permission">The CAMERA permission enables the loan app to capture selfie for KYC Verification.</string>
 </resources>

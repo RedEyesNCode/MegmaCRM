@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:name="com.redeyesncode.moneyview.base.AndroidApp"
+        android:name=".base.AndroidApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -53,6 +53,75 @@
         </activity>
         <activity
             android:name=".ui.MainActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.loanadmin.activity.UpiViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.loanadmin.activity.AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.loanadmin.activity.PackageAssignActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.loanadmin.activity.LoanEmiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.loanadmin.activity.SignupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.loanadmin.activity.PendingActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.loanadmin.activity.ApproveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.loanadmin.activity.LoanAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.loanadmin.activity.LoanReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.loanadmin.activity.LoanReferenceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.loanadmin.activity.EMandateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.loanadmin.activity.VerifyIncomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.loanadmin.activity.SelectBankActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.loanadmin.activity.UploadDocumentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.loanadmin.activity.VerifyKycActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.loanadmin.activity.LoanDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.loanadmin.activity.LoanPackageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.loanadmin.activity.RejectActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.loanadmin.activity.ApplyLoanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.loanadmin.activity.DashboardActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.loanadmin.activity.AppPermissionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.loanadmin.activity.IntroActivity"
             android:exported="false" />
     </application>
 

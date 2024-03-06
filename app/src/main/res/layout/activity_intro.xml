@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.activity.IntroActivity">
+
+
+    <TextView
+        style="@style/normalBodyTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_bottom_blue_rounded"
+        android:fontFamily="@font/poppins_medium"
+        android:paddingVertical="@dimen/_10sdp"
+        android:gravity="center"
+
+        android:text="Take a Look at our Services"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_banner_ranbir"
+        android:visibility="gone"
+        android:layout_height="@dimen/_200sdp"/>
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_marginVertical="@dimen/_50sdp"
+        android:layout_height="wrap_content" />
+    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+        android:id="@+id/dots_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:dotsColor="@color/grey_light"
+        app:dotsCornerRadius="8dp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_gravity="center"
+        app:dotsSize="16dp"
+        app:dotsSpacing="4dp"
+        app:dotsWidthFactor="2.5"
+        app:selectedDotColor="@color/blue"
+        app:progressMode="true"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="horizontal">
+
+        <!-- First Linear Layout -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/ic_money_bag"
+                android:contentDescription="Image 1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/sora_medium"
+                style="@style/SmallTextView"
+                android:textColor="@color/black"
+
+                android:text="Highest Offer"/>
+        </LinearLayout>
+
+        <!-- Second Linear Layout -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/ic_money_bag"
+                android:contentDescription="Image 2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sora_medium"
+                android:layout_marginTop="@dimen/_5sdp"
+
+                style="@style/SmallTextView"
+                android:textColor="@color/black"
+
+                android:text="Affordable EMI's"/>
+        </LinearLayout>
+
+        <!-- Third Linear Layout -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/ic_money_bag"
+                android:contentDescription="Image 3"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/sora_medium"
+                style="@style/SmallTextView"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_5sdp"
+
+
+                android:layout_height="wrap_content"
+                android:text="Instant Disbursal"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        style="@style/MaterialAlertDialog.Material3.Body.Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sora_regular"
+
+        android:gravity="center"
+        android:text="@string/salaried_loan"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent">
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:textColor="@color/white"
+            android:text="Get started"
+            android:id="@+id/btnGetStarted"
+            android:textAllCaps="false"
+            android:layout_gravity="bottom"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/background_rounded_blue"
+            android:layout_height="wrap_content"/>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

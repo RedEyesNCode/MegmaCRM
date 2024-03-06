@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/_8sdp"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="@dimen/_5sdp"
+    android:id="@+id/mainLayout"
+    android:background="@color/white"
+    android:layout_height="@dimen/_125sdp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="@dimen/_100sdp"
+            android:src="@drawable/ic_kyc_required"
+            android:id="@+id/ivBanner"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tvKycStatus"
+                android:layout_width="match_parent"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/sofia_sanscond_medium"
+                android:text="Complete your KYC to Avail Loan"
+                android:textSize="18sp" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:background="@drawable/background_yellow_rounded"
+                android:textColor="@color/black"
+                android:text="APPLY NOW"
+                android:layout_margin="@dimen/_5sdp"
+                android:id="@+id/btnApplyKyc"
+                android:fontFamily="@font/sora_medium"
+                android:textSize="@dimen/_13sdp"
+                android:padding="@dimen/_4sdp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

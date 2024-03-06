@@ -10,7 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.KycDetails
 import com.redeyesncode.crmfinancegs.databinding.ActivityCreateLeadBinding
-import com.redeyesncode.gsfinancenbfc.base.BaseActivity
+import com.redeyesncode.crmfinancegs.base.BaseActivity
 import com.redeyesncode.redbet.session.AppSession
 import com.redeyesncode.redbet.session.Constant
 import java.util.Calendar
@@ -222,10 +222,11 @@ class CreateLeadActivity : BaseActivity() {
                 kycDetails.gender = "3"
             }
             kycDetails.pincode = binding.edtPincode.text.toString()
-            kycDetails.relativeNumber = "Android-99"
-            kycDetails.relativeName = "Android-99"
-            kycDetails.relativeNumber2 = "Android-99"
-            kycDetails.relativeNameTwo =  "Android-99"
+
+            kycDetails.relativeNumber = binding.edtRelativeOneNumber.text.toString()
+            kycDetails.relativeName = binding.edtRelativeOne.text.toString()
+            kycDetails.relativeNumber2 = binding.edtRelativeTwoNumber.text.toString()
+            kycDetails.relativeNameTwo =  binding.edtRelativeTwo.text.toString()
             kycDetails.currentAddress = binding.edtAddress.text.toString()
             kycDetails.state = binding.edtState.text.toString()
 

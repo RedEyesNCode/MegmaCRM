@@ -1,4 +1,4 @@
-package com.redeyesncode.gsfinancenbfc.base
+package com.redeyesncode.crmfinancegs.base
 
 import android.content.Context
 import android.content.ContextWrapper
@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
 import com.google.android.material.snackbar.Snackbar
 import com.redeyesncode.crmfinancegs.R
+import com.redeyesncode.gsfinancenbfc.base.ContextUtils
 import java.util.Locale
 
 open class BaseActivity: AppCompatActivity() {
@@ -23,7 +24,8 @@ open class BaseActivity: AppCompatActivity() {
     private var noInternetDialog: AlertDialog? = null
 
     override fun attachBaseContext(newBase: Context?) {
-        val localeUpdatedContext: ContextWrapper = ContextUtils.updateLocale(newBase!!, Locale("hn"))
+        val localeUpdatedContext: ContextWrapper =
+            ContextUtils.updateLocale(newBase!!, Locale("hn"))
 
         val appLocale: LocaleListCompat = LocaleListCompat.forLanguageTags("hn-hn")
         AppCompatDelegate.setApplicationLocales(appLocale)

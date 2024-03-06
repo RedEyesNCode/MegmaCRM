@@ -7,7 +7,6 @@ import android.content.Intent
 import android.database.Cursor
 import android.graphics.Bitmap
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.os.Handler
@@ -15,7 +14,6 @@ import android.provider.MediaStore
 import android.provider.OpenableColumns
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
-import com.redeyesncode.crmfinancegs.R
 import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.KycDetails
 import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
@@ -23,9 +21,9 @@ import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.databinding.ActivityLeadDocumentBinding
 import com.redeyesncode.crmfinancegs.ui.AadharNumberTextWatcher
 import com.redeyesncode.crmfinancegs.ui.viewmodel.MainViewModel
-import com.redeyesncode.gsfinancenbfc.base.BaseActivity
+import com.redeyesncode.crmfinancegs.base.BaseActivity
 import com.redeyesncode.gsfinancenbfc.base.Event
-import com.redeyesncode.moneyview.base.AndroidApp
+import com.redeyesncode.crmfinancegs.base.AndroidApp
 import com.redeyesncode.redbet.session.AppSession
 import com.redeyesncode.redbet.session.Constant
 import java.io.ByteArrayOutputStream
@@ -98,8 +96,10 @@ class LeadDocumentActivity : BaseActivity() {
     }
 
     private fun attachObservers() {
+        val bodyCreateLead = AppSession(this@LeadDocumentActivity).getObject(Constant.BODY_CREATE_LEAD,BodyCreateLead::class.java) as BodyCreateLead
+
         val user = AppSession(this@LeadDocumentActivity).getObject(
-            Constant.USER_LOGIN,
+            Constant.USER_LOGIN_CRM,
             LoginUserResponse::class.java) as LoginUserResponse
 
         mainViewModel.createLeadResponse.observe(this,Event.EventObserver(
@@ -107,23 +107,19 @@ class LeadDocumentActivity : BaseActivity() {
                 hideLoadingDialog()
 
                 showCustomDialog("Info",it.message.toString())
-                Handler().postDelayed(Runnable {
-                    val intentDashboard = Intent(this@LeadDocumentActivity,DashboardActivity::class.java)
-                    intentDashboard.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK and Intent.FLAG_ACTIVITY_NEW_TASK
-                    startActivity(intentDashboard)
-                },2000)
-//                val applyKycUrl = "https://megmagroup.loan/newApi/api/kyc"
-//                val kycDetails = AppSession(this@LeadDocumentActivity).getObject(Constant.BODY_APPLY_KYC,
-//                    KycDetails::class.java) as KycDetails
-//                kycDetails.pan_number = binding.edtPancard.text.toString().uppercase()
-//
-//                kycDetails.adhar_number = kycDetails.relativeNumber.toString().uppercase()
-//                kycDetails.relativeNumber = removeMinusSign(binding.edtAadharNumber.text.toString().uppercase())
-//                val user = AppSession(this@LeadDocumentActivity).getObject(Constant.RESPONSE_CREATE_LOAN_USER,
-//                    LoanUserLoginResponse::class.java) as LoanUserLoginResponse
-//                showToast("KYC USER ID ${user.user?.id.toString()}")
-//                showToast("KYC USER ID ${user.user?.id.toString()}")
-//                mainViewModel.submitKycRequestUser(applyKycUrl,aadharFront!!,aadharBack!!,panCard!!,selfie!!,selfie!!,selfie,kycDetails,user.user?.id.toString())
+
+                val applyKycUrl = "https://megmagroup.loan/newApi/api/kyc"
+                val kycDetails = AppSession(this@LeadDocumentActivity).getObject(Constant.BODY_APPLY_KYC,
+                    KycDetails::class.java) as KycDetails
+                kycDetails.pan_number = bodyCreateLead.pancard
+
+                kycDetails.adhar_number = kycDetails.relativeNumber.toString().uppercase()
+                kycDetails.relativeNumber = bodyCreateLead.aadhar
+                val user = AppSession(this@LeadDocumentActivity).getObject(Constant.RESPONSE_CREATE_LOAN_USER,
+                    LoanUserLoginResponse::class.java) as LoanUserLoginResponse
+                showToast("KYC USER ID ${user.user?.id.toString()}")
+                showToast("KYC USER ID ${user.user?.id.toString()}")
+                mainViewModel.submitKycRequestUser(applyKycUrl,aadharFront!!,aadharBack!!,panCard!!,selfie!!,selfie!!,selfie,kycDetails,user.user?.id.toString())
 
 
             },
@@ -140,10 +136,11 @@ class LeadDocumentActivity : BaseActivity() {
         mainViewModel.responseApplyKyc.observe(this,Event.EventObserver(
             onLoading = {
                 hideLoadingDialog()
+
             },
             onError = {
                 hideLoadingDialog()
-                showToast(it)
+                showCustomDialog("GS-LOAN-API",it)
             },
             onSuccess = {
                 hideLoadingDialog()
@@ -162,7 +159,6 @@ class LeadDocumentActivity : BaseActivity() {
 
 
         ))
-        val bodyCreateLead = AppSession(this@LeadDocumentActivity).getObject(Constant.BODY_CREATE_LEAD,BodyCreateLead::class.java) as BodyCreateLead
         mainViewModel.responseUploadFile.observe(this,Event.EventObserver(
 
             onLoading = {
@@ -194,14 +190,14 @@ class LeadDocumentActivity : BaseActivity() {
 
                     }else{
                         bodyCreateLead.userId = user.data?.userId.toString()
-                        bodyCreateLead.pancard = binding.edtPancard.text.toString()
+//                        bodyCreateLead.pancard = binding.edtPancard.text.toString()
                         bodyCreateLead.aadharBack = aadharBackUrl
                         bodyCreateLead.aadharFront = adharFrontUrl
                         bodyCreateLead.pancard_img = panCardUrl
                         bodyCreateLead.selfie = selfieUrl
                         bodyCreateLead.additionalDocument = null
 
-                        bodyCreateLead.aadhar = binding.edtAadharNumber.text.toString()
+//                        bodyCreateLead.aadhar = binding.edtAadharNumber.text.toString()
                         bodyCreateLead.customerLoanAmount = binding.edtCustomerLoanAmount.text.toString()
                         bodyCreateLead.empApproveAmount = binding.edtEmpApproveAmount.text.toString()
                         mainViewModel.createUserLead(bodyCreateLead)

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".ui.activity.LoanReferenceActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:src="@drawable/baseline_arrow_forward_24"
+            android:rotation="180"
+            android:id="@+id/ivBack"
+            app:tint="@color/black"
+            android:layout_height="@dimen/_25sdp"/>
+
+
+    </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:src="@drawable/ic_loan_reference"
+                android:layout_height="@dimen/_145sdp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:text="Personal References for your loan"
+                android:textAllCaps="false"
+                android:fontFamily="@font/sora_bold"
+                style="@style/MediumTextView"
+
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="As part of your loan agreement review, we'd like you to provide details of 2 personal references for further verification."
+                android:textAllCaps="false"
+                android:gravity="center"
+                android:fontFamily="@font/sora_bold"
+                style="@style/normalBodyTextView"
+
+
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:textColor="@color/black"
+                android:text="Family/Relative Reference"
+                android:textAllCaps="false"
+                android:fontFamily="@font/sora_bold"
+                style="@style/normalBodyTextView"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edtFather"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Select Father's Contact"
+
+                android:layout_marginTop="@dimen/_10sdp"
+
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColorHint="@android:color/darker_gray"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:clickable="true"
+                    android:drawablePadding="@dimen/_8sdp"
+
+                    android:focusable="false"
+                    android:drawableStart="@drawable/baseline_assignment_ind_24"
+
+                    android:textSize="@dimen/_14sdp"
+
+                    android:inputType="textEmailAddress"
+                    android:imeOptions="actionDone"
+                    android:maxLength="10"
+
+
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edtFriends"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Select Friend Contact"
+
+                android:layout_marginTop="@dimen/_10sdp"
+
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColorHint="@android:color/darker_gray"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:drawableStart="@drawable/baseline_assignment_ind_24"
+
+                    android:textSize="@dimen/_14sdp"
+
+                    android:inputType="textEmailAddress"
+                    android:imeOptions="actionDone"
+                    android:maxLength="10"
+
+
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:textColor="@color/white"
+                android:text="Add References"
+                android:id="@+id/btnSubmitReference"
+
+                android:textAllCaps="false"
+                android:layout_gravity="center"
+                android:drawablePadding="@dimen/_4sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/background_rounded_blue"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

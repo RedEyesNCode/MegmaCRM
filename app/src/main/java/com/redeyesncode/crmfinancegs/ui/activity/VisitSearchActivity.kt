@@ -2,7 +2,6 @@ package com.redeyesncode.crmfinancegs.ui.activity
 
 import android.app.AlertDialog
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,19 +9,16 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.redeyesncode.crmfinancegs.R
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
-import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
 import com.redeyesncode.crmfinancegs.databinding.ActivityVisitSearchBinding
 import com.redeyesncode.crmfinancegs.databinding.ImageDialogBinding
 import com.redeyesncode.crmfinancegs.ui.DateRangePickerDialog
-import com.redeyesncode.crmfinancegs.ui.adapter.UserLeadAdapter
 import com.redeyesncode.crmfinancegs.ui.adapter.UserVisitAdapter
 import com.redeyesncode.crmfinancegs.ui.viewmodel.MainViewModel
-import com.redeyesncode.gsfinancenbfc.base.BaseActivity
+import com.redeyesncode.crmfinancegs.base.BaseActivity
 import com.redeyesncode.gsfinancenbfc.base.Event
-import com.redeyesncode.moneyview.base.AndroidApp
+import com.redeyesncode.crmfinancegs.base.AndroidApp
 import com.redeyesncode.redbet.session.AppSession
 import com.redeyesncode.redbet.session.Constant
 import javax.inject.Inject
@@ -95,7 +91,7 @@ class VisitSearchActivity : BaseActivity() ,UserVisitAdapter.onClick{
     }
     private fun initialApiCall() {
         val user = AppSession(this@VisitSearchActivity).getObject(
-            Constant.USER_LOGIN,
+            Constant.USER_LOGIN_CRM,
             LoginUserResponse::class.java) as LoginUserResponse
 
         val visitUserMap = HashMap<String,String>()
@@ -225,7 +221,7 @@ class VisitSearchActivity : BaseActivity() ,UserVisitAdapter.onClick{
     }
     private fun filterApiDate(startDate: String, endDate: String) {
         val user = AppSession(this@VisitSearchActivity).getObject(
-            Constant.USER_LOGIN,
+            Constant.USER_LOGIN_CRM,
             LoginUserResponse::class.java) as LoginUserResponse
 
         val filterMap = hashMapOf<String,String>()

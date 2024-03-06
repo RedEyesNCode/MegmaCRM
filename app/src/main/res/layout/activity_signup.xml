@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.SignupActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:padding="@dimen/_15sdp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:textColor="@color/black"
+            android:text="Sign up for new account"
+            android:textAllCaps="false"
+            android:fontFamily="@font/sora_bold"
+            style="@style/bigHeadingTextView"
+
+            android:layout_height="wrap_content"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:visibility="visible"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_blue_border"
+            android:hint="Email ID"
+            app:hintTextAppearance="@style/MediumTextView"
+
+            android:layout_marginTop="@dimen/_10sdp"
+
+            app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+            app:boxBackgroundMode="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="@dimen/_4sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColorHint="@android:color/darker_gray"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:fontFamily="@font/sora_medium"
+                android:textColor="@color/black"
+                android:layout_margin="@dimen/_7sdp"
+                android:id="@+id/edtEmail"
+
+                android:textSize="@dimen/_14sdp"
+
+                android:inputType="textNoSuggestions"
+                android:imeOptions="actionDone"
+
+
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_blue_border"
+            android:hint="Mobile Number"
+            app:hintTextAppearance="@style/MediumTextView"
+
+            android:layout_marginTop="@dimen/_10sdp"
+
+            app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+            app:boxBackgroundMode="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="@dimen/_4sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColorHint="@android:color/darker_gray"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:fontFamily="@font/sora_medium"
+                android:textColor="@color/black"
+                android:layout_margin="@dimen/_7sdp"
+                android:id="@+id/edtMobileNumber"
+
+                android:textSize="@dimen/_14sdp"
+
+                android:inputType="number"
+                android:imeOptions="actionDone"
+                android:maxLength="10"
+
+
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+    </LinearLayout>
+
+    <!-- Your layout file -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/layoutTermsnConditons"
+            android:layout_marginHorizontal="@dimen/_7sdp"
+
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="@dimen/_25sdp"
+                android:id="@+id/ivCheckTerms"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_gravity="start"
+                android:src="@drawable/bcakground_green_uncheck"
+                android:layout_height="@dimen/_25sdp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:fontFamily="@font/sora_regular"
+                android:text="By proceeding, I consent to share the required documents for the loan application process. I understand that the provided information will be used for verification and processing purposes in accordance with the app's privacy policy."
+                style="@style/MediumTextView"
+                android:layout_height="wrap_content"/>
+
+
+
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:textColor="@color/black"
+            android:fontFamily="@font/sora_bold"
+            android:text="Create New Account !"
+            android:id="@+id/btnOtpContinue"
+
+            android:textAllCaps="false"
+            android:layout_gravity="center"
+            android:drawablePadding="@dimen/_4sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@color/yellow"
+            android:layout_height="wrap_content"/>
+
+
+
+    </LinearLayout>
+</RelativeLayout>

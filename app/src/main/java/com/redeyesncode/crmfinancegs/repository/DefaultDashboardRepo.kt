@@ -133,7 +133,19 @@ class DefaultDashboardRepo : DashboardRepo {
             safeCall {
                 val response =
                     RetrofitInstance().provideApiService(RetrofitInstance().provideRetrofit()).submitKYCRequest(applyKycUrl,aadharFront, adharBack, panCard, selfie, userId, firstName, lastName,dob, gender, email, pincode, userType, monthlySalary, relativeNumberName, relativeNumberTwoName, relativeNumberTwo, currentAddress, pan_number, name, relativeNumber,adhar_number,state,eSign,bankStatement)
-                Resource.Success(response.body()!!)
+                if(response.isSuccessful){
+                    Resource.Success(response.body()!!)
+
+                }else{
+                    val errorBody = response.errorBody()?.string()
+                    val errorJson = JSONObject(errorBody!!)
+
+                    val status = errorJson.getString("status")
+                    val code = errorJson.getInt("code")
+                    val message = errorJson.getString("message")
+
+                    Resource.Error("Status: $status, Code: $code, Message: $message")
+                }
             }
         }
     }
