@@ -180,10 +180,11 @@ class CreateLeadActivity : BaseActivity() {
             showCustomDialog("Info","please enter relative two number")
             return false
         } else {
-            val bodyCreateLead = BodyCreateLead()
+            val bodyCreateLead = AppSession(this@CreateLeadActivity).getObject(Constant.BODY_CREATE_LEAD,BodyCreateLead::class.java) as BodyCreateLead
+
             bodyCreateLead.firstname = binding.edtFirstName.text.toString()
             bodyCreateLead.lastname = binding.edtLastName.text.toString()
-            bodyCreateLead.mobileNumber = binding.edtMobileNumber.text.toString()
+//            bodyCreateLead.mobileNumber = binding.edtMobileNumber.text.toString()
             bodyCreateLead.middlename = binding.edtMiddleName.text.toString()
             bodyCreateLead.dob = binding.edtDOB.text.toString()
             bodyCreateLead.email = binding.edtEmail.text.toString()

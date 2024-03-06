@@ -62,181 +62,204 @@
 
 
 
-    <LinearLayout
-
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="@dimen/_16sdp">
+        android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/editTextCustomerName"
+        <LinearLayout
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Customer Name"
-            style="@style/editTextElevated"
-            android:inputType="textPersonName"
-            android:imeOptions="actionNext"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/_16sdp">
 
-        <EditText
-            android:id="@+id/editTextAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Address"
-            style="@style/editTextElevated"
-
-            android:inputType="textPostalAddress"
-            android:imeOptions="actionNext"/>
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            app:cardUseCompatPadding="true"
-            android:visibility="visible"
-
-            app:cardBackgroundColor="@color/white"
-            app:cardElevation="@dimen/_6sdp"
-            app:cardCornerRadius="@dimen/_8sdp"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
+            <EditText
+                android:id="@+id/editTextCustomerName"
                 android:layout_width="match_parent"
-                android:background="@drawable/background_blue_border"
-                android:orientation="vertical"
-                android:padding="@dimen/_10sdp"
+                android:layout_height="wrap_content"
+                android:hint="Customer Name"
+                style="@style/editTextElevated"
+                android:inputType="textPersonName"
+                android:imeOptions="actionNext"/>
+            <EditText
+                android:id="@+id/edtCustomerNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Customer Number"
+                style="@style/editTextElevated"
+                android:inputType="number"
+                android:maxLength="10"
+                android:imeOptions="actionNext"/>
+            <EditText
+                android:id="@+id/edtRemark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Remark"
+                style="@style/editTextElevated"
+                android:inputType="textPersonName"
+                android:minLines="5"
+                android:imeOptions="actionNext"/>
+            <EditText
+                android:id="@+id/editTextAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Address"
+                style="@style/editTextElevated"
+
+                android:inputType="textPostalAddress"
+                android:imeOptions="actionNext"/>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                app:cardUseCompatPadding="true"
+                android:visibility="visible"
+
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="@dimen/_6sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
                 android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:orientation="horizontal"
+                    android:background="@drawable/background_blue_border"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp"
                     android:layout_height="wrap_content">
-                    <ImageView
-                        android:layout_width="@dimen/_45sdp"
-                        android:src="@drawable/ic_camera"
 
-                        android:layout_alignParentStart="true"
-                        android:layout_height="@dimen/_45sdp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_width="@dimen/_45sdp"
+                            android:src="@drawable/ic_camera"
+
+                            android:layout_alignParentStart="true"
+                            android:layout_height="@dimen/_45sdp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_toEndOf="@id/ivDoc"
+                            android:textColor="@color/black"
+                            android:text="Customer Selfie*"
+                            android:layout_margin="@dimen/_8sdp"
+                            android:textAllCaps="false"
+                            android:fontFamily="@font/sora_bold"
+                            style="@style/MediumTextView"
+
+                            android:layout_height="wrap_content"/>
+
+
+                    </LinearLayout>
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:layout_width="match_parent"
+                        app:riv_corner_radius="@dimen/_8sdp"
+                        app:riv_border_width="@dimen/_2sdp"
+                        android:scaleType="centerCrop"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:id="@+id/ivAdharBackPreview"
+                        app:riv_border_color="@color/blue"
+                        android:src="@drawable/ic_placeholder"
+
+                        android:layout_height="@dimen/_100sdp"/>
+
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_toEndOf="@id/ivDoc"
-                        android:textColor="@color/black"
-                        android:text="Customer Selfie*"
-                        android:layout_margin="@dimen/_8sdp"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/dotted_line_grey"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textAlignment="center"
+                        android:textColor="@color/grey_light"
+                        android:text="Choose Selfie"
+                        android:id="@+id/tvAadharBack"
+                        android:src="@drawable/ic_placeholder"
+
                         android:textAllCaps="false"
                         android:fontFamily="@font/sora_bold"
-                        style="@style/MediumTextView"
+                        style="@style/normalBodyTextView"
+
 
                         android:layout_height="wrap_content"/>
 
+                    <!-- <androidx.appcompat.widget.AppCompatButton
+                         android:layout_width="wrap_content"
+                         android:textColor="@color/white"
+                         android:text="Done"
+                         android:id="@+id/btnAadharBack"
 
+                         android:textAllCaps="false"
+                         android:enabled="false"
+
+                         android:paddingHorizontal="@dimen/_105sdp"
+                         android:layout_gravity="center"
+                         android:drawablePadding="@dimen/_4sdp"
+                         android:layout_margin="@dimen/_10sdp"
+                         android:background="@drawable/button_selector_green"
+                         android:layout_height="wrap_content"/>-->
                 </LinearLayout>
-                <com.makeramen.roundedimageview.RoundedImageView
-                    android:layout_width="match_parent"
-                    app:riv_corner_radius="@dimen/_8sdp"
-                    app:riv_border_width="@dimen/_2sdp"
-                    android:scaleType="centerCrop"
-                    android:layout_margin="@dimen/_2sdp"
-                    android:id="@+id/ivAdharBackPreview"
-                    app:riv_border_color="@color/blue"
-                    android:src="@drawable/ic_placeholder"
-
-                    android:layout_height="@dimen/_100sdp"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:background="@drawable/dotted_line_grey"
-                    android:layout_margin="@dimen/_5sdp"
-                    android:padding="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textAlignment="center"
-                    android:textColor="@color/grey_light"
-                    android:text="Choose Selfie"
-                    android:id="@+id/tvAadharBack"
-                    android:src="@drawable/ic_placeholder"
-
-                    android:textAllCaps="false"
-                    android:fontFamily="@font/sora_bold"
-                    style="@style/normalBodyTextView"
 
 
-                    android:layout_height="wrap_content"/>
+            </com.google.android.material.card.MaterialCardView>
 
-                <!-- <androidx.appcompat.widget.AppCompatButton
-                     android:layout_width="wrap_content"
-                     android:textColor="@color/white"
-                     android:text="Done"
-                     android:id="@+id/btnAadharBack"
+            <EditText
+                android:id="@+id/editTextPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:hint="Photo"
+                android:inputType="text"
+                android:focusable="false"
+                android:clickable="true"
+                style="@style/editTextElevated"
 
-                     android:textAllCaps="false"
-                     android:enabled="false"
+                android:imeOptions="actionNext"/>
 
-                     android:paddingHorizontal="@dimen/_105sdp"
-                     android:layout_gravity="center"
-                     android:drawablePadding="@dimen/_4sdp"
-                     android:layout_margin="@dimen/_10sdp"
-                     android:background="@drawable/button_selector_green"
-                     android:layout_height="wrap_content"/>-->
-            </LinearLayout>
+            <EditText
+                android:id="@+id/editTextLatitude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tap to Get Latitude"
+                android:clickable="true"
+                android:focusable="false"
+                style="@style/editTextElevated"
 
+                android:inputType="numberDecimal"
+                android:imeOptions="actionNext"/>
 
-        </com.google.android.material.card.MaterialCardView>
+            <EditText
+                android:id="@+id/editTextLongitude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tap to Get Longitude"
+                style="@style/editTextElevated"
+                android:focusable="false"
+                android:clickable="true"
 
-        <EditText
-            android:id="@+id/editTextPhoto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:hint="Photo"
-            android:inputType="text"
-            android:focusable="false"
-            android:clickable="true"
-            style="@style/editTextElevated"
+                android:inputType="numberDecimal"
+                android:imeOptions="actionDone"/>
 
-            android:imeOptions="actionNext"/>
+            <EditText
+                android:id="@+id/editTextUserId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="User ID"
+                style="@style/editTextElevated"
 
-        <EditText
-            android:id="@+id/editTextLatitude"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Tap to Get Latitude"
-            android:clickable="true"
-            android:focusable="false"
-            style="@style/editTextElevated"
+                android:inputType="text"
+                android:imeOptions="actionDone"/>
 
-            android:inputType="numberDecimal"
-            android:imeOptions="actionNext"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:id="@+id/btnCreateVisit"
+                android:textColor="@color/white"
+                android:fontFamily="@font/sofia_sanscond_medium"
+                android:textSize="@dimen/_11sdp"
+                android:text="CREATE VISIT"
+                android:background="@drawable/background_rounded_blue"
 
-        <EditText
-            android:id="@+id/editTextLongitude"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Tap to Get Longitude"
-            style="@style/editTextElevated"
-            android:focusable="false"
-            android:clickable="true"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
-            android:inputType="numberDecimal"
-            android:imeOptions="actionDone"/>
-
-        <EditText
-            android:id="@+id/editTextUserId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="User ID"
-            style="@style/editTextElevated"
-
-            android:inputType="text"
-            android:imeOptions="actionDone"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:id="@+id/btnCreateVisit"
-            android:textColor="@color/white"
-            android:fontFamily="@font/sofia_sanscond_medium"
-            android:textSize="@dimen/_11sdp"
-            android:text="CREATE VISIT"
-            android:background="@drawable/background_rounded_blue"
-
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>

@@ -53,6 +53,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:hint="Aadhar Card Number"
                 app:hintTextAppearance="@style/MediumTextView"
@@ -77,6 +78,7 @@
 
 
                     android:textSize="@dimen/_14sdp"
+                    android:text="SAMPLE-AADHAR-CARD-NUMBER"
 
                     android:inputType="number"
                     android:imeOptions="actionDone"
@@ -90,6 +92,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Pan Card Number"
+                android:visibility="gone"
+
                 app:hintTextAppearance="@style/MediumTextView"
 
                 android:layout_marginTop="@dimen/_10sdp"
@@ -111,7 +115,7 @@
 
                     android:fontFamily="@font/sora_bold"
                     style="@style/normalBodyTextView"
-
+                    android:text="SAMPLE-PAN-CARD-NUMBER"
                     android:padding="@dimen/_10sdp"
                     android:inputType="textCapCharacters|textNoSuggestions"
                     android:layout_marginHorizontal="10dp"
@@ -124,17 +128,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Customer Loan Demand"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 app:hintTextAppearance="@style/MediumTextView"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
                 android:layout_marginTop="@dimen/_10sdp"
 
                 app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
-                app:boxBackgroundMode="filled"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:padding="@dimen/_4sdp"
                 app:layout_constraintStart_toStartOf="parent"
                 android:textColorHint="@android:color/darker_gray"
+
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -157,13 +161,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Employee Approved Amount"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 app:hintTextAppearance="@style/MediumTextView"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
                 android:layout_marginTop="@dimen/_10sdp"
 
                 app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
-                app:boxBackgroundMode="filled"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:padding="@dimen/_4sdp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -578,7 +581,7 @@
                             android:layout_width="wrap_content"
                             android:layout_toEndOf="@id/ivDoc"
                             android:textColor="@color/black"
-                            android:text="Signature (Optional)"
+                            android:text="Additional Document (Optional)"
                             android:layout_margin="@dimen/_8sdp"
                             android:textAllCaps="false"
                             android:fontFamily="@font/sora_bold"

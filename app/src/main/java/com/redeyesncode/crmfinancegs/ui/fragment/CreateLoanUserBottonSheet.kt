@@ -11,6 +11,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.redeyesncode.crmfinancegs.R
+import com.redeyesncode.crmfinancegs.data.BodyCreateLead
+import com.redeyesncode.crmfinancegs.data.KycDetails
 import com.redeyesncode.crmfinancegs.databinding.LayoutBottomSheetCreateLoanUserBinding
 import com.redeyesncode.crmfinancegs.ui.activity.CreateLeadActivity
 import com.redeyesncode.crmfinancegs.ui.viewmodel.MainViewModel
@@ -123,6 +125,14 @@ class CreateLoanUserBottonSheet(var mContext:Context):BottomSheetDialogFragment(
             onSuccess = {
                 hideLoadingDialog()
                 val intentCreateLead = Intent(requireContext(), CreateLeadActivity::class.java)
+
+                val bodyCreateLead = BodyCreateLead()
+                bodyCreateLead.pancard = binding.edtPanCard.text.toString();
+                bodyCreateLead.mobileNumber= binding.edtMobileNumber.text.toString()
+                bodyCreateLead.aadhar = binding.edtAadharNumber.text.toString()
+                AppSession(requireContext()).putObject(Constant.BODY_CREATE_LEAD,bodyCreateLead)
+
+
                 intentCreateLead.putExtra("EMAIL", "")
                 intentCreateLead.putExtra("NUMBER", binding.edtMobileNumber.text.toString())
 

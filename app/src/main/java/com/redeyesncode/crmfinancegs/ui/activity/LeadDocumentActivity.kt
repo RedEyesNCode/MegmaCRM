@@ -76,6 +76,7 @@ class LeadDocumentActivity : BaseActivity() {
     var adharFrontUrl:String?=""
     var aadharBackUrl:String?=""
     var panCardUrl:String?=""
+    var eSignUrl:String?=""
 
 
     @Inject
@@ -188,24 +189,53 @@ class LeadDocumentActivity : BaseActivity() {
 
                 }else if(selfieUrl!!.isNotEmpty() && adharFrontUrl!!.isNotEmpty() && aadharBackUrl!!.isNotEmpty() && panCardUrl!!.isEmpty()){
                     panCardUrl = it.message.toString()
-                    mainViewModel.uploadFile(selfie!!)
+                    if(eSign!=null){
+                        mainViewModel.uploadFile(eSign!!)
 
-                }else if (selfieUrl!!.isNotEmpty() && adharFrontUrl!!.isNotEmpty() && aadharBackUrl!!.isNotEmpty() && panCardUrl!!.isNotEmpty()){
+                    }else{
+                        bodyCreateLead.userId = user.data?.userId.toString()
+                        bodyCreateLead.pancard = binding.edtPancard.text.toString()
+                        bodyCreateLead.aadharBack = aadharBackUrl
+                        bodyCreateLead.aadharFront = adharFrontUrl
+                        bodyCreateLead.pancard_img = panCardUrl
+                        bodyCreateLead.selfie = selfieUrl
+                        bodyCreateLead.additionalDocument = null
 
+                        bodyCreateLead.aadhar = binding.edtAadharNumber.text.toString()
+                        bodyCreateLead.customerLoanAmount = binding.edtCustomerLoanAmount.text.toString()
+                        bodyCreateLead.empApproveAmount = binding.edtEmpApproveAmount.text.toString()
+                        mainViewModel.createUserLead(bodyCreateLead)
+                    }
 
+                }else if (selfieUrl!!.isNotEmpty() && adharFrontUrl!!.isNotEmpty() && panCardUrl!!.isNotEmpty()  &&  aadharBackUrl!!.isNotEmpty() && eSignUrl!!.isEmpty()){
 
-
-                    bodyCreateLead.selfie = it.message.toString()
+                    eSignUrl = it.message.toString()
                     bodyCreateLead.userId = user.data?.userId.toString()
-                    bodyCreateLead.pancard = binding.edtPancard.text.toString()
+//                    bodyCreateLead.pancard = binding.edtPancard.text.toString()
                     bodyCreateLead.aadharBack = aadharBackUrl
                     bodyCreateLead.aadharFront = adharFrontUrl
                     bodyCreateLead.pancard_img = panCardUrl
-                    bodyCreateLead.aadhar = binding.edtAadharNumber.text.toString()
+                    bodyCreateLead.selfie = selfieUrl
+                    bodyCreateLead.additionalDocument = eSignUrl
+
+//                    bodyCreateLead.aadhar = binding.edtAadharNumber.text.toString()
                     bodyCreateLead.customerLoanAmount = binding.edtCustomerLoanAmount.text.toString()
                     bodyCreateLead.empApproveAmount = binding.edtEmpApproveAmount.text.toString()
                     mainViewModel.createUserLead(bodyCreateLead)
+                }else if(selfieUrl!!.isNotEmpty() && adharFrontUrl!!.isNotEmpty() && aadharBackUrl!!.isNotEmpty() && panCardUrl!!.isNotEmpty() && eSignUrl!!.isNotEmpty()){
 
+                    bodyCreateLead.userId = user.data?.userId.toString()
+//                    bodyCreateLead.pancard = binding.edtPancard.text.toString()
+                    bodyCreateLead.aadharBack = aadharBackUrl
+                    bodyCreateLead.aadharFront = adharFrontUrl
+                    bodyCreateLead.pancard_img = panCardUrl
+                    bodyCreateLead.selfie = selfieUrl
+                    bodyCreateLead.additionalDocument = eSignUrl
+
+//                    bodyCreateLead.aadhar = binding.edtAadharNumber.text.toString()
+                    bodyCreateLead.customerLoanAmount = binding.edtCustomerLoanAmount.text.toString()
+                    bodyCreateLead.empApproveAmount = binding.edtEmpApproveAmount.text.toString()
+                    mainViewModel.createUserLead(bodyCreateLead)
                 }
 
 
@@ -493,12 +523,7 @@ class LeadDocumentActivity : BaseActivity() {
 
                 try {
                     eSign = convertBitmapToFile(imageBitmap)
-
-
-
 //                    showCustomDialog("Media","Pancard is Selected !")
-
-
                 }catch (e: IOException){
                     e.printStackTrace()
                 }

@@ -13,6 +13,7 @@ data class BodyCreateLead(@SerializedName("firstname"      ) var firstname      
                           @SerializedName("relativeName"   ) var relativeName   : String? = null,
                           @SerializedName("relativeNumber" ) var relativeNumber : String? = null,
                           @SerializedName("currentAddress" ) var currentAddress : String? = null,
+                          @SerializedName("additionalDocument" ) var additionalDocument : String? = null,
                           @SerializedName("state"          ) var state          : String? = null,
                           @SerializedName("pancard"        ) var pancard        : String? = null,
                           @SerializedName("email"        ) var email        : String? = null,

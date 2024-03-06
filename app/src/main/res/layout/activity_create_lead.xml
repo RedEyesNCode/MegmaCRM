@@ -193,6 +193,7 @@
                 app:boxBackgroundMode="filled"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:padding="@dimen/_4sdp"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 android:textColorHint="@android:color/darker_gray"
                 app:layout_constraintTop_toTopOf="parent">
@@ -205,6 +206,7 @@
                     android:id="@+id/edtMobileNumber"
 
                     android:textSize="@dimen/_14sdp"
+                    android:text="DUMMY-MOBILE-NUMBER"
 
                     android:inputType="number"
                     android:maxLength="10"
@@ -219,6 +221,7 @@
                 android:textColor="@color/grey_light"
                 android:text="As per PAN Card"
                 android:textAllCaps="false"
+                android:visibility="gone"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:fontFamily="@font/sora_bold"
                 style="@style/normalBodyTextView"
@@ -543,7 +546,7 @@
                     android:textSize="@dimen/_14sdp"
 
                     android:inputType="number"
-                    android:maxLength="5"
+                    android:maxLength="6"
                     android:imeOptions="actionDone"
 
 

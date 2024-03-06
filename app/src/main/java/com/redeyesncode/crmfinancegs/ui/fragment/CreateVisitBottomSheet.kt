@@ -126,6 +126,11 @@ class CreateVisitBottomSheet(var mContext: Context):BottomSheetDialogFragment() 
                 bodyCreateVisit.customerName = binding.editTextCustomerName.text.toString()
                 bodyCreateVisit.photo = it.message.toString()
                 bodyCreateVisit.address = binding.editTextAddress.text.toString()
+
+                bodyCreateVisit.customerNumber = binding.edtCustomerNumber.text.toString()
+                bodyCreateVisit.remark = binding.edtRemark.text.toString()
+
+
                 mainViewModel.createUserVisit(bodyCreateVisit)
             },
             onError = {
