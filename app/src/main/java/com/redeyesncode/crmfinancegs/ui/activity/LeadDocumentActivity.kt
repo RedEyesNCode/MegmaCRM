@@ -194,14 +194,14 @@ class LeadDocumentActivity : BaseActivity() {
 
                     }else{
                         bodyCreateLead.userId = user.data?.userId.toString()
-                        bodyCreateLead.pancard = binding.edtPancard.text.toString()
+//                        bodyCreateLead.pancard = binding.edtPancard.text.toString()
                         bodyCreateLead.aadharBack = aadharBackUrl
                         bodyCreateLead.aadharFront = adharFrontUrl
                         bodyCreateLead.pancard_img = panCardUrl
                         bodyCreateLead.selfie = selfieUrl
                         bodyCreateLead.additionalDocument = null
 
-                        bodyCreateLead.aadhar = binding.edtAadharNumber.text.toString()
+//                        bodyCreateLead.aadhar = binding.edtAadharNumber.text.toString()
                         bodyCreateLead.customerLoanAmount = binding.edtCustomerLoanAmount.text.toString()
                         bodyCreateLead.empApproveAmount = binding.edtEmpApproveAmount.text.toString()
                         mainViewModel.createUserLead(bodyCreateLead)
