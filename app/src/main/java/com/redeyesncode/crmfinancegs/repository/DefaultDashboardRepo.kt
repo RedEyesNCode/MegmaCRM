@@ -3,12 +3,14 @@ package com.redeyesncode.crmfinancegs.repository
 import com.google.gson.Gson
 import com.redeyesncode.androidtechnical.base.Resource
 import com.redeyesncode.androidtechnical.base.safeCall
+import com.redeyesncode.crmfinancegs.data.BodyCreateAttendance
 import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
 import com.redeyesncode.crmfinancegs.data.CommonMessageResponse
 import com.redeyesncode.crmfinancegs.data.FilterLeadsResponse
 import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
+import com.redeyesncode.crmfinancegs.data.ResponseUserAttendance
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
 import com.redeyesncode.crmfinancegs.network.RetrofitInstance
@@ -19,6 +21,58 @@ import org.json.JSONObject
 import retrofit2.Response
 
 class DefaultDashboardRepo : DashboardRepo {
+
+
+    override suspend fun addEmpAttendance(map: BodyCreateAttendance): Resource<CommonMessageResponse> {
+        return safeCall {
+            safeCall {
+                val response =
+                    RetrofitInstance().provideApiService(RetrofitInstance().provideRetrofit()).addEmpAttendance(map)
+
+                if(response.isSuccessful){
+                    Resource.Success(response.body()!!)
+
+                }else{
+                    val errorBody = response.errorBody()?.string()
+                    val errorJson = JSONObject(errorBody!!)
+
+                    val status = errorJson.getString("status")
+                    val code = errorJson.getInt("code")
+                    val message = errorJson.getString("message")
+
+                    Resource.Error("Status: $status, Code: $code, Message: $message")
+
+                }
+            }
+        }
+
+
+    }
+
+    override suspend fun viewUserAttendance(map: HashMap<String, String>): Resource<ResponseUserAttendance> {
+
+        return safeCall {
+            safeCall {
+                val response =
+                    RetrofitInstance().provideApiService(RetrofitInstance().provideRetrofit()).viewUserAttendance(map)
+
+                if(response.isSuccessful){
+                    Resource.Success(response.body()!!)
+
+                }else{
+                    val errorBody = response.errorBody()?.string()
+                    val errorJson = JSONObject(errorBody!!)
+
+                    val status = errorJson.getString("status")
+                    val code = errorJson.getInt("code")
+                    val message = errorJson.getString("message")
+
+                    Resource.Error("Status: $status, Code: $code, Message: $message")
+
+                }
+            }
+        }
+    }
 
     override suspend fun checkUniqueLead(map: HashMap<String, String>): Resource<CommonMessageResponse> {
 

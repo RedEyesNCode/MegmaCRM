@@ -10,6 +10,8 @@ import com.redeyesncode.crmfinancegs.ui.activity.LeadSearchActivity
 import com.redeyesncode.crmfinancegs.ui.activity.LoginActivity
 import com.redeyesncode.crmfinancegs.ui.activity.VisitSearchActivity
 import com.redeyesncode.crmfinancegs.ui.fragment.ApproveFragment
+import com.redeyesncode.crmfinancegs.ui.fragment.AttendanceFragment
+import com.redeyesncode.crmfinancegs.ui.fragment.CreateAttendanceBottomSheet
 import com.redeyesncode.crmfinancegs.ui.fragment.CreateLoanUserBottonSheet
 import com.redeyesncode.crmfinancegs.ui.fragment.CreateVisitBottomSheet
 import com.redeyesncode.crmfinancegs.ui.fragment.LeadsFragment
@@ -40,6 +42,12 @@ interface DaggerComp {
 
 
     fun injectCreateVisitBottomSheet(createVisitBottomSheet: CreateVisitBottomSheet)
+
+
+
+    fun injectAddAttendanceSheet(attendanceBottomSheet: CreateAttendanceBottomSheet)
+
+    fun injectAttendance(attendance: AttendanceFragment)
 
 
     fun injectDashboardActivity(dashboardActivity: DashboardActivity)

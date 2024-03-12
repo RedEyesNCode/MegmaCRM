@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.redeyesncode.androidtechnical.base.Resource
+import com.redeyesncode.crmfinancegs.data.BodyCreateAttendance
 import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
 import com.redeyesncode.crmfinancegs.data.CommonMessageResponse
@@ -12,6 +13,7 @@ import com.redeyesncode.crmfinancegs.data.FilterLeadsResponse
 import com.redeyesncode.crmfinancegs.data.KycDetails
 import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
+import com.redeyesncode.crmfinancegs.data.ResponseUserAttendance
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
 import com.redeyesncode.crmfinancegs.repository.DefaultDashboardRepo
@@ -72,6 +74,31 @@ class MainViewModel(private val dashboardRepo: DefaultDashboardRepo): ViewModel(
 
     private val _responseCheckUniqueLead = MutableLiveData<Event<Resource<CommonMessageResponse>>>()
     val responseCheckUniqueLead : LiveData<Event<Resource<CommonMessageResponse>>> = _responseCheckUniqueLead
+
+
+    private val _responseCreateAttendance = MutableLiveData<Event<Resource<CommonMessageResponse>>>()
+    val responseCreateAttendance : LiveData<Event<Resource<CommonMessageResponse>>> = _responseCreateAttendance
+
+
+    private val _responseUserAttendance = MutableLiveData<Event<Resource<ResponseUserAttendance>>>()
+    val responseUserAttendance : LiveData<Event<Resource<ResponseUserAttendance>>> = _responseUserAttendance
+
+    fun createAttendance(map:BodyCreateAttendance){
+
+        _responseCreateAttendance.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main){
+            val result = dashboardRepo.addEmpAttendance(map)
+            _responseCreateAttendance.postValue(Event(result))
+        }
+    }
+    fun getUserAttendance(map:HashMap<String,String>){
+
+        _responseUserAttendance.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main){
+            val result = dashboardRepo.viewUserAttendance(map)
+            _responseUserAttendance.postValue(Event(result))
+        }
+    }
 
 
     fun checkUniqueLead(map:HashMap<String,String>){

@@ -1,11 +1,13 @@
 package com.redeyesncode.crmfinancegs.network
 
+import com.redeyesncode.crmfinancegs.data.BodyCreateAttendance
 import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
 import com.redeyesncode.crmfinancegs.data.CommonMessageResponse
 import com.redeyesncode.crmfinancegs.data.FilterLeadsResponse
 import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
+import com.redeyesncode.crmfinancegs.data.ResponseUserAttendance
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
 import okhttp3.MultipartBody
@@ -60,6 +62,19 @@ interface ApiInterface {
 
     @POST("megma-crm/check-unique-lead")
     suspend fun checkUniqueLead(@Body map:HashMap<String,String>):Response<CommonMessageResponse>
+
+
+
+    @POST("megma-crm/add-emp-attendance")
+    suspend fun addEmpAttendance(@Body map:BodyCreateAttendance):Response<CommonMessageResponse>
+
+    @POST("megma-crm/view-emp-attendance")
+    suspend fun viewUserAttendance(@Body map:HashMap<String,String>):Response<ResponseUserAttendance>
+
+
+
+
+
 
     @Multipart
     @POST

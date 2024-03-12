@@ -9,6 +9,10 @@
         android:icon="@drawable/ic_user_check_solid"
         android:title="Approved" />
     <item
+        android:id="@+id/attendanceFragment"
+        android:icon="@drawable/baseline_calendar_month_24"
+        android:title="Attendance" />
+    <item
         android:id="@+id/visitFragment"
         android:icon="@drawable/ic_person_walking_luggage_solid"
         android:title="Visits" />
