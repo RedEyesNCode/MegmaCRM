@@ -89,6 +89,7 @@ dependencies {
     implementation 'org.jsoup:jsoup:1.13.1'
 
     //LOCATIOn
-    implementation 'com.google.android.gms:play-services-location:21.1.0'
+    implementation 'com.google.android.gms:play-services-location:21.2.0'
+    implementation 'com.applandeo:material-calendar-view:1.9.0-rc04'
 
 }
