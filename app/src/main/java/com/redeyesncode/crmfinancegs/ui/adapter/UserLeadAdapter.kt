@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.redeyesncode.crmfinancegs.R
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
@@ -17,8 +18,39 @@ class UserLeadAdapter(var context: Context,var data :ArrayList<UserLeadResponse.
 
 
 
+    class UserLeadDiffCallback(
+        private val oldList: List<UserLeadResponse.Data>,
+        private val newList: List<UserLeadResponse.Data>
+    ) : DiffUtil.Callback() {
 
+        override fun getOldListSize(): Int = oldList.size
 
+        override fun getNewListSize(): Int = newList.size
+
+        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldList[oldItemPosition].leadId == newList[newItemPosition].leadId
+        }
+
+        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldList[oldItemPosition] == newList[newItemPosition]
+        }
+    }
+    companion object {
+        fun calculateDiff(
+            oldList: List<UserLeadResponse.Data>,
+            newList: List<UserLeadResponse.Data>
+        ): DiffUtil.DiffResult {
+            val diffCallback = UserLeadDiffCallback(oldList, newList)
+            return DiffUtil.calculateDiff(diffCallback)
+        }
+    }
+    fun updateData(newData: List<UserLeadResponse.Data> = emptyList()) {
+        val diffCallback = UserLeadDiffCallback(data, newData)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+        data.clear()
+        data.addAll(newData)
+        diffResult.dispatchUpdatesTo(this)
+    }
     lateinit var binding: ItemUserLeadBinding
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewholder {
         binding = ItemUserLeadBinding.inflate(LayoutInflater.from(context),parent,false)
@@ -61,6 +93,9 @@ class UserLeadAdapter(var context: Context,var data :ArrayList<UserLeadResponse.
 
             }else if(leadStatus.equals("REJECTED")){
                 btnLeadStatus.setBackgroundColor(context.getColor(R.color.red))
+
+            }else if(leadStatus.equals("DISBURSED")){
+                btnLeadStatus.setBackgroundColor(context.getColor(R.color.blue_disbursed))
 
             }
 

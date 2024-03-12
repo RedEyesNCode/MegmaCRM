@@ -226,9 +226,11 @@ class DashboardActivity : BaseActivity(),NavigationView.OnNavigationItemSelected
     private fun setupDashBanner(){
         val sliderModels = arrayListOf<SlideModel>()
         val bankPartners = listOf(
-           "https://redeyesncodemaster.s3.ap-south-1.amazonaws.com/banner1.jpeg",
-           "https://redeyesncodemaster.s3.ap-south-1.amazonaws.com/banner2.jpeg",
-           "https://redeyesncodemaster.s3.ap-south-1.amazonaws.com/banner3.jpeg",
+           "https://androidbucket3577.s3.ap-south-1.amazonaws.com/banner1.jpg",
+           "https://androidbucket3577.s3.ap-south-1.amazonaws.com/banner2.jpg",
+           "https://androidbucket3577.s3.ap-south-1.amazonaws.com/banner3.jpg",
+           "https://androidbucket3577.s3.ap-south-1.amazonaws.com/banner4.jpg",
+           "https://androidbucket3577.s3.ap-south-1.amazonaws.com/banner5.jpeg",
 
         )
         for (images in bankPartners){

@@ -31,11 +31,13 @@ class LeadInfoBottomSheet(var mContext: Context,var data:UserLeadResponse.Data):
                 if(selectedOption.equals("Selfie")){
                     setupImageDialog(data.selfie.toString())
                 }else if(selectedOption.equals("Pancard")){
-                    setupImageDialog(data.selfie.toString())
+                    setupImageDialog(data.pancard_img.toString())
 
-                }else if(selectedOption.equals("Aadharcard")){
-                    setupImageDialog(data.selfie.toString())
+                }else if(selectedOption.equals("Aadharcard-Front")){
+                    setupImageDialog(data.aadharFront.toString())
 
+                }else if(selectedOption.equals("Aadharcard-Back")){
+                    setupImageDialog(data.aadharBack.toString())
                 }
 
                 dialog.dismiss()
@@ -92,6 +94,9 @@ class LeadInfoBottomSheet(var mContext: Context,var data:UserLeadResponse.Data):
             btnViewPhotos.setOnClickListener {
                 var education = arrayListOf<String>()
                 education.add("Selfie")
+                education.add("Pancard")
+                education.add("Aadharcard-Front")
+                education.add("Aadharcard-Back")
 //                education.add("Pancard")
 //                education.add("Aadharcard")
                 showOptionsDialog(requireContext(),education)
