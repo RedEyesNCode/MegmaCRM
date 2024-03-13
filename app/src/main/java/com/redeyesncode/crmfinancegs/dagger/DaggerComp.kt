@@ -16,6 +16,7 @@ import com.redeyesncode.crmfinancegs.ui.fragment.CreateLoanUserBottonSheet
 import com.redeyesncode.crmfinancegs.ui.fragment.CreateVisitBottomSheet
 import com.redeyesncode.crmfinancegs.ui.fragment.LeadsFragment
 import com.redeyesncode.crmfinancegs.ui.fragment.VisitFragment
+import com.redeyesncode.gsfinancenbfc.base.BaseActivity
 import dagger.Component
 
 @Component(modules = [RetrofitInstance::class, ViewModelModule::class, RepoModule::class])
@@ -49,6 +50,7 @@ interface DaggerComp {
 
     fun injectAttendance(attendance: AttendanceFragment)
 
+    fun injectBase(baseActivity: BaseActivity)
 
     fun injectDashboardActivity(dashboardActivity: DashboardActivity)
 

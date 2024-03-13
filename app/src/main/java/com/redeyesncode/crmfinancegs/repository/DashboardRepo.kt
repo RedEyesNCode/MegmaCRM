@@ -3,6 +3,7 @@ package com.redeyesncode.moneyview.repository
 
 
 import com.redeyesncode.androidtechnical.base.Resource
+import com.redeyesncode.crmfinancegs.data.BodyAdminLogin
 import com.redeyesncode.crmfinancegs.data.BodyCreateAttendance
 import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
@@ -11,6 +12,7 @@ import com.redeyesncode.crmfinancegs.data.FilterLeadsResponse
 import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.data.ResponseUserAttendance
+import com.redeyesncode.crmfinancegs.data.ResponseVersionUpdate
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
 import okhttp3.MultipartBody
@@ -23,6 +25,8 @@ interface DashboardRepo {
 
     suspend fun addEmpAttendance( map: BodyCreateAttendance):Resource<CommonMessageResponse>
     suspend fun viewUserAttendance( map:HashMap<String,String>):Resource<ResponseUserAttendance>
+    suspend fun logEmp( map: BodyAdminLogin):Resource<CommonMessageResponse>
+    suspend fun checkVersionUpdate():Resource<ResponseVersionUpdate>
 
     suspend fun updateMpass( updateMPass:HashMap<String,String>):Resource<CommonMessageResponse>
     suspend fun loginUser( loginUserMap:HashMap<String,String>) :Resource<LoginUserResponse>

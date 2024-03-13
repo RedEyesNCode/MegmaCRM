@@ -192,6 +192,7 @@ class DashboardActivity : BaseActivity(),NavigationView.OnNavigationItemSelected
             }
 
         }
+        logEmpBase("DASHBOARD_ACTIVITY")
 
 
 

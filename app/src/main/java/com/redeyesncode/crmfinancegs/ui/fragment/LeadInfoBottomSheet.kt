@@ -87,6 +87,7 @@ class LeadInfoBottomSheet(var mContext: Context,var data:UserLeadResponse.Data):
             tvCurrentAddress.text = data.currentAddress.toString()
             tvState.text = data.state.toString()
             tvLeadStatus.text = data.leadStatus.toString()
+            tvLeadAmount.text = data.leadAmount.toString()
             tvCreatedAt.text = convertUtcToIst(data.createdAt.toString())
 
 

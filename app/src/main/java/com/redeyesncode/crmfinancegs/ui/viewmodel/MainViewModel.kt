@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.redeyesncode.androidtechnical.base.Resource
+import com.redeyesncode.crmfinancegs.data.BodyAdminLogin
 import com.redeyesncode.crmfinancegs.data.BodyCreateAttendance
 import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
@@ -14,6 +15,7 @@ import com.redeyesncode.crmfinancegs.data.KycDetails
 import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.data.ResponseUserAttendance
+import com.redeyesncode.crmfinancegs.data.ResponseVersionUpdate
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
 import com.redeyesncode.crmfinancegs.repository.DefaultDashboardRepo
@@ -79,16 +81,39 @@ class MainViewModel(private val dashboardRepo: DefaultDashboardRepo): ViewModel(
     private val _responseCreateAttendance = MutableLiveData<Event<Resource<CommonMessageResponse>>>()
     val responseCreateAttendance : LiveData<Event<Resource<CommonMessageResponse>>> = _responseCreateAttendance
 
+    private val _responseLogEmp = MutableLiveData<Event<Resource<CommonMessageResponse>>>()
+    val responseLogEmp : LiveData<Event<Resource<CommonMessageResponse>>> = _responseLogEmp
+
+    private val _responseVersionUpdate = MutableLiveData<Event<Resource<ResponseVersionUpdate>>>()
+    val responseVersionUpdate : LiveData<Event<Resource<ResponseVersionUpdate>>> = _responseVersionUpdate
 
     private val _responseUserAttendance = MutableLiveData<Event<Resource<ResponseUserAttendance>>>()
     val responseUserAttendance : LiveData<Event<Resource<ResponseUserAttendance>>> = _responseUserAttendance
 
+    fun checkAppVersion(){
+        _responseVersionUpdate.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main){
+            val result = dashboardRepo.checkVersionUpdate()
+            _responseVersionUpdate.postValue(Event(result))
+        }
+
+
+
+    }
     fun createAttendance(map:BodyCreateAttendance){
 
         _responseCreateAttendance.postValue(Event(Resource.Loading()))
         viewModelScope.launch(Dispatchers.Main){
             val result = dashboardRepo.addEmpAttendance(map)
             _responseCreateAttendance.postValue(Event(result))
+        }
+    }
+    fun logEmp(map:BodyAdminLogin){
+
+        _responseLogEmp.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main){
+            val result = dashboardRepo.logEmp(map)
+            _responseLogEmp.postValue(Event(result))
         }
     }
     fun getUserAttendance(map:HashMap<String,String>){

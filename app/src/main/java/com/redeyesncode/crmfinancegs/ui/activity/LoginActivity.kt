@@ -3,6 +3,7 @@ package com.redeyesncode.crmfinancegs.ui.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import com.redeyesncode.crmfinancegs.R
 import com.redeyesncode.crmfinancegs.databinding.ActivityLoginBinding
 import com.redeyesncode.crmfinancegs.ui.viewmodel.MainViewModel
@@ -30,10 +31,9 @@ class LoginActivity : BaseActivity() {
 
         attachObservers()
         initClicks()
-
+        mainViewModel.checkAppVersion()
         checkLoginSession()
-
-
+        logEmpBase("LOGIN_ACTIVITY")
 
         setContentView(binding.root)
     }
@@ -70,7 +70,27 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun attachObservers() {
+        mainViewModel.responseVersionUpdate.observe(this,Event.EventObserver(
+            onLoading = {
 
+
+            },
+            onSuccess = {
+                val versionName = packageManager.getPackageInfo(packageName, 0).versionName
+                val versionCode = packageManager.getPackageInfo(packageName, 0).versionCode
+
+                if(it.data?.appVersionName.equals(versionName) && it.data?.appVersionCode.equals(versionCode.toString())){
+                    showCustomDialog("CHECK-VERSION","Your app is up to date")
+                }else{
+                    showCustomDialog("IMPORTANT ALERT !","PLEASE UPDATE APP VISIT --> gsfinance.app")
+                }
+
+            },
+            onError = {
+                showToast(it)
+            }
+
+        ))
 
         mainViewModel.userLoginResponse.observe(this,Event.EventObserver(
             onLoading = {
@@ -82,11 +102,16 @@ class LoginActivity : BaseActivity() {
                 if(it.code==200){
                     showToast(it.message.toString())
 
-                    AppSession(this@LoginActivity).putObject(Constant.USER_LOGIN,it)
-                    AppSession(this@LoginActivity).putString(Constant.EMP_ID,binding.edtEmployeeID.text.toString())
-                    AppSession(this@LoginActivity).putString(Constant.MPASS,binding.edtMPass.text.toString())
-                    val dashboardIntent = Intent(this@LoginActivity,DashboardActivity::class.java)
-                    startActivity(dashboardIntent)
+
+                    Handler().postDelayed(Runnable {
+                        AppSession(this@LoginActivity).putObject(Constant.USER_LOGIN,it)
+                        AppSession(this@LoginActivity).putString(Constant.EMP_ID,binding.edtEmployeeID.text.toString())
+                        AppSession(this@LoginActivity).putString(Constant.MPASS,binding.edtMPass.text.toString())
+                        val dashboardIntent = Intent(this@LoginActivity,DashboardActivity::class.java)
+                        startActivity(dashboardIntent)
+                    },4000)
+
+
 
 
 

@@ -339,6 +339,25 @@
             </TableRow>
             <TableRow>
                 <TextView
+                    android:text="LeadAmount"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+                <TextView
+                    android:id="@+id/tvLeadAmount"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+            </TableRow>
+
+            <TableRow>
+                <TextView
                     android:text="CreatedAt"
                     style="@style/MediumTextView"
                     android:background="@drawable/excel_cell_background"

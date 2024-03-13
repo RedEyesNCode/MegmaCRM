@@ -102,7 +102,7 @@ class LeadsFragment : BaseFragment() ,UserLeadAdapter.onClick{
 
                 if (it.code==200){
                     binding.recvVisit.apply {
-                        adapter = UserLeadAdapter(requireContext(),it.data,this@LeadsFragment)
+                        adapter =UserLeadAdapter(requireContext(),it.data,this@LeadsFragment)
                         layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
                     }
                 }else{

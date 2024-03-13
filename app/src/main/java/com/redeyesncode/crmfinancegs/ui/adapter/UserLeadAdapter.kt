@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 import java.util.TimeZone
 
-class UserLeadAdapter(var context: Context,var data :ArrayList<UserLeadResponse.Data>,var onActivityClick:UserLeadAdapter.onClick) :RecyclerView.Adapter<UserLeadAdapter.MyViewholder>(){
+class UserLeadAdapter(var context: Context,var dataAdapter :ArrayList<UserLeadResponse.Data>,var onActivityClick:UserLeadAdapter.onClick) :RecyclerView.Adapter<UserLeadAdapter.MyViewholder>(){
 
 
 
@@ -45,10 +45,10 @@ class UserLeadAdapter(var context: Context,var data :ArrayList<UserLeadResponse.
         }
     }
     fun updateData(newData: List<UserLeadResponse.Data> = emptyList()) {
-        val diffCallback = UserLeadDiffCallback(data, newData)
+        val diffCallback = UserLeadDiffCallback(dataAdapter, newData)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
-        data.clear()
-        data.addAll(newData)
+        dataAdapter.clear()
+        dataAdapter.addAll(newData)
         diffResult.dispatchUpdatesTo(this)
     }
     lateinit var binding: ItemUserLeadBinding
@@ -71,42 +71,45 @@ class UserLeadAdapter(var context: Context,var data :ArrayList<UserLeadResponse.
         return istFormatter.format(utcDate)
     }
     override fun onBindViewHolder(holder: MyViewholder, position: Int) {
-        val data = data[position]
+        val data = dataAdapter[position]
 
-        holder.binding.apply {
+        val binding = holder.binding
 
-            tvFirstName.text = "Name : ${data.firstname.toString()} ${data.lastname.toString()}"
-            tvLeadId.text = "Lead ID : ${data.leadId.toString()}"
-            tvDob.text = "Created At : ${convertUtcToIst(data.createdAt.toString())}"
-            tvPincode.text = "Pincode :${data.pincode.toString()}"
-            tvState.text = "State : ${data.state.toString()}"
-            tvGender.text = "Gender : ${data.gender.toString()}"
-            tvNUMBER.text = "Number : ${data.mobileNumber.toString()}"
-            val leadStatus = data.leadStatus.toString()
+        binding.tvFirstName.text = "Name : ${data.firstname.toString()} ${data.lastname.toString()}"
+        binding.tvLeadId.text = "Lead ID : ${data.leadId.toString()}"
+        binding.tvDob.text = "Created At : ${convertUtcToIst(data.createdAt.toString())}"
+        binding.tvPincode.text = "Pincode :${data.pincode.toString()}"
+        binding.tvState.text = "State : ${data.state.toString()}"
+        binding.tvGender.text = "Gender : ${data.gender.toString()}"
+        binding.tvNUMBER.text = "Number : ${data.mobileNumber.toString()}"
+        val leadStatus = data.leadStatus.toString()
+        binding.tvLeadAmount.text = "Lead Amount : ${data.leadAmount.toString()}"
 
-            if(leadStatus.equals("PENDING")){
-                btnLeadStatus.setBackgroundColor(context.getColor(R.color.yellow))
-            }else if(leadStatus.equals("APPROVED")){
-                btnLeadStatus.setBackgroundColor(context.getColor(R.color.green))
+        when {
+            leadStatus == "PENDING" -> {
+                binding.tvLeadAmount.visibility = View.GONE
+                binding.btnLeadStatus.setBackgroundColor(context.getColor(R.color.yellow))
+            }
+            leadStatus == "APPROVED" -> {
+                binding.btnLeadStatus.setBackgroundColor(context.getColor(R.color.green))
                 binding.tvLeadAmount.visibility = View.VISIBLE
                 binding.tvLeadAmount.text = "Lead Amount : ${data.leadAmount.toString()}"
-
-            }else if(leadStatus.equals("REJECTED")){
-                btnLeadStatus.setBackgroundColor(context.getColor(R.color.red))
-
-            }else if(leadStatus.equals("DISBURSED")){
-                btnLeadStatus.setBackgroundColor(context.getColor(R.color.blue_disbursed))
-
             }
-
-
-            btnLeadStatus.text = "Status : ${data.leadStatus.toString()}"
-
-            ivForward.setOnClickListener {
-                onActivityClick.onLeadInfo(data)
-
+            leadStatus == "REJECTED" -> {
+                binding.tvLeadAmount.visibility = View.GONE
+                binding.btnLeadStatus.setBackgroundColor(context.getColor(R.color.red))
             }
+            leadStatus == "DISBURSED" -> {
+                binding.tvLeadAmount.visibility = View.VISIBLE
+                binding.tvLeadAmount.text = "Lead Amount : ${data.leadAmount.toString()}"
+                binding.btnLeadStatus.setBackgroundColor(context.getColor(R.color.blue_disbursed))
+            }
+        }
 
+        binding.btnLeadStatus.text = "Status : ${data.leadStatus.toString()}"
+
+        binding.ivForward.setOnClickListener {
+            onActivityClick.onLeadInfo(data)
         }
     }
 
@@ -117,11 +120,11 @@ class UserLeadAdapter(var context: Context,var data :ArrayList<UserLeadResponse.
     }
 
     override fun getItemCount(): Int {
-        return data.size
+        return dataAdapter.size
     }
 
     fun updateData(filteredData: ArrayList<UserLeadResponse.Data>) {
-        data = filteredData
+        dataAdapter = filteredData
         notifyDataSetChanged()
     }
 

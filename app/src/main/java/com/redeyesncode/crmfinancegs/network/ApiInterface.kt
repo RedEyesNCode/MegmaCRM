@@ -1,5 +1,6 @@
 package com.redeyesncode.crmfinancegs.network
 
+import com.redeyesncode.crmfinancegs.data.BodyAdminLogin
 import com.redeyesncode.crmfinancegs.data.BodyCreateAttendance
 import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
@@ -8,12 +9,14 @@ import com.redeyesncode.crmfinancegs.data.FilterLeadsResponse
 import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.data.ResponseUserAttendance
+import com.redeyesncode.crmfinancegs.data.ResponseVersionUpdate
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
@@ -73,7 +76,12 @@ interface ApiInterface {
 
 
 
+    @POST("megma-crm/log-emp")
+    suspend fun logEmp(@Body map:BodyAdminLogin):Response<CommonMessageResponse>
 
+
+    @GET("megma-crm/check-version-update")
+    suspend fun checkVersionUpdate():Response<ResponseVersionUpdate>
 
 
     @Multipart
