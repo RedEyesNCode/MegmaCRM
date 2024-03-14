@@ -17,6 +17,7 @@ import com.redeyesncode.gsfinancenbfc.base.Event
 import com.redeyesncode.moneyview.base.AndroidApp
 import com.redeyesncode.redbet.session.AppSession
 import com.redeyesncode.redbet.session.Constant
+import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -86,7 +87,7 @@ class AttendanceFragment : BaseFragment() {
     }
 
     private fun attachObservers() {
-        mainViewModel.responseUserAttendance.observe(this,Event.EventObserver(
+        mainViewModel.responseUserAttendance.observe(viewLifecycleOwner,Event.EventObserver(
             onLoading = {
                 showLoadingDialog()
             },
@@ -125,7 +126,7 @@ class AttendanceFragment : BaseFragment() {
                 val day = calendar.get(Calendar.DAY_OF_MONTH)
 
                 // Set the status on the calendar based on your logic
-                setCalendarStatus(year, month, day, attendanceData.status!!,createdAtDate)
+                setCalendarStatus(year, month, day, attendanceData.status!!,createdAtDate.toString())
             } catch (e: Exception) {
                 e.printStackTrace()
                 showToast(e.message.toString())
@@ -137,20 +138,47 @@ class AttendanceFragment : BaseFragment() {
         month: Int,
         day: Int,
         status: String,
-        createdAtDate: Date?
+        createdAtDate: String?
     ) {
-        val dateInMillis = getDateInMillis(year, month, day)
+        // Validate input parameters
+        require(year >= 0 && month in 1..12 && day in 1..31) { "Invalid date parameters" }
+        require(!status.isBlank()) { "Status cannot be empty" }
+
+        // Parse createdAtDate string into a Date object
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSS", Locale.getDefault())
+        val date: Date? = try {
+            createdAtDate?.let { dateFormat.parse(it) }
+        } catch (e: ParseException) {
+            null
+        }
+
+        // Check if the date is today
+        val calendar = Calendar.getInstance()
+        date?.let { calendar.time = it }
+        val isToday = (year == calendar.get(Calendar.YEAR) &&
+                month == calendar.get(Calendar.MONTH) &&
+                day == calendar.get(Calendar.DAY_OF_MONTH))
+
+        // If the date is today and the status is either "present" or "absent", mark it as already punched
+        val isAlreadyPunched = isToday && (status.equals("present", ignoreCase = true) || status.equals("absent", ignoreCase = true))
+
+        if(isAlreadyPunched){
+            binding.fabAttendance.visibility = View.GONE
+            showMessageDialog("You have already punched for today !","Info")
+        }
+        // Retrieve drawable for the given status
         val drawable: Drawable = getDrawableForStatus(status)
 
-        val calendar = Calendar.getInstance()
-        calendar.time = createdAtDate
+        // Create an event for the specified date with the given status drawable
+        val eventDay = EventDay(calendar, drawable)
 
-        events.add(EventDay(calendar, getDrawableForStatus(status)))
+        // Add the event to the list of events
+        events.add(eventDay)
+
+        // Update the calendar view with the new events
         binding.calenderView.setEvents(events)
-
-
-
     }
+
     private fun getDateInMillis(year: Int, month: Int, day: Int): Long {
         val calendar = Calendar.getInstance()
         calendar.set(Calendar.YEAR, year)

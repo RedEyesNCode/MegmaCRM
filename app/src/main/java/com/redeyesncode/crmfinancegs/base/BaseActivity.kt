@@ -172,10 +172,15 @@ open class BaseActivity: AppCompatActivity() {
         builder.setCancelable(false)
         builder.setView(R.layout.layout_loading_dialog)
         loadingDialog = builder.create()
-        if(!loadingDialog?.isShowing!!){
-            loadingDialog?.show()
+        try {
+            if(!loadingDialog?.isShowing!!){
+                loadingDialog?.show()
 
+            }
+        }catch (e:Exception){
+            e.printStackTrace()
         }
+
     }
 
     fun hideLoadingDialog() {

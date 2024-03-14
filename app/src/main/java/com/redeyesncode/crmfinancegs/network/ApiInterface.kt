@@ -14,6 +14,7 @@ import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -74,6 +75,14 @@ interface ApiInterface {
     @POST("megma-crm/view-emp-attendance")
     suspend fun viewUserAttendance(@Body map:HashMap<String,String>):Response<ResponseUserAttendance>
 
+
+
+    @POST
+    suspend fun launchENach(@Url urlAddBank:String) :Response<ResponseBody>
+
+
+    @POST
+    suspend fun launchENachStatus(@Url urlAddBank:String,@Body userIdMap: HashMap<String, String>) :Response<ResponseBody>
 
 
     @POST("megma-crm/log-emp")

@@ -93,6 +93,7 @@ class LeadDocumentActivity : BaseActivity() {
 
         requestPermissionLauncher.launch(Manifest.permission.CAMERA)
         binding.edtAadharNumber.addTextChangedListener(AadharNumberTextWatcher(binding.edtAadharNumber))
+        logEmpBase("LEAD_DOCUMENT_ACTIVITY")
 
         setContentView(binding.root)
     }

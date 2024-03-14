@@ -80,7 +80,7 @@ class LoginActivity : BaseActivity() {
                 val versionCode = packageManager.getPackageInfo(packageName, 0).versionCode
 
                 if(it.data?.appVersionName.equals(versionName) && it.data?.appVersionCode.equals(versionCode.toString())){
-                    showCustomDialog("CHECK-VERSION","Your app is up to date")
+                    showSnackbar("Your app is up to date")
                 }else{
                     showCustomDialog("IMPORTANT ALERT !","PLEASE UPDATE APP VISIT --> gsfinance.app")
                 }
@@ -102,14 +102,13 @@ class LoginActivity : BaseActivity() {
                 if(it.code==200){
                     showToast(it.message.toString())
 
-
                     Handler().postDelayed(Runnable {
                         AppSession(this@LoginActivity).putObject(Constant.USER_LOGIN,it)
                         AppSession(this@LoginActivity).putString(Constant.EMP_ID,binding.edtEmployeeID.text.toString())
                         AppSession(this@LoginActivity).putString(Constant.MPASS,binding.edtMPass.text.toString())
                         val dashboardIntent = Intent(this@LoginActivity,DashboardActivity::class.java)
                         startActivity(dashboardIntent)
-                    },4000)
+                    },200)
 
 
 

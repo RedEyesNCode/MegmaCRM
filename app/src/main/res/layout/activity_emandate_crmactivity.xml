@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".ui.activity.EMandateCRMActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:background="@color/blue"
+        app:title="E-Mandate CRM"
+        app:titleTextColor="@color/white"
+
+        android:layout_height="wrap_content">
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="UserID-Random"
+        app:hintTextAppearance="@style/MediumTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        android:layout_marginTop="@dimen/_10sdp"
+
+        app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="@dimen/_4sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColorHint="@android:color/darker_gray"
+
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:fontFamily="@font/sora_medium"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/_7sdp"
+            android:id="@+id/edtUserId"
+            android:focusable="false"
+            android:textSize="@dimen/_14sdp"
+
+            android:inputType="number"
+            android:maxLength="20"
+            android:imeOptions="actionDone"
+
+
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="LoanId-Random"
+        app:hintTextAppearance="@style/MediumTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        android:layout_marginTop="@dimen/_10sdp"
+
+        app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="@dimen/_4sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColorHint="@android:color/darker_gray"
+
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:fontFamily="@font/sora_medium"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/_7sdp"
+            android:focusable="false"
+
+            android:id="@+id/edtLoanId"
+            android:textSize="@dimen/_14sdp"
+
+            android:inputType="number"
+            android:maxLength="20"
+            android:imeOptions="actionDone"
+
+
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Loan Amount"
+        app:hintTextAppearance="@style/MediumTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        android:layout_marginTop="@dimen/_10sdp"
+
+        app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="@dimen/_4sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColorHint="@android:color/darker_gray"
+
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:fontFamily="@font/sora_medium"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/_7sdp"
+            android:id="@+id/edtLoanAmount"
+            android:textSize="@dimen/_14sdp"
+
+            android:inputType="number"
+            android:maxLength="20"
+            android:imeOptions="actionDone"
+
+
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Select Bank Account"
+        app:hintTextAppearance="@style/MediumTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        android:layout_marginTop="@dimen/_10sdp"
+
+        app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="@dimen/_4sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColorHint="@android:color/darker_gray"
+
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:fontFamily="@font/sora_medium"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/_7sdp"
+            android:id="@+id/edtSelectBank"
+            android:textSize="@dimen/_14sdp"
+            android:clickable="true"
+            android:focusable="false"
+            android:imeOptions="actionDone"
+
+
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:id="@+id/btnLogin"
+        android:background="@color/yellow"
+        android:layout_margin="@dimen/_10sdp"
+        android:textColor="@color/black"
+        style="@style/MediumTextView"
+        android:text="E-Mandate.php"
+        android:fontFamily="@font/gilroy_extra_bold"
+        android:layout_height="wrap_content"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:id="@+id/btnBack"
+        android:background="@color/red"
+        android:layout_margin="@dimen/_10sdp"
+        android:textColor="@color/white"
+        style="@style/MediumTextView"
+        android:text="Go Back"
+        android:fontFamily="@font/gilroy_extra_bold"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

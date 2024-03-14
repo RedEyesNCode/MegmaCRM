@@ -19,10 +19,37 @@ import com.redeyesncode.crmfinancegs.network.RetrofitInstance
 import com.redeyesncode.moneyview.repository.DashboardRepo
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Response
 
 class DefaultDashboardRepo : DashboardRepo {
+
+    override suspend fun launchENach(
+        urlAddBank: String,
+    ): Resource<ResponseBody> {
+        return safeCall {
+            safeCall {
+                val response =
+                    RetrofitInstance().provideApiService(RetrofitInstance().provideRetrofit()).launchENach(urlAddBank)
+                Resource.Success(response.body()!!)
+            }
+        }
+
+
+    }
+
+    override suspend fun launchENachStatus(urlAddBank: String, userIdMap: HashMap<String, String>): Resource<ResponseBody> {
+        return safeCall {
+            safeCall {
+                val response =
+                    RetrofitInstance().provideApiService(RetrofitInstance().provideRetrofit()).launchENachStatus(urlAddBank,userIdMap)
+                Resource.Success(response.body()!!)
+            }
+        }
+
+
+    }
 
     override suspend fun checkVersionUpdate(): Resource<ResponseVersionUpdate> {
         return safeCall {

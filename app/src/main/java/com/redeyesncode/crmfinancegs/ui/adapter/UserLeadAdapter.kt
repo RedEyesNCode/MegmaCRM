@@ -1,6 +1,8 @@
 package com.redeyesncode.crmfinancegs.ui.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -84,7 +86,9 @@ class UserLeadAdapter(var context: Context,var dataAdapter :ArrayList<UserLeadRe
         binding.tvNUMBER.text = "Number : ${data.mobileNumber.toString()}"
         val leadStatus = data.leadStatus.toString()
         binding.tvLeadAmount.text = "Lead Amount : ${data.leadAmount.toString()}"
-
+        binding.ivCall.setOnClickListener {
+            openDialer(data.mobileNumber.toString())
+        }
         when {
             leadStatus == "PENDING" -> {
                 binding.tvLeadAmount.visibility = View.GONE
@@ -112,7 +116,11 @@ class UserLeadAdapter(var context: Context,var dataAdapter :ArrayList<UserLeadRe
             onActivityClick.onLeadInfo(data)
         }
     }
-
+    fun openDialer(phoneNumber: String) {
+        val intent = Intent(Intent.ACTION_DIAL)
+        intent.data = Uri.parse("tel:$phoneNumber")
+        context.startActivity(intent)
+    }
     interface onClick{
 
         fun onLeadInfo(data: UserLeadResponse.Data)

@@ -25,6 +25,7 @@ import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import okhttp3.ResponseBody
 import java.io.File
 
 class MainViewModel(private val dashboardRepo: DefaultDashboardRepo): ViewModel() {
@@ -89,6 +90,34 @@ class MainViewModel(private val dashboardRepo: DefaultDashboardRepo): ViewModel(
 
     private val _responseUserAttendance = MutableLiveData<Event<Resource<ResponseUserAttendance>>>()
     val responseUserAttendance : LiveData<Event<Resource<ResponseUserAttendance>>> = _responseUserAttendance
+
+    private val _eMandateResponse = MutableLiveData<Event<Resource<ResponseBody>>>()
+    val eMandateResponse : LiveData<Event<Resource<ResponseBody>>> = _eMandateResponse
+
+    private val _eMandateStatusResponse = MutableLiveData<Event<Resource<ResponseBody>>>()
+    val eMandateStatusResponse : LiveData<Event<Resource<ResponseBody>>> = _eMandateStatusResponse
+    fun launchEmandateStatus(url:String,userIdMap:HashMap<String,String>){
+
+        _eMandateStatusResponse.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main){
+            val result = dashboardRepo.launchENachStatus(url,userIdMap)
+            _eMandateStatusResponse.postValue(Event(result))
+        }
+
+
+
+    }
+
+    fun getEMandateResponse(url:String){
+        _eMandateResponse.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main){
+            val result = dashboardRepo.launchENach(url)
+            _eMandateResponse.postValue(Event(result))
+        }
+
+
+
+    }
 
     fun checkAppVersion(){
         _responseVersionUpdate.postValue(Event(Resource.Loading()))

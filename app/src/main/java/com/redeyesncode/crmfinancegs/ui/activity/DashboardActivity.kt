@@ -153,7 +153,11 @@ class DashboardActivity : BaseActivity(),NavigationView.OnNavigationItemSelected
         } else if(item.itemId==R.id.updateMPass){
             showUpdatePasswordDialog(this@DashboardActivity)
             return true
-        }else{
+        }else if(item.itemId==R.id.eMandateRegister){
+            val intentApplyLoan = Intent(this@DashboardActivity, EMandateCRMActivity::class.java)
+            startActivity(intentApplyLoan)
+            return true
+        } else{
             return false
         }
     }

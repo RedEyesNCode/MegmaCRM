@@ -14,6 +14,9 @@
         android:id="@+id/updateMPass"
         android:title="Update your MPass" />
     <item
+        android:id="@+id/eMandateRegister"
+        android:title="EMandate Register CRM" />
+    <item
         android:id="@+id/navFaq"
         android:title="FAQs" />
     <item
