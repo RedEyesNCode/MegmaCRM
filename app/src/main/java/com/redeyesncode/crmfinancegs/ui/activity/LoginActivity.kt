@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import com.redeyesncode.crmfinancegs.R
 import com.redeyesncode.crmfinancegs.databinding.ActivityLoginBinding
+import com.redeyesncode.crmfinancegs.service.LoggingService
 import com.redeyesncode.crmfinancegs.ui.viewmodel.MainViewModel
 import com.redeyesncode.gsfinancenbfc.base.BaseActivity
 import com.redeyesncode.gsfinancenbfc.base.Event
@@ -36,8 +37,12 @@ class LoginActivity : BaseActivity() {
         logEmpBase("LOGIN_ACTIVITY")
 
         setContentView(binding.root)
+        startLoggingService()
     }
-
+    private fun startLoggingService() {
+        val serviceIntent = Intent(this, LoggingService::class.java)
+        startService(serviceIntent)
+    }
     private fun checkLoginSession() {
         val empId = AppSession(this@LoginActivity).getString(Constant.EMP_ID)
         val mPass = AppSession(this@LoginActivity).getString(Constant.MPASS)
