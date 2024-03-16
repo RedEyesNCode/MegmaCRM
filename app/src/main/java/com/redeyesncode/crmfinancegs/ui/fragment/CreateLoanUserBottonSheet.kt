@@ -22,7 +22,7 @@ import com.redeyesncode.redbet.session.AppSession
 import com.redeyesncode.redbet.session.Constant
 import javax.inject.Inject
 
-class CreateLoanUserBottonSheet(var mContext:Context):BottomSheetDialogFragment() {
+class CreateLoanUserBottonSheet(var mContext:Context,var isEMandate:Boolean):BottomSheetDialogFragment() {
 
     lateinit var binding:LayoutBottomSheetCreateLoanUserBinding
     private var loadingDialog: AlertDialog? = null
@@ -65,12 +65,21 @@ class CreateLoanUserBottonSheet(var mContext:Context):BottomSheetDialogFragment(
                 hideLoadingDialog()
                 dismiss()
                 if (it.status==true) {
-                    val intentCreateLead = Intent(requireContext(), CreateLeadActivity::class.java)
-                    intentCreateLead.putExtra("EMAIL", "")
-                    intentCreateLead.putExtra("NUMBER", binding.edtMobileNumber.text.toString())
 
-                    AppSession(requireContext()).putObject(Constant.RESPONSE_CREATE_LOAN_USER, it)
-                    startActivity(intentCreateLead)
+                    if(isEMandate){
+                        AppSession(requireContext()).putObject(Constant.RESPONSE_CREATE_LOAN_USER, it)
+                        Toast.makeText(requireContext(),"User Id : ${it.user?.id.toString()}",Toast.LENGTH_LONG).show()
+                        Toast.makeText(requireContext(),"User Id : ${it.user?.id.toString()}",Toast.LENGTH_LONG).show()
+                        dismiss()
+                    }else{
+                        val intentCreateLead = Intent(requireContext(), CreateLeadActivity::class.java)
+                        intentCreateLead.putExtra("EMAIL", "")
+                        intentCreateLead.putExtra("NUMBER", binding.edtMobileNumber.text.toString())
+
+                        AppSession(requireContext()).putObject(Constant.RESPONSE_CREATE_LOAN_USER, it)
+                        startActivity(intentCreateLead)
+                    }
+
                 }else{
                     Toast.makeText(requireContext(),"Login Api Error !",Toast.LENGTH_SHORT).show()
 
@@ -124,19 +133,31 @@ class CreateLoanUserBottonSheet(var mContext:Context):BottomSheetDialogFragment(
             },
             onSuccess = {
                 hideLoadingDialog()
-                val intentCreateLead = Intent(requireContext(), CreateLeadActivity::class.java)
 
-                val bodyCreateLead = BodyCreateLead()
-                bodyCreateLead.pancard = binding.edtPanCard.text.toString();
-                bodyCreateLead.mobileNumber= binding.edtMobileNumber.text.toString()
-                bodyCreateLead.aadhar = binding.edtAadharNumber.text.toString()
-                AppSession(requireContext()).putObject(Constant.BODY_CREATE_LEAD,bodyCreateLead)
+                if(isEMandate){
+                    // call register api
+                    val loginUrl = "https://megmagroup.loan/newApi/api/registernew"
+                    val loginMap = hashMapOf<String,String>()
+                    loginMap.put("mobile",binding.edtMobileNumber.text.toString())
+                    loginMap.put("email",binding.edtEmail.text.toString())
+                    mainViewModel.createLoanUser(loginUrl,loginMap)
+
+                }else{
+                    val intentCreateLead = Intent(requireContext(), CreateLeadActivity::class.java)
+
+                    val bodyCreateLead = BodyCreateLead()
+                    bodyCreateLead.pancard = binding.edtPanCard.text.toString();
+                    bodyCreateLead.mobileNumber= binding.edtMobileNumber.text.toString()
+                    bodyCreateLead.aadhar = binding.edtAadharNumber.text.toString()
+                    AppSession(requireContext()).putObject(Constant.BODY_CREATE_LEAD,bodyCreateLead)
 
 
-                intentCreateLead.putExtra("EMAIL", "")
-                intentCreateLead.putExtra("NUMBER", binding.edtMobileNumber.text.toString())
+                    intentCreateLead.putExtra("EMAIL", "")
+                    intentCreateLead.putExtra("NUMBER", binding.edtMobileNumber.text.toString())
 
-                startActivity(intentCreateLead)
+                    startActivity(intentCreateLead)
+                }
+
             }
 
 
@@ -173,7 +194,12 @@ class CreateLoanUserBottonSheet(var mContext:Context):BottomSheetDialogFragment(
             }else if(binding.edtAadharNumber.text.toString().isEmpty()){
                 Toast.makeText(requireContext(),"Please enter aadhar number",Toast.LENGTH_SHORT).show()
 
-            } else{
+            }else if(binding.edtEmail.text.toString().isEmpty()){
+                Toast.makeText(requireContext(),"Please enter email address",Toast.LENGTH_SHORT).show()
+
+            }
+
+            else{
                 // call the signup api of loan app
 //                val signupUrl = "https://megmagroup.loan/newApi/api/registernew"
 //                val signupMap = hashMapOf<String,String>()

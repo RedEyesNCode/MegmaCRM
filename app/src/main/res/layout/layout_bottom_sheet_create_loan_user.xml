@@ -72,6 +72,14 @@
 
             android:imeOptions="actionNext"/>
         <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email Address"
+            style="@style/editTextElevated"
+
+            android:imeOptions="actionNext"/>
+        <EditText
             android:id="@+id/edtAadharNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

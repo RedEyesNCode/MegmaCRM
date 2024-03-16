@@ -355,6 +355,42 @@
                     android:textSize="@dimen/_15ssp"
                     android:padding="5dp"/>
             </TableRow>
+            <TableRow>
+                <TextView
+                    android:text="Processing Fees"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+                <TextView
+                    android:id="@+id/tvProcessingFees"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:text="Fees Amount"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+                <TextView
+                    android:id="@+id/tvFeesAmount"
+                    style="@style/MediumTextView"
+                    android:background="@drawable/excel_cell_background"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:padding="5dp"/>
+            </TableRow>
 
             <TableRow>
                 <TextView

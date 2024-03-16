@@ -13,6 +13,7 @@ import com.google.gson.Gson
 import com.redeyesncode.crmfinancegs.R
 import com.redeyesncode.crmfinancegs.databinding.ActivityEmandateCrmactivityBinding
 import com.redeyesncode.crmfinancegs.databinding.SearchBankDialogBinding
+import com.redeyesncode.crmfinancegs.ui.fragment.CreateLoanUserBottonSheet
 import com.redeyesncode.crmfinancegs.ui.viewmodel.MainViewModel
 import com.redeyesncode.gsfinancenbfc.base.BaseActivity
 import com.redeyesncode.gsfinancenbfc.base.Event
@@ -33,7 +34,17 @@ import org.jsoup.nodes.Element
 import javax.inject.Inject
 import kotlin.random.Random
 
-class EMandateCRMActivity : BaseActivity() {
+class EMandateCRMActivity : BaseActivity() ,CreateLoanUserBottonSheet.OnDismissListener{
+
+    override fun onDismiss() {
+
+        showSnackbar("You have registered the user to GS Loan App !")
+    //        val url = "https://megmagroup.loan/Api2/enach.php?userid=${binding.edtUserId.text.toString()}&bankid=${extractBankId(binding.edtSelectBank.text.toString())}&loan=${binding.edtLoanAmount.text.toString()}&loan_id=${binding.edtLoanId.text.toString()}"
+//        val userId= hashMapOf<String,String>()
+//        userId.put("user_id",binding.edtUserId.text.toString())
+//        mainViewModel.launchEmandateStatus(url,userId)
+
+    }
 
     lateinit var binding:ActivityEmandateCrmactivityBinding
     var bankAccounts = arrayListOf<String>()
@@ -95,7 +106,6 @@ class EMandateCRMActivity : BaseActivity() {
             showStringListDialog(bankAccounts)
         }
         binding.edtLoanId.setText(generateNumber(10,"111"))
-        binding.edtUserId.setText(generateNumber(10,"777"))
 
         binding.btnLogin.setOnClickListener {
             if(binding.edtSelectBank.text.toString().isEmpty()){
@@ -105,10 +115,17 @@ class EMandateCRMActivity : BaseActivity() {
                 showSnackbar("Please enter amount")
 
             }else{
-                val url = "https://megmagroup.loan/Api2/enach.php?userid=${binding.edtUserId.text.toString()}&bankid=${extractBankId(binding.edtSelectBank.text.toString())}&loan=${binding.edtLoanAmount.text.toString()}&loan_id=${binding.edtLoanId.text.toString()}"
+                if(binding.edtUserId.text.toString().isEmpty()){
+                    val bottomSheet = CreateLoanUserBottonSheet(this@EMandateCRMActivity,true)
+                    bottomSheet.show(supportFragmentManager,"CREATE-LOAN-USER")
+                }else{
+                                    val url = "https://megmagroup.loan/Api2/enach.php?userid=${binding.edtUserId.text.toString()}&bankid=${extractBankId(binding.edtSelectBank.text.toString())}&loan=${binding.edtLoanAmount.text.toString()}&loan_id=${binding.edtLoanId.text.toString()}"
                 val userId= hashMapOf<String,String>()
                 userId.put("user_id",binding.edtUserId.text.toString())
                 mainViewModel.launchEmandateStatus(url,userId)
+                }
+
+
             }
 
         }

@@ -72,7 +72,7 @@ class LeadsFragment : BaseFragment() ,UserLeadAdapter.onClick{
 
 //            val intentCreateLead = Intent(fragmentContext,CreateLeadActivity::class.java)
 //            startActivity(intentCreateLead)
-            val createLoanUserBottonSheet = CreateLoanUserBottonSheet(requireContext())
+            val createLoanUserBottonSheet = CreateLoanUserBottonSheet(requireContext(),false)
             createLoanUserBottonSheet.show(requireFragmentManager(),"CREATE-LOAN-USER")
 
         }

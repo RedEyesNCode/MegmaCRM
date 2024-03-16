@@ -25,5 +25,7 @@ data class BodyCreateLead(@SerializedName("firstname"      ) var firstname      
                           @SerializedName("aadhar"        ) var aadhar        : String? = null,
                           @SerializedName("aadhar_back"    ) var aadharBack     : String? = null,
                           @SerializedName("aadhar_front"   ) var aadharFront    : String? = null,
+                          @SerializedName("processingFees"   ) var processingFees    : String? = null,
+                          @SerializedName("feesAmount"   ) var feesAmount    : String? = null,
                           @SerializedName("selfie"         ) var selfie         : String? = null,
                           @SerializedName("userId"         ) var userId         : String? = null)

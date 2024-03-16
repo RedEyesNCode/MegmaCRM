@@ -205,6 +205,7 @@ class LeadDocumentActivity : BaseActivity() {
 //                        bodyCreateLead.aadhar = binding.edtAadharNumber.text.toString()
                         bodyCreateLead.customerLoanAmount = binding.edtCustomerLoanAmount.text.toString()
                         bodyCreateLead.empApproveAmount = binding.edtEmpApproveAmount.text.toString()
+                        bodyCreateLead.processingFees = binding.edtProcessingFees.text.toString()
                         mainViewModel.createUserLead(bodyCreateLead)
                     }
 
@@ -222,6 +223,8 @@ class LeadDocumentActivity : BaseActivity() {
 //                    bodyCreateLead.aadhar = binding.edtAadharNumber.text.toString()
                     bodyCreateLead.customerLoanAmount = binding.edtCustomerLoanAmount.text.toString()
                     bodyCreateLead.empApproveAmount = binding.edtEmpApproveAmount.text.toString()
+                    bodyCreateLead.processingFees = binding.edtProcessingFees.text.toString()
+
                     mainViewModel.createUserLead(bodyCreateLead)
                 }else if(selfieUrl!!.isNotEmpty() && adharFrontUrl!!.isNotEmpty() && aadharBackUrl!!.isNotEmpty() && panCardUrl!!.isNotEmpty() && eSignUrl!!.isNotEmpty()){
 
@@ -236,6 +239,8 @@ class LeadDocumentActivity : BaseActivity() {
 //                    bodyCreateLead.aadhar = binding.edtAadharNumber.text.toString()
                     bodyCreateLead.customerLoanAmount = binding.edtCustomerLoanAmount.text.toString()
                     bodyCreateLead.empApproveAmount = binding.edtEmpApproveAmount.text.toString()
+                    bodyCreateLead.processingFees = binding.edtProcessingFees.text.toString()
+
                     mainViewModel.createUserLead(bodyCreateLead)
                 }
 
@@ -301,6 +306,8 @@ class LeadDocumentActivity : BaseActivity() {
                 showCustomDialog("Info","Please enter customer loan amount")
             }else if(binding.edtEmpApproveAmount.text.toString().isEmpty()){
                 showCustomDialog("Info","Please enter emp approved amount.")
+            }else if(binding.edtProcessingFees.text.toString().isEmpty()){
+                showCustomDialog("Info","Please enter processing fees")
             } else if(panCard==null){
                 showCustomDialog("Info","Please select pan image")
 
