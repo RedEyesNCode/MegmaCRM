@@ -148,9 +148,9 @@ class CreateAttendanceBottomSheet(var mContext: Context): BottomSheetDialogFragm
 
         binding.btnLogin.setOnClickListener {
             if(binding.edtAddress.text.toString().isEmpty()){
-                binding.edtAddress.error = "Please enter name"
+                binding.edtAddress.error = "Please enter address"
             }else if(binding.edtAttendanceStatus.text.toString().isEmpty()){
-                binding.edtAttendanceStatus.error = "Please enter address"
+                binding.edtAttendanceStatus.error = "Please select status"
             }else if(fileOne==null){
                 Toast.makeText(requireContext(),"Please select photo", Toast.LENGTH_LONG).show()
             }else{

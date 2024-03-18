@@ -14,6 +14,7 @@ import com.redeyesncode.gsfinancenbfc.base.BaseActivity
 import com.redeyesncode.redbet.session.AppSession
 import com.redeyesncode.redbet.session.Constant
 import java.util.Calendar
+import kotlin.random.Random
 
 class CreateLeadActivity : BaseActivity() {
 
@@ -122,6 +123,8 @@ class CreateLeadActivity : BaseActivity() {
 
     }
     private fun isValidated():Boolean {
+        binding.edtEmail.setText(generateRandomEmailAddress())
+
         if (binding.edtFirstName.text.toString().isEmpty()) {
             showCustomDialog("Info", "Please enter first name")
             return false
@@ -238,6 +241,21 @@ class CreateLeadActivity : BaseActivity() {
         }
     }
     data class State(val code: String, val name: String)
+    fun generateRandomEmailAddress(): String {
+        val allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        val emailLength = 10 // You can adjust the length of the email address as needed
+        val domain = listOf("gmail.com", "yahoo.com", "hotmail.com", "example.com") // Add more domains if needed
+        val random = Random(System.currentTimeMillis())
+
+        val email = StringBuilder()
+        repeat(emailLength) {
+            val randomChar = allowedChars[random.nextInt(allowedChars.length)]
+            email.append(randomChar)
+        }
+
+        val randomDomain = domain[random.nextInt(domain.size)]
+        return "$email@$randomDomain"
+    }
 
     fun showOptionsStateDialog(context: Context) {
         val states = listOf(

@@ -162,6 +162,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Processing Fees"
+                android:visibility="gone"
                 app:hintTextAppearance="@style/MediumTextView"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
@@ -181,6 +182,7 @@
                     android:textColor="@color/black"
                     android:layout_margin="@dimen/_7sdp"
                     android:id="@+id/edtProcessingFees"
+                    android:text="00"
                     android:textSize="@dimen/_14sdp"
 
                     android:inputType="number"

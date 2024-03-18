@@ -3,6 +3,7 @@ package com.redeyesncode.crmfinancegs.ui.fragment
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -101,9 +102,10 @@ class AttendanceFragment : BaseFragment() {
                 dismissLoadingDialog()
                 binding.ivNoData.visibility = View.GONE
                 binding.layoutCalender.visibility = View.VISIBLE
-                showToast("Attendance Loaded !")
+                showToast("Attendance Loaded ! ${it.data.size}")
                 //setup the attendance calender here.
                 updateCalendar(it)
+
             }
 
 
@@ -116,21 +118,28 @@ class AttendanceFragment : BaseFragment() {
         val dateFormatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.getDefault())
 
         for (attendanceData in apiResponse.data) {
-            try {
-                val createdAtDate = dateFormatter.parse(attendanceData.createdAt)
-                val calendar = Calendar.getInstance()
+            val createdAtDate = dateFormatter.parse(attendanceData.createdAt)
+            val calendar = Calendar.getInstance()
+            if (createdAtDate != null) {
                 calendar.time = createdAtDate
-
-                val year = calendar.get(Calendar.YEAR)
-                val month = calendar.get(Calendar.MONTH)
-                val day = calendar.get(Calendar.DAY_OF_MONTH)
-
-                // Set the status on the calendar based on your logic
-                setCalendarStatus(year, month, day, attendanceData.status!!,createdAtDate.toString())
-            } catch (e: Exception) {
-                e.printStackTrace()
-                showToast(e.message.toString())
             }
+            Log.i("ATTENDANCE",calendar.time.toString())
+            Log.i("ATTENDANCE",createdAtDate.toString())
+
+            val year = calendar.get(Calendar.YEAR)
+            val month = calendar.get(Calendar.MONTH)
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+            Log.i("ATTENDANCE",day.toString())
+            Log.i("ATTENDANCE",day.toString())
+
+            // Set the status on the calendar based on your logic
+            setCalendarStatus(year, month, day, attendanceData.status!!,createdAtDate.toString())
+//            try {
+//
+//            } catch (e: Exception) {
+//                e.printStackTrace()
+//                showToast(e.message.toString())
+//            }
         }
     }
     private fun setCalendarStatus(
@@ -141,8 +150,8 @@ class AttendanceFragment : BaseFragment() {
         createdAtDate: String?
     ) {
         // Validate input parameters
-        require(year >= 0 && month in 1..12 && day in 1..31) { "Invalid date parameters" }
-        require(!status.isBlank()) { "Status cannot be empty" }
+//        require(year >= 0 && month in 1..12 && day in 1..31) { "Invalid date parameters" }
+//        require(!status.isBlank()) { "Status cannot be empty" }
 
         // Parse createdAtDate string into a Date object
         val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSS", Locale.getDefault())
@@ -151,10 +160,16 @@ class AttendanceFragment : BaseFragment() {
         } catch (e: ParseException) {
             null
         }
+        val dateFormatter = SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.getDefault())
+        val createdAtDateFormatted = dateFormatter.parse(createdAtDate)
 
         // Check if the date is today
         val calendar = Calendar.getInstance()
-        date?.let { calendar.time = it }
+        calendar.time = createdAtDateFormatted
+//        if (createdAtDate != null) {
+//            calendar.time = date
+//        }
+//        date?.let { calendar.time = it }
         val isToday = (year == calendar.get(Calendar.YEAR) &&
                 month == calendar.get(Calendar.MONTH) &&
                 day == calendar.get(Calendar.DAY_OF_MONTH))
@@ -164,7 +179,7 @@ class AttendanceFragment : BaseFragment() {
 
         if(isAlreadyPunched){
             binding.fabAttendance.visibility = View.GONE
-            showMessageDialog("You have already punched for today !","Info")
+//            showMessageDialog("You have already punched for today !","Info")
         }
         // Retrieve drawable for the given status
         val drawable: Drawable = getDrawableForStatus(status)

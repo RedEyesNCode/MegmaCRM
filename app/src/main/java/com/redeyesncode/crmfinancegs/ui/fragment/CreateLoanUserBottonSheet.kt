@@ -139,7 +139,7 @@ class CreateLoanUserBottonSheet(var mContext:Context,var isEMandate:Boolean):Bot
                     val loginUrl = "https://megmagroup.loan/newApi/api/registernew"
                     val loginMap = hashMapOf<String,String>()
                     loginMap.put("mobile",binding.edtMobileNumber.text.toString())
-                    loginMap.put("email",binding.edtEmail.text.toString())
+//                    loginMap.put("email",binding.edtEmail.text.toString())
                     mainViewModel.createLoanUser(loginUrl,loginMap)
 
                 }else{
@@ -194,9 +194,6 @@ class CreateLoanUserBottonSheet(var mContext:Context,var isEMandate:Boolean):Bot
             }else if(binding.edtAadharNumber.text.toString().isEmpty()){
                 Toast.makeText(requireContext(),"Please enter aadhar number",Toast.LENGTH_SHORT).show()
 
-            }else if(binding.edtEmail.text.toString().isEmpty()){
-                Toast.makeText(requireContext(),"Please enter email address",Toast.LENGTH_SHORT).show()
-
             }
 
             else{
@@ -215,7 +212,10 @@ class CreateLoanUserBottonSheet(var mContext:Context,var isEMandate:Boolean):Bot
                 map.put("aadhar",binding.edtAadharNumber.text.toString())
                 mainViewModel.checkUniqueLead(map)
 
+/*else if(binding.edtEmail.text.toString().isEmpty()){
+                Toast.makeText(requireContext(),"Please enter email address",Toast.LENGTH_SHORT).show()
 
+            }*/
 
             }
 
