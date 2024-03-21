@@ -24,6 +24,7 @@ open class BaseFragment:Fragment()   {
 
     lateinit var fragmentContext: Context
     private var loadingDialog: AlertDialog? = null
+    private var mDialogCheck: AlertDialog? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,7 +92,38 @@ open class BaseFragment:Fragment()   {
         }
 
     }
+    fun showMessageDialogCheck(message: String, title: String) {
+        val builder = AlertDialog.Builder(fragmentContext)
+        builder.setTitle(title)
+        builder.setMessage(message)
 
+        builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+            dialog.dismiss()
+        }
+
+        // Check if the dialog is not already showing before displaying it
+        if (mDialogCheck == null || !mDialogCheck!!.isShowing) {
+            mDialogCheck = builder.create()
+            mDialogCheck?.show()
+        }
+    }
+    private fun dismissDialogCheck() {
+        mDialogCheck?.let {
+            if (it.isShowing) {
+                it.dismiss()
+            }
+        }
+    }
+    override fun onStop() {
+        super.onStop()
+        dismissDialogCheck()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        dismissDialogCheck()
+
+    }
     fun showBackPressMessageDialog(message: String,title: String){
 
         val builder = AlertDialog.Builder(requireContext())
