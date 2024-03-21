@@ -23,6 +23,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.redeyesncode.crmfinancegs.R
 import com.redeyesncode.crmfinancegs.data.BodyCreateAttendance
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
@@ -52,6 +53,7 @@ class CreateAttendanceBottomSheet(var mContext: Context): BottomSheetDialogFragm
     interface OnDismissListener {
         fun onDismiss()
     }
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -79,6 +81,14 @@ class CreateAttendanceBottomSheet(var mContext: Context): BottomSheetDialogFragm
         dismissListener?.onDismiss()
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setCancelable(false)
+        builder.setView(R.layout.layout_loading_dialog)
+        loadingDialog = builder.create()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -92,18 +102,46 @@ class CreateAttendanceBottomSheet(var mContext: Context): BottomSheetDialogFragm
 
         return binding.root
     }
+    fun showLoadingDialog(){
+        if(!loadingDialog?.isShowing!!){
+            loadingDialog?.show()
+        }
+
+    }
+
+    fun dismissLoadingDialog(){
+        try {
+
+            if(loadingDialog!!.isShowing){
+                loadingDialog?.dismiss()
+            }
+        }catch (e: java.lang.Exception){
+            e.printStackTrace()
+        }
+    }
+
     private fun attachObservers() {
         mainViewModel.responseCreateAttendance.observe(viewLifecycleOwner, Event.EventObserver(
             onLoading = {
+                        showLoadingDialog()
+
 
             },
             onError = {
+                      dismissLoadingDialog()
+                showMessageDialog(it,"INFO" +
+                        "")
 
 
             },
             onSuccess = {
+                dismissLoadingDialog()
                 if(it.code.equals("200")){
                     dismiss()
+                    Toast.makeText(requireContext(),it.message, Toast.LENGTH_SHORT).show()
+
+                }else{
+                    showMessageDialog("INFO",it.message.toString())
                 }
             }
 
@@ -137,6 +175,22 @@ class CreateAttendanceBottomSheet(var mContext: Context): BottomSheetDialogFragm
 
         ))
 
+
+    }
+    fun showMessageDialog(message:String,title:String){
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle(title)
+        builder.setMessage(message)
+
+        builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+            dialog.dismiss()
+        }
+
+        val mDialog = builder.create()
+        if(!mDialog.isShowing){
+            mDialog.show()
+
+        }
 
     }
     private fun initClicks() {
