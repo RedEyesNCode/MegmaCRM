@@ -2,13 +2,16 @@ package com.redeyesncode.crmfinancegs.network
 
 import com.redeyesncode.crmfinancegs.data.BodyAdminLogin
 import com.redeyesncode.crmfinancegs.data.BodyCreateAttendance
+import com.redeyesncode.crmfinancegs.data.BodyCreateCollection
 import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
 import com.redeyesncode.crmfinancegs.data.CommonMessageResponse
 import com.redeyesncode.crmfinancegs.data.FilterLeadsResponse
 import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
+import com.redeyesncode.crmfinancegs.data.ResponseCreateCollection
 import com.redeyesncode.crmfinancegs.data.ResponseUserAttendance
+import com.redeyesncode.crmfinancegs.data.ResponseUserCollection
 import com.redeyesncode.crmfinancegs.data.ResponseVersionUpdate
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
@@ -31,6 +34,13 @@ interface ApiInterface {
 
     @POST("megma-crm/login-user")
     suspend fun loginUser(@Body loginUserMap:HashMap<String,String>) :Response<LoginUserResponse>
+
+
+    @POST("megma-crm/create-user-collection")
+    suspend fun createUserCollection(@Body bodyCreateCollection: BodyCreateCollection):Response<ResponseCreateCollection>
+
+    @POST("megma-crm/get-user-collections")
+    suspend fun getUserCollection(@Body hashMap: HashMap<String, String>):Response<ResponseUserCollection>
 
 
     @POST("megma-crm/get-user-leads")

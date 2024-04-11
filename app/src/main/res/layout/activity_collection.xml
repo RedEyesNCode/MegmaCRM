@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.CollectionActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:background="@color/blue"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:src="@drawable/baseline_arrow_forward_24"
+            android:rotation="180"
+            android:id="@+id/ivBack"
+            app:tint="@color/white"
+            android:layout_height="@dimen/_25sdp"/>
+
+
+    </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:text="Create Collection Request"
+                android:textAllCaps="false"
+                android:fontFamily="@font/sora_bold"
+                style="@style/bigHeadingTextView"
+
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/grey_light"
+                android:text="Provide a few basic details"
+                android:textAllCaps="false"
+                android:fontFamily="@font/sora_bold"
+                style="@style/normalBodyTextView"
+
+
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Full Name"
+                app:hintTextAppearance="@style/MediumTextView"
+
+                android:layout_marginTop="@dimen/_10sdp"
+
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:boxBackgroundMode="filled"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColorHint="@android:color/darker_gray"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:id="@+id/edtFullName"
+
+
+                    android:textSize="@dimen/_14sdp"
+
+                    android:inputType="textPersonName"
+                    android:imeOptions="actionDone"
+
+
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Gs Loan Number"
+                app:hintTextAppearance="@style/MediumTextView"
+
+                android:layout_marginTop="@dimen/_10sdp"
+
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:boxBackgroundMode="filled"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColorHint="@android:color/darker_gray"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:id="@+id/edtGsLoanNumber"
+
+
+                    android:textSize="@dimen/_14sdp"
+
+                    android:inputType="textPersonName"
+                    android:imeOptions="actionDone"
+
+
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Gs Loan UserID"
+                app:hintTextAppearance="@style/MediumTextView"
+
+                android:layout_marginTop="@dimen/_10sdp"
+
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:boxBackgroundMode="filled"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColorHint="@android:color/darker_gray"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:id="@+id/edtGsUserId"
+
+
+                    android:textSize="@dimen/_14sdp"
+
+                    android:inputType="textPersonName"
+                    android:imeOptions="actionDone"
+
+
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Gs Loan Password"
+                app:hintTextAppearance="@style/MediumTextView"
+
+                android:layout_marginTop="@dimen/_10sdp"
+
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:boxBackgroundMode="filled"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColorHint="@android:color/darker_gray"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:id="@+id/edtGsPassword"
+
+
+                    android:textSize="@dimen/_14sdp"
+
+                    android:inputType="textPersonName"
+                    android:imeOptions="actionDone"
+
+
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Collection Amount"
+                app:hintTextAppearance="@style/MediumTextView"
+
+                android:layout_marginTop="@dimen/_10sdp"
+
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:boxBackgroundMode="filled"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColorHint="@android:color/darker_gray"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sora_medium"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:id="@+id/edtCollectionAmount"
+
+
+                    android:textSize="@dimen/_14sdp"
+
+                    android:inputType="textPersonName"
+                    android:imeOptions="actionDone"
+
+
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -11,6 +11,9 @@
           android:id="@+id/navInsurance"
           android:title="Insurance" />-->
     <item
+        android:id="@+id/createCollection"
+        android:title="Create Money Collection" />
+    <item
         android:id="@+id/updateMPass"
         android:title="Update your MPass" />
     <item

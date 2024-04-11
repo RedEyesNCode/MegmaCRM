@@ -5,13 +5,16 @@ package com.redeyesncode.moneyview.repository
 import com.redeyesncode.androidtechnical.base.Resource
 import com.redeyesncode.crmfinancegs.data.BodyAdminLogin
 import com.redeyesncode.crmfinancegs.data.BodyCreateAttendance
+import com.redeyesncode.crmfinancegs.data.BodyCreateCollection
 import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
 import com.redeyesncode.crmfinancegs.data.CommonMessageResponse
 import com.redeyesncode.crmfinancegs.data.FilterLeadsResponse
 import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
+import com.redeyesncode.crmfinancegs.data.ResponseCreateCollection
 import com.redeyesncode.crmfinancegs.data.ResponseUserAttendance
+import com.redeyesncode.crmfinancegs.data.ResponseUserCollection
 import com.redeyesncode.crmfinancegs.data.ResponseVersionUpdate
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
@@ -26,6 +29,8 @@ interface DashboardRepo {
     suspend fun launchENach( urlAddBank:String) :Resource<ResponseBody>
     suspend fun launchENachStatus( urlAddBank:String, userIdMap: HashMap<String, String>) :Resource<ResponseBody>
 
+    suspend fun createUserCollection( bodyCreateCollection: BodyCreateCollection):Resource<ResponseCreateCollection>
+    suspend fun getUserCollection( hashMap: HashMap<String, String>):Resource<ResponseUserCollection>
     suspend fun addEmpAttendance( map: BodyCreateAttendance):Resource<CommonMessageResponse>
     suspend fun viewUserAttendance( map:HashMap<String,String>):Resource<ResponseUserAttendance>
     suspend fun logEmp( map: BodyAdminLogin):Resource<CommonMessageResponse>

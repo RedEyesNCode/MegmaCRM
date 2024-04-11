@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.redeyesncode.androidtechnical.base.Resource
 import com.redeyesncode.crmfinancegs.data.BodyAdminLogin
 import com.redeyesncode.crmfinancegs.data.BodyCreateAttendance
+import com.redeyesncode.crmfinancegs.data.BodyCreateCollection
 import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
 import com.redeyesncode.crmfinancegs.data.CommonMessageResponse
@@ -14,7 +15,9 @@ import com.redeyesncode.crmfinancegs.data.FilterLeadsResponse
 import com.redeyesncode.crmfinancegs.data.KycDetails
 import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
+import com.redeyesncode.crmfinancegs.data.ResponseCreateCollection
 import com.redeyesncode.crmfinancegs.data.ResponseUserAttendance
+import com.redeyesncode.crmfinancegs.data.ResponseUserCollection
 import com.redeyesncode.crmfinancegs.data.ResponseVersionUpdate
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
@@ -96,6 +99,29 @@ class MainViewModel(private val dashboardRepo: DefaultDashboardRepo): ViewModel(
 
     private val _eMandateStatusResponse = MutableLiveData<Event<Resource<ResponseBody>>>()
     val eMandateStatusResponse : LiveData<Event<Resource<ResponseBody>>> = _eMandateStatusResponse
+
+    private val _createCollectionResponse = MutableLiveData<Event<Resource<ResponseCreateCollection>>>()
+    val createCollectionResponse : LiveData<Event<Resource<ResponseCreateCollection>>> = _createCollectionResponse
+
+    private val _getUserCollectionResponse = MutableLiveData<Event<Resource<ResponseUserCollection>>>()
+    val getUserCollectionResponse : LiveData<Event<Resource<ResponseUserCollection>>> = _getUserCollectionResponse
+
+
+    fun getUserCollection(map: HashMap<String, String>){
+        _getUserCollectionResponse.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main){
+            val result = dashboardRepo.getUserCollection(map)
+            _getUserCollectionResponse.postValue(Event(result))
+        }
+    }
+    fun createCollection(map:BodyCreateCollection){
+
+        _createCollectionResponse.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main){
+            val result = dashboardRepo.createUserCollection(map)
+            _createCollectionResponse.postValue(Event(result))
+        }
+    }
     fun launchEmandateStatus(url:String,userIdMap:HashMap<String,String>){
 
         _eMandateStatusResponse.postValue(Event(Resource.Loading()))

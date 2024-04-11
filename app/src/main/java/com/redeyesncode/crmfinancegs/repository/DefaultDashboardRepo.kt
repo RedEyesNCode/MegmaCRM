@@ -5,13 +5,16 @@ import com.redeyesncode.androidtechnical.base.Resource
 import com.redeyesncode.androidtechnical.base.safeCall
 import com.redeyesncode.crmfinancegs.data.BodyAdminLogin
 import com.redeyesncode.crmfinancegs.data.BodyCreateAttendance
+import com.redeyesncode.crmfinancegs.data.BodyCreateCollection
 import com.redeyesncode.crmfinancegs.data.BodyCreateLead
 import com.redeyesncode.crmfinancegs.data.BodyCreateVisit
 import com.redeyesncode.crmfinancegs.data.CommonMessageResponse
 import com.redeyesncode.crmfinancegs.data.FilterLeadsResponse
 import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
+import com.redeyesncode.crmfinancegs.data.ResponseCreateCollection
 import com.redeyesncode.crmfinancegs.data.ResponseUserAttendance
+import com.redeyesncode.crmfinancegs.data.ResponseUserCollection
 import com.redeyesncode.crmfinancegs.data.ResponseVersionUpdate
 import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.data.UserVisitResponse
@@ -24,6 +27,28 @@ import org.json.JSONObject
 import retrofit2.Response
 
 class DefaultDashboardRepo : DashboardRepo {
+
+    override suspend fun getUserCollection(hashMap: HashMap<String, String>): Resource<ResponseUserCollection> {
+        return safeCall {
+            safeCall {
+                val response =
+                    RetrofitInstance().provideApiService(RetrofitInstance().provideRetrofit()).getUserCollection(hashMap)
+                Resource.Success(response.body()!!)
+            }
+        }
+
+    }
+
+    override suspend fun createUserCollection(bodyCreateCollection: BodyCreateCollection): Resource<ResponseCreateCollection> {
+        return safeCall {
+            safeCall {
+                val response =
+                    RetrofitInstance().provideApiService(RetrofitInstance().provideRetrofit()).createUserCollection(bodyCreateCollection)
+                Resource.Success(response.body()!!)
+            }
+        }
+
+    }
 
     override suspend fun launchENach(
         urlAddBank: String,
