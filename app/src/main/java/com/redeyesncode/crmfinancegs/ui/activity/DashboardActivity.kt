@@ -157,7 +157,13 @@ class DashboardActivity : BaseActivity(),NavigationView.OnNavigationItemSelected
             val intentApplyLoan = Intent(this@DashboardActivity, EMandateCRMActivity::class.java)
             startActivity(intentApplyLoan)
             return true
-        } else{
+        }else if(item.itemId==R.id.createCollection){
+            val intentApplyLoan = Intent(this@DashboardActivity, CollectionActivity::class.java)
+            startActivity(intentApplyLoan)
+            return true
+        }
+
+        else{
             return false
         }
     }

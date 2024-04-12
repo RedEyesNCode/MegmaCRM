@@ -10,6 +10,7 @@ import com.redeyesncode.crmfinancegs.data.FilterLeadsResponse
 import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.data.ResponseCreateCollection
+import com.redeyesncode.crmfinancegs.data.ResponseLoanDetails
 import com.redeyesncode.crmfinancegs.data.ResponseUserAttendance
 import com.redeyesncode.crmfinancegs.data.ResponseUserCollection
 import com.redeyesncode.crmfinancegs.data.ResponseVersionUpdate
@@ -42,6 +43,8 @@ interface ApiInterface {
     @POST("megma-crm/get-user-collections")
     suspend fun getUserCollection(@Body hashMap: HashMap<String, String>):Response<ResponseUserCollection>
 
+    @GET
+    suspend fun getLoanDetails(@Url url:String):Response<ResponseLoanDetails>
 
     @POST("megma-crm/get-user-leads")
     suspend fun getUserLeads(@Body loginUserMap:HashMap<String,String>) :Response<UserLeadResponse>

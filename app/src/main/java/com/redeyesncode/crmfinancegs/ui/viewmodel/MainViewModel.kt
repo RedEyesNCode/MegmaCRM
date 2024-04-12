@@ -16,6 +16,7 @@ import com.redeyesncode.crmfinancegs.data.KycDetails
 import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.data.ResponseCreateCollection
+import com.redeyesncode.crmfinancegs.data.ResponseLoanDetails
 import com.redeyesncode.crmfinancegs.data.ResponseUserAttendance
 import com.redeyesncode.crmfinancegs.data.ResponseUserCollection
 import com.redeyesncode.crmfinancegs.data.ResponseVersionUpdate
@@ -106,6 +107,18 @@ class MainViewModel(private val dashboardRepo: DefaultDashboardRepo): ViewModel(
     private val _getUserCollectionResponse = MutableLiveData<Event<Resource<ResponseUserCollection>>>()
     val getUserCollectionResponse : LiveData<Event<Resource<ResponseUserCollection>>> = _getUserCollectionResponse
 
+
+    private val _responseLoanDetails = MutableLiveData<Event<Resource<ResponseLoanDetails>>>()
+    val responseLoanDetails : LiveData<Event<Resource<ResponseLoanDetails>>> = _responseLoanDetails
+
+
+    fun getLoanDetails(url:String){
+        _responseLoanDetails.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main){
+            val result = dashboardRepo.getLoanDetails(url)
+            _responseLoanDetails.postValue(Event(result))
+        }
+    }
 
     fun getUserCollection(map: HashMap<String, String>){
         _getUserCollectionResponse.postValue(Event(Resource.Loading()))

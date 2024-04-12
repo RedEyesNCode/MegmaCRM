@@ -4,6 +4,7 @@ package com.redeyesncode.moneyview.dagger
 
 import com.redeyesncode.crmfinancegs.dagger.ViewModelModule
 import com.redeyesncode.crmfinancegs.network.RetrofitInstance
+import com.redeyesncode.crmfinancegs.ui.activity.CollectionActivity
 import com.redeyesncode.crmfinancegs.ui.activity.DashboardActivity
 import com.redeyesncode.crmfinancegs.ui.activity.EMandateCRMActivity
 import com.redeyesncode.crmfinancegs.ui.activity.LeadDocumentActivity
@@ -26,6 +27,9 @@ interface DaggerComp {
 
 
     fun injectLoginActivity(loginActivity: LoginActivity)
+
+    fun injectCollectionActivity(collectionActivity: CollectionActivity)
+
     fun injectLeadDocumentActivity(loginActivity: LeadDocumentActivity)
 
 

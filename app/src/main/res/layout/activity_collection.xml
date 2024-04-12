@@ -34,7 +34,193 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:textColor="@color/black"
+                android:text="Check Loan Details"
+                android:textAllCaps="false"
+                android:fontFamily="@font/sora_bold"
+                style="@style/MediumTextView"
+
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="ENTER LOAN ID"
+                    app:hintTextAppearance="@style/MediumTextView"
+
+                    android:layout_marginTop="@dimen/_10sdp"
+
+                    app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                    app:boxBackgroundMode="filled"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:padding="@dimen/_4sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColorHint="@android:color/darker_gray"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:fontFamily="@font/sora_medium"
+                        android:textColor="@color/black"
+                        android:layout_margin="@dimen/_7sdp"
+                        android:id="@+id/edtLoanID"
+
+
+                        android:textSize="@dimen/_14sdp"
+
+                        android:inputType="number"
+                        android:imeOptions="actionDone"
+
+
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/blue_disbursed"
+                    android:textColor="@color/white"
+                    android:id="@+id/btnFetchLoanDetails"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:text="FETCH LOAN DETAILS"
+                    android:layout_height="wrap_content"/>
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/tableLayout"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content">
+                    <TableRow>
+                        <TextView
+                            android:text="Status"
+                            style="@style/MediumTextView"
+                            android:background="@drawable/excel_cell_background"
+                            android:fontFamily="@font/sora_medium"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15ssp"
+                            android:padding="5dp"/>
+                        <TextView
+                            style="@style/MediumTextView"
+                            android:fontFamily="@font/sora_medium"
+                            android:textColor="@color/black"
+                            android:background="@drawable/excel_cell_background"
+                            android:text=""
+                            android:textSize="@dimen/_15ssp"
+                            android:id="@+id/tvStatus"
+                            android:padding="5dp"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:text="Name"
+                            style="@style/MediumTextView"
+                            android:background="@drawable/excel_cell_background"
+                            android:fontFamily="@font/sora_medium"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15ssp"
+                            android:padding="5dp"/>
+                        <TextView
+                            style="@style/MediumTextView"
+                            android:fontFamily="@font/sora_medium"
+                            android:textColor="@color/black"
+                            android:background="@drawable/excel_cell_background"
+                            android:text=""
+                            android:textSize="@dimen/_15ssp"
+                            android:id="@+id/tvName"
+                            android:padding="5dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="Mobile"
+                            style="@style/MediumTextView"
+                            android:background="@drawable/excel_cell_background"
+                            android:fontFamily="@font/sora_medium"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15ssp"
+                            android:padding="5dp"/>
+                        <TextView
+                            style="@style/MediumTextView"
+                            android:fontFamily="@font/sora_medium"
+                            android:textColor="@color/black"
+                            android:background="@drawable/excel_cell_background"
+                            android:text=""
+                            android:textSize="@dimen/_15ssp"
+                            android:id="@+id/tvMobile"
+                            android:padding="5dp"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:text="Amount"
+                            style="@style/MediumTextView"
+                            android:background="@drawable/excel_cell_background"
+                            android:fontFamily="@font/sora_medium"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15ssp"
+                            android:padding="5dp"/>
+                        <TextView
+                            style="@style/MediumTextView"
+                            android:fontFamily="@font/sora_medium"
+                            android:textColor="@color/black"
+                            android:background="@drawable/excel_cell_background"
+                            android:text=""
+                            android:textSize="@dimen/_15ssp"
+                            android:id="@+id/tvAmount"
+                            android:padding="5dp"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:text="Penalty"
+                            style="@style/MediumTextView"
+                            android:background="@drawable/excel_cell_background"
+                            android:fontFamily="@font/sora_medium"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15ssp"
+                            android:padding="5dp"/>
+                        <TextView
+                            style="@style/MediumTextView"
+                            android:fontFamily="@font/sora_medium"
+                            android:textColor="@color/black"
+                            android:background="@drawable/excel_cell_background"
+                            android:text=""
+                            android:textSize="@dimen/_15ssp"
+                            android:id="@+id/tvPenalty"
+                            android:padding="5dp"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:text="EMI-ID"
+                            style="@style/MediumTextView"
+                            android:background="@drawable/excel_cell_background"
+                            android:fontFamily="@font/sora_medium"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15ssp"
+                            android:padding="5dp"/>
+                        <TextView
+                            style="@style/MediumTextView"
+                            android:fontFamily="@font/sora_medium"
+                            android:textColor="@color/black"
+                            android:background="@drawable/excel_cell_background"
+                            android:text=""
+                            android:textSize="@dimen/_15ssp"
+                            android:id="@+id/tvEmiId"
+                            android:padding="5dp"/>
+                    </TableRow>
+
+
+                </TableLayout>
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
                 android:text="Create Collection Request"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:textAllCaps="false"
                 android:fontFamily="@font/sora_bold"
                 style="@style/bigHeadingTextView"
@@ -87,6 +273,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Gs Loan Number"
+                android:visibility="gone"
                 app:hintTextAppearance="@style/MediumTextView"
 
                 android:layout_marginTop="@dimen/_10sdp"
@@ -120,6 +307,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Gs Loan UserID"
+                android:visibility="gone"
+
                 app:hintTextAppearance="@style/MediumTextView"
 
                 android:layout_marginTop="@dimen/_10sdp"
@@ -154,9 +343,9 @@
                 android:layout_height="wrap_content"
                 android:hint="Gs Loan Password"
                 app:hintTextAppearance="@style/MediumTextView"
+                android:visibility="gone"
 
                 android:layout_marginTop="@dimen/_10sdp"
-
                 app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
                 app:boxBackgroundMode="filled"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -216,6 +405,15 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/blue_disbursed"
+                android:textColor="@color/white"
+                android:id="@+id/btnCreateCollection"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:text="Submit"
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
     </ScrollView>

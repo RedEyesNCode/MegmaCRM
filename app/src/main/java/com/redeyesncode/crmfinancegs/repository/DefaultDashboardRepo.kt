@@ -13,6 +13,7 @@ import com.redeyesncode.crmfinancegs.data.FilterLeadsResponse
 import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.data.ResponseCreateCollection
+import com.redeyesncode.crmfinancegs.data.ResponseLoanDetails
 import com.redeyesncode.crmfinancegs.data.ResponseUserAttendance
 import com.redeyesncode.crmfinancegs.data.ResponseUserCollection
 import com.redeyesncode.crmfinancegs.data.ResponseVersionUpdate
@@ -27,6 +28,17 @@ import org.json.JSONObject
 import retrofit2.Response
 
 class DefaultDashboardRepo : DashboardRepo {
+
+    override suspend fun getLoanDetails(url: String): Resource<ResponseLoanDetails> {
+        return safeCall {
+            safeCall {
+                val response =
+                    RetrofitInstance().provideApiService(RetrofitInstance().provideRetrofit()).getLoanDetails(url)
+                Resource.Success(response.body()!!)
+            }
+        }
+
+    }
 
     override suspend fun getUserCollection(hashMap: HashMap<String, String>): Resource<ResponseUserCollection> {
         return safeCall {
