@@ -16,4 +16,8 @@
         android:id="@+id/visitFragment"
         android:icon="@drawable/ic_person_walking_luggage_solid"
         android:title="Visits" />
+    <item
+        android:id="@+id/collectionFragment"
+        android:icon="@drawable/ic_baseline_currency_rupee_24"
+        android:title="Collections" />
 </menu>

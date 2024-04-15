@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.CollectionFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:src="@drawable/ic_nodata"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:id="@+id/ivNoData"
+        android:layout_height="@dimen/_205sdp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/recvVisit"
+        tools:listitem="@layout/item_user_lead"
+        android:layout_alignParentTop="true"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        tools:itemCount="1"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/fabAddCollection"
+        android:layout_margin="@dimen/_10sdp"
+        android:src="@drawable/baseline_add_24"
+
+        app:icon="@drawable/baseline_add_24"
+        android:fontFamily="@font/sora_medium"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

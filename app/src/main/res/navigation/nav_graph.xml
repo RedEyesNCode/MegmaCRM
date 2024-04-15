@@ -25,4 +25,9 @@
         android:name="com.redeyesncode.crmfinancegs.ui.fragment.AttendanceFragment"
         android:label="fragment_attendance"
         tools:layout="@layout/fragment_visit" />
+    <fragment
+        android:id="@+id/collectionFragment"
+        android:name="com.redeyesncode.crmfinancegs.ui.fragment.CollectionFragment"
+        android:label="fragment_collection"
+        tools:layout="@layout/fragment_collection" />
 </navigation>
