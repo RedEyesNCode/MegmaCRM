@@ -38,37 +38,16 @@ class LeadEmiBottomSheet(var mContext: Context, var data: UserLeadResponse.Data)
         }
         (requireActivity().application as AndroidApp).getDaggerComponent().injectLeadEmiSheet(this@LeadEmiBottomSheet)
         attachObservers()
-        binding.tvLeadInterest.text = "Lead Interest Rate : ${data.lead_interest_rate.toString()}%"
+
+        binding.tvLeadAmount.setText(data.leadAmount.toString())
+        binding.tvProcessingFees.setText("Processing Fees : ${data.feesAmount.toString()}")
+        binding.edtInterestRate.setText("${data.lead_interest_rate.toString()}%")
         binding.btnCalculateEMI.setOnClickListener {
             val map = hashMapOf<String,String>()
             map.put("leadId",data.leadId.toString())
-            map.put("month",binding.edtEmiMonth.text.toString())
+            map.put("month",binding.edtPeriod.text.toString())
             mainViewModel.getLeadEmi(map)
-
-
         }
-        binding.edtEmiMonth.setOnClickListener {
-            var emiMonths = arrayListOf<String>()
-            emiMonths.add("Jan")
-            emiMonths.add("Feb")
-            emiMonths.add("Mar")
-            emiMonths.add("Apr")
-            emiMonths.add("May")
-            emiMonths.add("June")
-            emiMonths.add("July")
-            emiMonths.add("Aug")
-            emiMonths.add("Sept")
-            emiMonths.add("Oct")
-            emiMonths.add("Nov")
-            emiMonths.add("Dec")
-            showOptionsDialog(requireContext(),emiMonths,binding.edtEmiMonth)
-
-        }
-
-
-
-
-
 
         return binding.root
 
@@ -86,7 +65,10 @@ class LeadEmiBottomSheet(var mContext: Context, var data: UserLeadResponse.Data)
             },
             onSuccess = {
                 hideLoadingDialog()
-                binding.tvEmiAmount.text = "EMI AMOUNT RS ${it.data.toString()}"
+                binding.tvEmiAmount.text = "EMI AMOUNT RS ${it.data?.emiAmount.toString()}"
+                binding.edtEmiPerMonth.setText( "${it.data?.emiAmount.toString()}")
+                binding.tvTotalInterest.setText("Total Interest ${it.data?.totalInterest.toString()}")
+                binding.tvTotalAmountPayable.setText("Total Amount ${it.data?.totalPayAmount.toString()}")
             }
 
 

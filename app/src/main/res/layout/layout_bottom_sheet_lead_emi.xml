@@ -41,7 +41,19 @@
                 android:fontFamily="@font/sora_regular"
                 android:text="Calculate EMI for the current Month"
                 android:textColor="@color/black" />
-
+            <TextView
+                style="@style/SmallTextView"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:id="@+id/tvProcessingFees"
+                android:layout_centerVertical="true"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/sora_regular"
+                android:text="Calculate EMI for the current Month"
+                android:textColor="@color/red" />
 
         </LinearLayout>
 
@@ -66,75 +78,201 @@
         android:layout_margin="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:fontFamily="@font/poppins_semibold"
-            android:textSize="@dimen/_15ssp"
-            android:layout_gravity="center"
-            android:textColor="@color/black"
-            android:id="@+id/tvLeadInterest"
-            android:text="LEAD INTEREST RATE"
-            android:padding="@dimen/_10sdp"
-            android:background="@drawable/background_elevated_edittext"
-            android:layout_height="wrap_content"/>
 
 
-        <com.google.android.material.textfield.TextInputLayout
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="EMI Month"
-            app:hintTextAppearance="@style/MediumTextView"
-
-            android:layout_marginTop="@dimen/_10sdp"
-
-            app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
-            app:boxBackgroundMode="filled"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:padding="@dimen/_4sdp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textColorHint="@android:color/darker_gray"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:fontFamily="@font/sora_medium"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="wrap_content"
                 android:textColor="@color/black"
-                android:layout_margin="@dimen/_7sdp"
-                android:clickable="true"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Amount"
+                android:layout_margin="@dimen/_2sdp"
+                android:checked="true"
+
+                android:textSize="@dimen/_14ssp"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:id="@+id/tvLeadAmount"
+                android:clickable="false"
+                android:layout_margin="@dimen/_2sdp"
                 android:focusable="false"
-                android:id="@+id/edtEmiMonth"
-                android:textSize="@dimen/_14sdp"
+                android:background="@drawable/background_elevated_edittext"
+                android:paddingVertical="@dimen/_10sdp"
+                android:layout_height="wrap_content"/>
 
-                android:inputType="textNoSuggestions"
-                android:imeOptions="actionDone"
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Interest %"
+                android:checked="true"
+                android:layout_margin="@dimen/_2sdp"
 
+                android:textSize="@dimen/_14ssp"
+                android:layout_height="wrap_content"/>
 
-                android:layout_height="wrap_content" />
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:id="@+id/edtInterestRate"
+                android:clickable="false"
+                android:layout_margin="@dimen/_2sdp"
+                android:focusable="false"
+                android:background="@drawable/background_elevated_edittext"
+                android:paddingVertical="@dimen/_10sdp"
+                android:layout_height="wrap_content"/>
 
-        </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Period"
+                android:checked="true"
+                android:layout_margin="@dimen/_2sdp"
+
+                android:textSize="@dimen/_14ssp"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:id="@+id/edtPeriod"
+                android:layout_margin="@dimen/_2sdp"
+                android:inputType="number"
+                android:maxLength="2"
+
+                android:background="@drawable/background_elevated_edittext"
+                android:paddingVertical="@dimen/_10sdp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"
+                android:text="EMI/MONTH"
+                android:checked="true"
+                android:layout_margin="@dimen/_2sdp"
+
+                android:textSize="@dimen/_14ssp"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:id="@+id/edtEmiPerMonth"
+                android:clickable="false"
+                android:layout_margin="@dimen/_2sdp"
+                android:focusable="false"
+                android:background="@drawable/background_elevated_edittext"
+                android:paddingVertical="@dimen/_10sdp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
 
 
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:id="@+id/btnCalculateEMI"
-            android:background="@color/yellow"
+            android:background="@color/blue_disbursed"
             android:layout_margin="@dimen/_10sdp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             style="@style/MediumTextView"
             android:text="Calculate EMI"
             android:fontFamily="@font/gilroy_extra_bold"
             android:layout_height="wrap_content"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:fontFamily="@font/poppins_semibold"
-            android:textSize="@dimen/_15ssp"
-            android:layout_gravity="center"
-            android:id="@+id/tvEmiAmount"
-            android:textColor="@color/black"
-            android:text="EMI AMOUNT"
-            android:padding="@dimen/_10sdp"
-            android:background="@drawable/background_elevated_edittext"
-            android:layout_height="wrap_content"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="@dimen/_4sdp"
+            app:cardElevation="@dimen/_7sdp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:padding="@dimen/_10sdp"
+                android:background="@drawable/background_gradient_blue_light"
+
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    style="@style/MediumTextView"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_gravity="center"
+                    android:text="Your Emi is"
+
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    style="@style/MediumTextView"
+                    android:id="@+id/tvEmiAmount"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins_extra_bold"
+                    android:layout_gravity="center"
+                    android:text="Your Emi is"
+
+                    android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/tvTotalInterest"
+                        style="@style/BigTextView"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textColor="@color/white"
+                        android:layout_weight="1"
+                        android:text="Total Interest"
+                        android:layout_margin="@dimen/_4sdp"
+
+                        android:fontFamily="@font/sofia_sanscond_regular"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/tvTotalAmountPayable"
+                        style="@style/BigTextView"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textColor="@color/white"
+                        android:layout_weight="1"
+                        android:text="Total Amount Payable"
+                        android:layout_margin="@dimen/_4sdp"
+                        android:fontFamily="@font/sofia_sanscond_regular"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
 
     </LinearLayout>
 
