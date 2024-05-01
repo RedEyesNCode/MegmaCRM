@@ -13,6 +13,7 @@ import com.redeyesncode.crmfinancegs.data.FilterLeadsResponse
 import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.data.ResponseCreateCollection
+import com.redeyesncode.crmfinancegs.data.ResponseLeadEMI
 import com.redeyesncode.crmfinancegs.data.ResponseLoanDetails
 import com.redeyesncode.crmfinancegs.data.ResponseUserAttendance
 import com.redeyesncode.crmfinancegs.data.ResponseUserCollection
@@ -29,6 +30,8 @@ import retrofit2.http.Url
 interface DashboardRepo {
     suspend fun launchENach( urlAddBank:String) :Resource<ResponseBody>
     suspend fun launchENachStatus( urlAddBank:String, userIdMap: HashMap<String, String>) :Resource<ResponseBody>
+
+    suspend fun getLeadEmi( map: HashMap<String, String>):Resource<ResponseLeadEMI>
 
     suspend fun getLoanDetails( url:String):Resource<ResponseLoanDetails>
     suspend fun createUserCollection( bodyCreateCollection: BodyCreateCollection):Resource<ResponseCreateCollection>

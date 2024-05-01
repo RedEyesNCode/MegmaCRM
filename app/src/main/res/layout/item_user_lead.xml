@@ -205,6 +205,24 @@
                     android:visibility="visible"
                     app:cornerRadius="10dp" />
 
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnLeadEmi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:background="@drawable/background_elevated_edittext"
+                    android:layout_below="@id/ivForward"
+                    android:layout_alignParentEnd="true"
+                    android:text="EMI"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    android:visibility="visible"
+                    app:cornerRadius="10dp" />
 
             </RelativeLayout>
 

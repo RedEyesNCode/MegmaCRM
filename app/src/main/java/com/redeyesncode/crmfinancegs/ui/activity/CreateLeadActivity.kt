@@ -46,6 +46,7 @@ class CreateLeadActivity : BaseActivity() {
         }
 
 
+
         binding.edtOccupation.setOnClickListener {
             var education = arrayListOf<String>()
             education.add("Employed")

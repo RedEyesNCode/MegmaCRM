@@ -115,6 +115,10 @@ class UserLeadAdapter(var context: Context,var dataAdapter :ArrayList<UserLeadRe
         binding.ivForward.setOnClickListener {
             onActivityClick.onLeadInfo(data)
         }
+        binding.btnLeadEmi.setOnClickListener {
+            onActivityClick.onLeadEMI(data)
+
+        }
     }
     fun openDialer(phoneNumber: String) {
         val intent = Intent(Intent.ACTION_DIAL)
@@ -124,6 +128,7 @@ class UserLeadAdapter(var context: Context,var dataAdapter :ArrayList<UserLeadRe
     interface onClick{
 
         fun onLeadInfo(data: UserLeadResponse.Data)
+        fun onLeadEMI(data :UserLeadResponse.Data)
 
     }
 

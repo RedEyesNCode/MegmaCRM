@@ -48,6 +48,19 @@ class LeadsFragment : BaseFragment() ,UserLeadAdapter.onClick{
         createVisitBottomSheet.show(requireFragmentManager(),"LEAD-INFO")
     }
 
+    override fun onLeadEMI(data: UserLeadResponse.Data) {
+
+        if(data.lead_interest_rate!=null){
+            val leadEmiSheet = LeadEmiBottomSheet(requireContext(),data)
+            leadEmiSheet.show(requireFragmentManager(),"LEAD-EMI")
+
+        }else{
+            showToast("No interest given by ADMIN !")
+        }
+
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {

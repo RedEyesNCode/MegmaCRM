@@ -17,6 +17,7 @@ import com.redeyesncode.crmfinancegs.ui.fragment.CollectionFragment
 import com.redeyesncode.crmfinancegs.ui.fragment.CreateAttendanceBottomSheet
 import com.redeyesncode.crmfinancegs.ui.fragment.CreateLoanUserBottonSheet
 import com.redeyesncode.crmfinancegs.ui.fragment.CreateVisitBottomSheet
+import com.redeyesncode.crmfinancegs.ui.fragment.LeadEmiBottomSheet
 import com.redeyesncode.crmfinancegs.ui.fragment.LeadsFragment
 import com.redeyesncode.crmfinancegs.ui.fragment.VisitFragment
 import com.redeyesncode.gsfinancenbfc.base.BaseActivity
@@ -52,6 +53,9 @@ interface DaggerComp {
 
 
     fun injectCreateVisitBottomSheet(createVisitBottomSheet: CreateVisitBottomSheet)
+
+
+    fun injectLeadEmiSheet(leadEmiBottomSheet: LeadEmiBottomSheet)
 
 
 

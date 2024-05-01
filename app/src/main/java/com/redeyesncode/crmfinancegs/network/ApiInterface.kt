@@ -10,6 +10,7 @@ import com.redeyesncode.crmfinancegs.data.FilterLeadsResponse
 import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.data.ResponseCreateCollection
+import com.redeyesncode.crmfinancegs.data.ResponseLeadEMI
 import com.redeyesncode.crmfinancegs.data.ResponseLoanDetails
 import com.redeyesncode.crmfinancegs.data.ResponseUserAttendance
 import com.redeyesncode.crmfinancegs.data.ResponseUserCollection
@@ -105,6 +106,9 @@ interface ApiInterface {
     @GET("megma-crm/check-version-update")
     suspend fun checkVersionUpdate():Response<ResponseVersionUpdate>
 
+
+    @POST("megma-crm/get-lead-emi")
+    suspend fun getLeadEmi(@Body map: HashMap<String, String>):Response<ResponseLeadEMI>
 
     @Multipart
     @POST

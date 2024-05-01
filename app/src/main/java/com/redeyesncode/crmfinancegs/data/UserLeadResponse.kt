@@ -28,6 +28,8 @@ data class UserLeadResponse(@SerializedName("status"  ) var status  : String?   
         @SerializedName("pancard"        ) var pancard        : String? = null,
         @SerializedName("pancard_img"        ) var pancard_img        : String? = null,
         @SerializedName("processingFees"   ) var processingFees    : String? = null,
+        @SerializedName("disbursement_date"   ) var disbursement_date    : String? = null,
+        @SerializedName("lead_interest_rate"   ) var lead_interest_rate    : String? = null,
         @SerializedName("feesAmount"   ) var feesAmount    : String? = null,
         @SerializedName("selfie"         ) var selfie         : String? = null,
         @SerializedName("leadAmount"         ) var leadAmount         : String? = null,

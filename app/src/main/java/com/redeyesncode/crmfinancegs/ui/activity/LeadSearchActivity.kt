@@ -16,6 +16,7 @@ import com.redeyesncode.crmfinancegs.data.UserLeadResponse
 import com.redeyesncode.crmfinancegs.databinding.ActivityLeadSearchBinding
 import com.redeyesncode.crmfinancegs.ui.DateRangePickerDialog
 import com.redeyesncode.crmfinancegs.ui.adapter.UserLeadAdapter
+import com.redeyesncode.crmfinancegs.ui.fragment.LeadEmiBottomSheet
 import com.redeyesncode.crmfinancegs.ui.fragment.LeadInfoBottomSheet
 import com.redeyesncode.crmfinancegs.ui.viewmodel.MainViewModel
 import com.redeyesncode.gsfinancenbfc.base.BaseActivity
@@ -30,9 +31,15 @@ import javax.inject.Inject
 
 class LeadSearchActivity : BaseActivity(),UserLeadAdapter.onClick {
 
+    override fun onLeadEMI(data: UserLeadResponse.Data) {
 
-
-
+        if(data.lead_interest_rate!=null){
+            val leadEmiSheet = LeadEmiBottomSheet(this@LeadSearchActivity,data)
+            leadEmiSheet.show(supportFragmentManager,"LEAD-EMI")
+        }else{
+            showToast("No interest given by ADMIN !")
+        }
+    }
 
     lateinit var binding:ActivityLeadSearchBinding
 

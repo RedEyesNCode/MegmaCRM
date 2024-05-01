@@ -16,6 +16,7 @@ import com.redeyesncode.crmfinancegs.data.KycDetails
 import com.redeyesncode.crmfinancegs.data.LoanUserLoginResponse
 import com.redeyesncode.crmfinancegs.data.LoginUserResponse
 import com.redeyesncode.crmfinancegs.data.ResponseCreateCollection
+import com.redeyesncode.crmfinancegs.data.ResponseLeadEMI
 import com.redeyesncode.crmfinancegs.data.ResponseLoanDetails
 import com.redeyesncode.crmfinancegs.data.ResponseUserAttendance
 import com.redeyesncode.crmfinancegs.data.ResponseUserCollection
@@ -110,6 +111,18 @@ class MainViewModel(private val dashboardRepo: DefaultDashboardRepo): ViewModel(
 
     private val _responseLoanDetails = MutableLiveData<Event<Resource<ResponseLoanDetails>>>()
     val responseLoanDetails : LiveData<Event<Resource<ResponseLoanDetails>>> = _responseLoanDetails
+
+    private val _responseLeadEmi = MutableLiveData<Event<Resource<ResponseLeadEMI>>>()
+    val responseLeadEMI : LiveData<Event<Resource<ResponseLeadEMI>>> = _responseLeadEmi
+
+
+    fun getLeadEmi(map: HashMap<String, String>){
+        _responseLeadEmi.postValue(Event(Resource.Loading()))
+        viewModelScope.launch(Dispatchers.Main){
+            val result = dashboardRepo.getLeadEmi(map)
+            _responseLeadEmi.postValue(Event(result))
+        }
+    }
 
 
     fun getLoanDetails(url:String){

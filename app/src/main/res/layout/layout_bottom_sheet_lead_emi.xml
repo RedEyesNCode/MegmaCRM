@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_alignParentStart="true"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/normalBodyTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:fontFamily="@font/sora_bold"
+                android:text="Lead EMI"
+                android:textColor="@color/black" />
+            <TextView
+                style="@style/SmallTextView"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/sora_regular"
+                android:text="Calculate EMI for the current Month"
+                android:textColor="@color/black" />
+
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/ivClose"
+            android:layout_gravity="end"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:src="@drawable/ic_close" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_15ssp"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:id="@+id/tvLeadInterest"
+            android:text="LEAD INTEREST RATE"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/background_elevated_edittext"
+            android:layout_height="wrap_content"/>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="EMI Month"
+            app:hintTextAppearance="@style/MediumTextView"
+
+            android:layout_marginTop="@dimen/_10sdp"
+
+            app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+            app:boxBackgroundMode="filled"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="@dimen/_4sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColorHint="@android:color/darker_gray"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:fontFamily="@font/sora_medium"
+                android:textColor="@color/black"
+                android:layout_margin="@dimen/_7sdp"
+                android:clickable="true"
+                android:focusable="false"
+                android:id="@+id/edtEmiMonth"
+                android:textSize="@dimen/_14sdp"
+
+                android:inputType="textNoSuggestions"
+                android:imeOptions="actionDone"
+
+
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:id="@+id/btnCalculateEMI"
+            android:background="@color/yellow"
+            android:layout_margin="@dimen/_10sdp"
+            android:textColor="@color/black"
+            style="@style/MediumTextView"
+            android:text="Calculate EMI"
+            android:fontFamily="@font/gilroy_extra_bold"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_15ssp"
+            android:layout_gravity="center"
+            android:id="@+id/tvEmiAmount"
+            android:textColor="@color/black"
+            android:text="EMI AMOUNT"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/background_elevated_edittext"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</LinearLayout>

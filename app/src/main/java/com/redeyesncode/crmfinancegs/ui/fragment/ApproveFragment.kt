@@ -34,6 +34,12 @@ class ApproveFragment : BaseFragment(),UserLeadAdapter.onClick {
     private var param2: String? = null
     lateinit var binding:FragmentApproveBinding
 
+    override fun onLeadEMI(data: UserLeadResponse.Data) {
+        val leadEmiSheet = LeadEmiBottomSheet(requireContext(),data)
+        leadEmiSheet.show(requireFragmentManager(),"LEAD-EMI")
+
+    }
+
     override fun onLeadInfo(data: UserLeadResponse.Data) {
 
         val createVisitBottomSheet = LeadInfoBottomSheet(requireContext(),data)
