@@ -65,10 +65,21 @@ class LeadEmiBottomSheet(var mContext: Context, var data: UserLeadResponse.Data)
             },
             onSuccess = {
                 hideLoadingDialog()
-                binding.tvEmiAmount.text = "EMI AMOUNT RS ${it.data?.emiAmount.toString()}"
-                binding.edtEmiPerMonth.setText( "${it.data?.emiAmount.toString()}")
-                binding.tvTotalInterest.setText("Total Interest ${it.data?.totalInterest.toString()}")
-                binding.tvTotalAmountPayable.setText("Total Amount ${it.data?.totalPayAmount.toString()}")
+
+                val emiAmount = it.data?.emiAmount?.toDoubleOrNull() ?: 0.0
+                val formattedEmiAmount = String.format("%.2f", emiAmount)
+
+                val totalInterest = it.data?.totalInterest?.toDoubleOrNull() ?: 0.0
+                val formattedTotalInterest = String.format("%.2f", totalInterest)
+
+                val totalPayAmount = it.data?.totalPayAmount?.toDoubleOrNull() ?: 0.0
+                val formattedTotalPayAmount = String.format("%.2f", totalPayAmount)
+
+                binding.tvEmiAmount.text = "EMI AMOUNT RS $formattedEmiAmount"
+                binding.edtEmiPerMonth.setText(formattedEmiAmount)
+                binding.tvTotalInterest.setText("Total Interest $formattedTotalInterest")
+                binding.tvTotalAmountPayable.setText("Total Amount $formattedTotalPayAmount")
+
             }
 
 
