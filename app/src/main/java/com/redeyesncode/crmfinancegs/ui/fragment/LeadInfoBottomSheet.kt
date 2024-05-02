@@ -88,11 +88,14 @@ class LeadInfoBottomSheet(var mContext: Context,var data:UserLeadResponse.Data):
             tvState.text = data.state.toString()
             tvLeadStatus.text = data.leadStatus.toString()
             tvLeadAmount.text = data.leadAmount.toString()
-            tvCreatedAt.text = convertUtcToIst(data.createdAt.toString())
 //            tvProcessingFees.text = data.processingFees.toString()
             tvFeesAmount.text = data.feesAmount.toString()
 
-            tvDisbursementDate.text = convertUtcToIst(data.disbursement_date.toString())
+            if(data.disbursement_date.toString().isNotEmpty()){
+                tvDisbursementDate.text = convertUtcToIst(data.disbursement_date.toString())
+                tvCreatedAt.text = convertUtcToIst(data.createdAt.toString())
+
+            }
 
 
             btnViewPhotos.setOnClickListener {
