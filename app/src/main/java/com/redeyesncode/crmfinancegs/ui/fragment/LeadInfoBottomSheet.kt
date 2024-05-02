@@ -91,7 +91,7 @@ class LeadInfoBottomSheet(var mContext: Context,var data:UserLeadResponse.Data):
 //            tvProcessingFees.text = data.processingFees.toString()
             tvFeesAmount.text = data.feesAmount.toString()
 
-            if(data.disbursement_date.toString().isNotEmpty()){
+            if(data.disbursement_date!=null && data.disbursement_date.toString().isNotEmpty() ){
                 tvDisbursementDate.text = convertUtcToIst(data.disbursement_date.toString())
                 tvCreatedAt.text = convertUtcToIst(data.createdAt.toString())
 
