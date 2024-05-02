@@ -11,7 +11,8 @@ data class ResponseLeadEMI( @SerializedName("status"  ) var status  : String? = 
 
         @SerializedName("emiAmount"      ) var emiAmount      : String? = null,
         @SerializedName("totalInterest"  ) var totalInterest  : String? = null,
-        @SerializedName("totalPayAmount" ) var totalPayAmount : String? = null
+        @SerializedName("totalPayAmount" ) var totalPayAmount : String? = null,
+        @SerializedName("monthlyInterest" ) var monthlyInterest : String? = null
 
     )
 }

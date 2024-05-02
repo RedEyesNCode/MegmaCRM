@@ -92,7 +92,7 @@ class LeadInfoBottomSheet(var mContext: Context,var data:UserLeadResponse.Data):
 //            tvProcessingFees.text = data.processingFees.toString()
             tvFeesAmount.text = data.feesAmount.toString()
 
-
+            tvDisbursementDate.text = convertUtcToIst(data.disbursement_date.toString())
 
 
             btnViewPhotos.setOnClickListener {
@@ -114,6 +114,7 @@ class LeadInfoBottomSheet(var mContext: Context,var data:UserLeadResponse.Data):
 
         return binding.root
     }
+
     fun convertUtcToIst(utcDateString: String): String {
         val utcFormatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSS", Locale.ENGLISH)
         utcFormatter.timeZone = TimeZone.getTimeZone("UTC")

@@ -75,10 +75,14 @@ class LeadEmiBottomSheet(var mContext: Context, var data: UserLeadResponse.Data)
                 val totalPayAmount = it.data?.totalPayAmount?.toDoubleOrNull() ?: 0.0
                 val formattedTotalPayAmount = String.format("%.2f", totalPayAmount)
 
+                val monthlyInterest = it.data?.monthlyInterest?.toDoubleOrNull() ?: 0.0
+                val formattedMonthlyInterest = String.format("%.2f", monthlyInterest)
+
                 binding.tvEmiAmount.text = "EMI AMOUNT RS $formattedEmiAmount"
                 binding.edtEmiPerMonth.setText(formattedEmiAmount)
                 binding.tvTotalInterest.setText("Total Interest $formattedTotalInterest")
                 binding.tvTotalAmountPayable.setText("Total Amount $formattedTotalPayAmount")
+                binding.edtMonthlyInterest.setText("$formattedMonthlyInterest")
 
             }
 
