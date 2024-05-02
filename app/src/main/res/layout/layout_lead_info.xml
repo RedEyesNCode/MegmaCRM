@@ -400,9 +400,12 @@
                         android:padding="5dp"/>
                 </TableRow>
 
-                <TableRow>
+                <TableRow
+                    android:visibility="gone"
+                    >
                     <TextView
                         android:text="CreatedAt"
+
                         style="@style/MediumTextView"
                         android:background="@drawable/excel_cell_background"
                         android:fontFamily="@font/sora_medium"

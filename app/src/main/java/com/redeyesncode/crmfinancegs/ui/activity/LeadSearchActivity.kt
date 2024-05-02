@@ -287,6 +287,7 @@ class LeadSearchActivity : BaseActivity(),UserLeadAdapter.onClick {
         options.add("APPROVED")
         options.add("PENDING")
         options.add("REJECTED")
+        options.add("DISBURSED")
         val optionsArray = options.toTypedArray()
 
         val builder = AlertDialog.Builder(context)
