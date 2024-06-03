@@ -202,7 +202,7 @@ class DashboardActivity : BaseActivity(),NavigationView.OnNavigationItemSelected
             }
 
         }
-        logEmpBase("DASHBOARD_ACTIVITY")
+//        logEmpBase("DASHBOARD_ACTIVITY")
 
 
 

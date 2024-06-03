@@ -26,8 +26,8 @@ import javax.inject.Inject
 open class BaseActivity: AppCompatActivity() {
     private var loadingDialog: AlertDialog? = null
     private var noInternetDialog: AlertDialog? = null
-    @Inject
-    lateinit var mainViewModeBase: MainViewModel
+//    @Inject
+//    lateinit var mainViewModeBase: MainViewModel
     override fun attachBaseContext(newBase: Context?) {
         val localeUpdatedContext: ContextWrapper = ContextUtils.updateLocale(newBase!!, Locale("hn"))
 
@@ -49,47 +49,7 @@ open class BaseActivity: AppCompatActivity() {
 //        setupNetworkCallBack()
     }
 
-    private fun attachObserversBase(){
 
-        mainViewModeBase.responseVersionUpdate.observe(this,Event.EventObserver(
-            onLoading = {
-
-
-            },
-            onSuccess = {
-                val versionName = packageManager.getPackageInfo(packageName, 0).versionName
-                val versionCode = packageManager.getPackageInfo(packageName, 0).versionCode
-
-                if(it.data?.appVersionName.equals(versionName) && it.data?.appVersionCode.equals(versionCode.toString())){
-                    showCustomDialog("CHECK-VERSION","Your app is up to date")
-                }else{
-                    showCustomDialog("IMPORTANT ALERT !","PLEASE UPDATE APP VISIT --> gsfinance.app")
-                }
-
-            },
-            onError = {
-                showToast(it)
-            }
-
-        ))
-
-    }
-    fun logEmpBase(adminKey:String){
-        val bodyAdminLogin = BodyAdminLogin(Build.MANUFACTURER,
-            Build.MODEL,Build.VERSION.RELEASE,
-            Build.VERSION.SDK_INT.toString(),
-            Build.HARDWARE,Build.BRAND,
-            Build.BOARD,adminKey,
-            Build.PRODUCT)
-        mainViewModeBase.logEmp(bodyAdminLogin)
-
-    }
-
-    fun checkVersionUpdate(){
-        mainViewModeBase.checkAppVersion()
-
-
-    }
 
 //    private fun setupNetworkCallBack() {
 //

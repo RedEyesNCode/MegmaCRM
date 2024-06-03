@@ -34,7 +34,7 @@ class LoginActivity : BaseActivity() {
         initClicks()
         mainViewModel.checkAppVersion()
         checkLoginSession()
-        logEmpBase("LOGIN_ACTIVITY")
+//        logEmpBase("LOGIN_ACTIVITY")
 
         setContentView(binding.root)
         startLoggingService()
